@@ -1,0 +1,127 @@
+# depslib dependency file v1.0
+1586322705 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
+	"CanvasObject.h"
+	"../Managers/GlobalManager.h"
+	"../Utilities.h"
+	<iostream>
+
+1586322695 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
+	"../Utilities.h"
+	"../Vector4.h"
+	"IMouse.h"
+	"IKeyboard.h"
+	"IRender.h"
+
+1586320737 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IMouse.h
+
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IKeyboard.h
+
+1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
+
+1586037278 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+
+1586032311 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
+	<vector>
+	"../Base/CanvasObject.h"
+
+1585963733 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.cpp
+	<vector>
+	<functional>
+	<iostream>
+	"Button.h"
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	"../Canvas/gl_canvas2d.h"
+
+1586032478 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.h
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	<vector>
+	<functional>
+
+1585839590 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+
+1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/glut.h
+	"freeglut_std.h"
+
+1437579942 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h
+	<stdarg.h>
+
+1585839577 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1586014772 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp
+	"Label.h"
+	"string"
+	"../Canvas/gl_canvas2d.h"
+
+1586032311 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.h
+	"../Base/CanvasObject.h"
+	"string"
+
+1585937290 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
+	<vector>
+	"../Base/CanvasObject.h"
+	"GlobalManager.h"
+	<iostream>
+
+1585937178 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
+	"Panel.h"
+	<iostream>
+
+1586032311 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	<vector>
+
+1586039145 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
+	"Slider.h"
+	"../Utilities.h"
+	"../Canvas/gl_canvas2d.h"
+	<cstdlib>
+	<iostream>
+
+1586038370 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h
+	"../Base/CanvasObject.h"
+	"../Utilities.h"
+	<functional>
+	<vector>
+
+1585963671 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+	"Utilities.h"
+
+1586320425 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	<string>
+	<iostream>
+	<cmath>
+	"Canvas/gl_canvas2d.h"
+	"Utilities.h"
+	"Button/Button.h"
+	"Managers/GlobalManager.h"
+	"Vector4.h"
+
+1586322608 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.h
+
+1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
+	"Vector4.h"
+
