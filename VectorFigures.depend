@@ -1,23 +1,24 @@
 # depslib dependency file v1.0
-1586394553 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
+1586440356 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
 	"CanvasObject.h"
 	"../Managers/GlobalManager.h"
 	"../Utilities.h"
 	<iostream>
 
-1586394604 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
+1586440596 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
 	"../Utilities.h"
 	"IMouse.h"
 	"IKeyboard.h"
 	"IRender.h"
 
-1586394673 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IMouse.h
+1586442313 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IMouse.h
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IKeyboard.h
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
 
-1586394234 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+1586440921 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+	<vector>
 
 1586032311 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
 	<vector>
@@ -40,13 +41,14 @@
 	<functional>
 	"../Vector4.h"
 
-1585839590 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
+1586441442 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<string.h>
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
+	"../Utilities.h"
 
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/glut.h
 	"freeglut_std.h"
@@ -65,8 +67,9 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1585839577 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
+1586441396 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
+	"../Utilities.h"
 	<GL/glut.h>
 
 1586391959 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp
@@ -111,10 +114,11 @@
 	<vector>
 	"../Vector4.h"
 
-1586394228 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1586440877 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
+	<vector>
 
-1586394617 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
+1586442224 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -123,9 +127,31 @@
 	"Canvas/gl_canvas2d.h"
 	"Utilities.h"
 	"Managers/GlobalManager.h"
+	"Scene.h"
 
 1586392402 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.h
 
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
+
+1586442206 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+	<vector>
+	"Utilities.h"
+	"Canvas/gl_canvas2d.h"
+	"Figure.h"
+
+1586442152 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+	<vector>
+	"Base/CanvasObject.h"
+	"Utilities.h"
+
+1586442746 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+	<vector>
+	"Figure.h"
+
+1586442526 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+	"Scene.h"
+	"Utilities.h"
+	"Figure.h"
+	<iostream>
 

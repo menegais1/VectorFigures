@@ -3,6 +3,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <vector>
 enum Channel
 {
     Red = 0,
@@ -53,4 +54,8 @@ typedef struct float3
 } Float3;
 
 bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
+
+int isLeft(Float3 P0, Float3 P1, Float3 P2);
+int cn_PnPoly(Float3 P, std::vector<Float3> vertices, int n);
+
 #endif

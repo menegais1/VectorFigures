@@ -10,6 +10,7 @@
 #include "Canvas/gl_canvas2d.h"
 #include "Utilities.h"
 #include "Managers/GlobalManager.h"
+#include "Scene.h"
 
 using namespace std;
 int screenWidth = 600, screenHeight = 600;
@@ -37,6 +38,6 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "BitmapReader");
-
+   Scene* scene = new Scene();
    runCanvas();
 }

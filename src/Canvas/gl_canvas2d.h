@@ -8,7 +8,7 @@
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
-
+#include "../Utilities.h"
 #define PI_2 6.28318530717958
 
 #define Y_CANVAS_CRESCE_PARA_CIMA 1
@@ -22,8 +22,8 @@ void rect( int x1, int y1, int x2, int y2 ); //coordenadas do retangulo x1, y1, 
 void rectFill( int x1, int y1, int x2, int y2 ); //coordenadas do retangulo x1, y1, x2, y2
 
 //desenha um poligono CONVEXO. Para um retangulo, deve-se passar 4 vertices
-void polygon(float vx[], float vy[], int n_elems);
-void polygonFill(float vx[], float vy[], int n_elems);
+void polygon(Float3 vertices[], int elems);
+void polygonFill(Float3 vertices[], int n_elems);
 
 //centro e raio do circulo
 void circle( int x, int y, int raio, int div );

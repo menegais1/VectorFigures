@@ -12,8 +12,8 @@
 *                   http://www.opengl.org/documentation/specs/glut/spec3/node1.html
 **/
 
-
 #include "gl_canvas2d.h"
+#include "../Utilities.h"
 #include <GL/glut.h>
 
 int *scrWidth, *scrHeight; //guarda referencia para as variaveis de altura e largura da main()
@@ -21,125 +21,124 @@ int *scrWidth, *scrHeight; //guarda referencia para as variaveis de altura e lar
 void point(double x, double y)
 {
    glBegin(GL_POINTS);
-      glVertex2d(x, y);
+   glVertex2d(x, y);
    glEnd();
 }
 
-void line( int x1, int y1, int x2, int y2 )
+void line(int x1, int y1, int x2, int y2)
 {
    glBegin(GL_LINES);
-      glVertex2d(x1, y1);
-      glVertex2d(x2, y2);
+   glVertex2d(x1, y1);
+   glVertex2d(x2, y2);
    glEnd();
 }
 
-void rect( int x1, int y1, int x2, int y2 )
+void rect(int x1, int y1, int x2, int y2)
 {
    glBegin(GL_LINE_LOOP);
-      glVertex2d(x1, y1);
-      glVertex2d(x1, y2);
-      glVertex2d(x2, y2);
-      glVertex2d(x2, y1);
+   glVertex2d(x1, y1);
+   glVertex2d(x1, y2);
+   glVertex2d(x2, y2);
+   glVertex2d(x2, y1);
    glEnd();
 }
 
-void rectFill( int x1, int y1, int x2, int y2 )
+void rectFill(int x1, int y1, int x2, int y2)
 {
    glBegin(GL_QUADS);
-      glVertex2d(x1, y1);
-      glVertex2d(x1, y2);
-      glVertex2d(x2, y2);
-      glVertex2d(x2, y1);
+   glVertex2d(x1, y1);
+   glVertex2d(x1, y2);
+   glVertex2d(x2, y2);
+   glVertex2d(x2, y1);
    glEnd();
 }
 
-void polygon(float vx[], float vy[], int elems)
+void polygon(Float3 vertices[], int elems)
 {
    int cont;
    glBegin(GL_LINE_LOOP);
-      for(cont=0; cont<elems; cont++)
-      {
-         glVertex2d(vx[cont], vy[cont]);
-      }
+   for (cont = 0; cont < elems; cont++)
+   {
+      glVertex2d(vertices[cont].x, vertices[cont].y);
+   }
    glEnd();
 }
 
-void polygonFill(float vx[], float vy[], int elems)
+void polygonFill(Float3 vertices[], int elems)
 {
    int cont;
    glBegin(GL_POLYGON);
-      for(cont=0; cont<elems; cont++)
-      {
-         glVertex2d(vx[cont], vy[cont]);
-      }
+   for (cont = 0; cont < elems; cont++)
+   {
+      glVertex2d(vertices[cont].x, vertices[cont].y);
+   }
    glEnd();
-
 }
 
 void text(int x, int y, const char *t)
 {
-    int tam = (int)strlen(t);
-    for(int c=0; c < tam; c++)
-    {
-      glRasterPos2i(x + c*10, y);
+   int tam = (int)strlen(t);
+   for (int c = 0; c < tam; c++)
+   {
+      glRasterPos2i(x + c * 10, y);
       glutBitmapCharacter(GLUT_BITMAP_8_BY_13, t[c]);
-    }
+   }
 }
 
 void clear(float r, float g, float b)
 {
-   glClearColor( r, g, b, 1 );
+   glClearColor(r, g, b, 1);
 }
 
-void circle( int x, int y, int raio, int div )
+void circle(int x, int y, int raio, int div)
 {
    float ang, x1, y1;
-   float inc = PI_2/div;
+   float inc = PI_2 / div;
    glBegin(GL_LINE_LOOP);
-      for(ang=0; ang<6.27; ang+=inc) //nao vai ateh PI_2 pois o ultimo ponto eh fechado automaticamente com o primeiro, pois tem o tipo LINE_LOOP
-      {
-         x1 = (cos(ang)*raio);
-         y1 = (sin(ang)*raio);
-         glVertex2d(x1+x, y1+y);
-      }
+   for (ang = 0; ang < 6.27; ang += inc) //nao vai ateh PI_2 pois o ultimo ponto eh fechado automaticamente com o primeiro, pois tem o tipo LINE_LOOP
+   {
+      x1 = (cos(ang) * raio);
+      y1 = (sin(ang) * raio);
+      glVertex2d(x1 + x, y1 + y);
+   }
    glEnd();
 }
 
-void circleFill( int x, int y, int raio, int div )
+void circleFill(int x, int y, int raio, int div)
 {
    float ang, x1, y1;
-   float inc = PI_2/div;
+   float inc = PI_2 / div;
    glBegin(GL_POLYGON);
-      for(ang=0; ang<6.27; ang+=inc)
-      {
-         x1 = (cos(ang)*raio);
-         y1 = (sin(ang)*raio);
-         glVertex2d(x1+x, y1+y);
-      }
+   for (ang = 0; ang < 6.27; ang += inc)
+   {
+      x1 = (cos(ang) * raio);
+      y1 = (sin(ang) * raio);
+      glVertex2d(x1 + x, y1 + y);
+   }
    glEnd();
 }
 
 void color(float r, float g, float b)
 {
-   glColor3d(r, g, b  );
+   glColor3d(r, g, b);
 }
 
-void special(int key, int , int )
+void special(int key, int, int)
 {
-   keyboard(key+100);
+   keyboard(key + 100);
 }
 
-void specialUp(int key, int , int )
+void specialUp(int key, int, int)
 {
-   keyboardUp(key+100);
+   keyboardUp(key + 100);
 }
 
-void keyb(unsigned char key, int , int )
+void keyb(unsigned char key, int, int)
 {
    keyboard(key);
 }
 
-void keybUp(unsigned char key, int , int )
+void keybUp(unsigned char key, int, int)
 {
    keyboardUp(key);
 }
@@ -169,40 +168,39 @@ void ConvertMouseCoord(int button, int state, int wheel, int direction, int x, i
    mouse(button, state, wheel, direction, x, y);
 }
 
-
 //funcao chamada sempre que a tela for redimensionada.
-void reshape (int w, int h)
+void reshape(int w, int h)
 {
    *scrHeight = h; //atualiza as variaveis da main() com a nova dimensao da tela.
    *scrWidth = w;
 
-   glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-   glMatrixMode (GL_PROJECTION);
-   glLoadIdentity ();
+   glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+   glMatrixMode(GL_PROJECTION);
+   glLoadIdentity();
 
    //cria uma projecao ortografica com z entre (-1, 1).
 #if Y_CANVAS_CRESCE_PARA_CIMA == 1
    //parametros: left, right, bottom, top
-   gluOrtho2D (0.0, w, 0.0, h); //o eixo y cresce para cima.
+   gluOrtho2D(0.0, w, 0.0, h); //o eixo y cresce para cima.
 #else
    //parametros: left, right, bottom, top
-   gluOrtho2D (0.0, w, h, 0.0); //o eixo y cresce para baixo
+   gluOrtho2D(0.0, w, h, 0.0); //o eixo y cresce para baixo
 #endif
 
    glMatrixMode(GL_MODELVIEW);
-   glLoadIdentity ();
+   glLoadIdentity();
 }
 
 //definicao de valores para limpar buffers
 void inicializa()
 {
-   glClearColor(0,0,0,0);
+   glClearColor(0, 0, 0, 0);
    glPolygonMode(GL_FRONT, GL_FILL);
 }
 
-void display (void)
+void display(void)
 {
-   glClear(GL_COLOR_BUFFER_BIT );
+   glClear(GL_COLOR_BUFFER_BIT);
 
    glMatrixMode(GL_MODELVIEW);
    glLoadIdentity();
@@ -224,11 +222,11 @@ void initCanvas(int *w, int *h, const char *title)
    scrHeight = h;
    scrWidth = w;
 
-   glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB);
+   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 
-   glutInitWindowSize (*w, *h);
-   glutInitWindowPosition (200, 200);
-   glutCreateWindow (title);
+   glutInitWindowSize(*w, *h);
+   glutInitWindowPosition(200, 200);
+   glutCreateWindow(title);
 
    inicializa();
 
@@ -252,4 +250,3 @@ void runCanvas()
 {
    glutMainLoop();
 }
-

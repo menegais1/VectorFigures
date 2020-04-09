@@ -3,7 +3,8 @@
 
 #include <vector>
 #include "Base/CanvasObject.h"
-#include "Vector4.h"
+#include "Utilities.h"
+
 enum FigureType
 {
     Square = 0,
@@ -15,15 +16,15 @@ enum FigureType
 class Figure : public CanvasObject
 {
 public:
-    Vector4 backgroundColor;
-    Vector4 lineColor;
-    vector<Vector4> vertices;
-    int zIndex;
-    
+    Float3 backgroundColor;
+    Float3 lineColor;
+    std::vector<Float3> vertices;
+
     void render() override;
+    Figure();
 
 private:
     FigureType figureType;
-}
+};
 
 #endif
