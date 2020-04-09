@@ -28,3 +28,7 @@ int cn_PnPoly(Float3 P, std::vector<Float3> vertices, int n)
     }
     return (cn & 1); // 0 if even (out), and 1 if  odd (in)
 }
+
+bool leftMouseClicked(int button, int state){
+    return button == MouseButton::Left && state == MouseState::Down;
+}

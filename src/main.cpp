@@ -13,7 +13,6 @@
 #include "Scene.h"
 
 using namespace std;
-int screenWidth = 600, screenHeight = 600;
 
 void render()
 {
@@ -37,7 +36,7 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 
 int main(void)
 {
-   initCanvas(&screenWidth, &screenHeight, "BitmapReader");
-   Scene* scene = new Scene();
+   initCanvas(GlobalManager::getInstance()->screenWidth, GlobalManager::getInstance()->screenHeight, "VectorFigures");
+   Scene *scene = new Scene();
    runCanvas();
 }

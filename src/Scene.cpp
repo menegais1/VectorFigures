@@ -2,55 +2,87 @@
 #include "Utilities.h"
 #include "Figure.h"
 #include "Canvas/gl_canvas2d.h"
+#include "Managers/GlobalManager.h"
 #include <iostream>
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    if (mode == 1)
+    if (mode == SceneMode::Insert)
     {
-        if (button == MouseButton::Left && state == MouseState::Down)
+        if (leftMouseClicked(button, state))
         {
             tmpVertices.push_back({x, y, 0});
             std::cout << "insert" << std::endl;
         }
     }
-    else if (mode != 1 && lastMode == 1)
+    else if (lastMode == SceneMode::Insert)
     {
         Figure *fig = new Figure();
         fig->backgroundColor = {1, 1, 1};
-        fig->lineColor = {0, 0, 0};
+        fig->lineColor = {0, 1, 0};
         fig->vertices = tmpVertices;
         figures.push_back(fig);
-        lastMode = 0;
         std::cout << "new figure" << std::endl;
+        lastMode = SceneMode::Default;
     }
 }
 void Scene::keyboardUp(int key)
 {
 
-    if (key == 'i')
+    if (key == SceneMode::Insert)
     {
-        mode = 1;
+        mode = SceneMode::Insert;
         tmpVertices.clear();
     }
     else
     {
         lastMode = mode;
-        mode = 0;
+        mode = SceneMode::Default;
     }
 }
 
 void Scene::render()
 {
-    if (tmpVertices.size() <= 0)
-        return;
-    for (int i = 0; i < tmpVertices.size(); i++)
+    if (tmpVertices.size() > 0 && mode == SceneMode::Insert)
+        renderPolygonInsertion();
+
+    renderCurrentMode();
+}
+void Scene::renderPolygonInsertion()
+{
+    int size = tmpVertices.size();
+    for (int i = 0; i < size; i++)
+    {
+        color(1, 1, 1);
+        circle(tmpVertices[i].x, tmpVertices[i].y, 3, 10);
+    }
+    for (int i = 0; i < size - 1; i++)
     {
         color(1, 0, 0);
-        point(tmpVertices[i].x, tmpVertices[i].y);
+        line(tmpVertices[i].x, tmpVertices[i].y, tmpVertices[i + 1].x, tmpVertices[i + 1].y);
+    }
+    line(tmpVertices[size - 1].x, tmpVertices[size - 1].y, tmpVertices[0].x, tmpVertices[0].y);
+}
+
+void Scene::renderCurrentMode()
+{
+
+    switch (mode)
+    {
+    case SceneMode::Default:
+        color(1, 1, 1);
+        text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Default");
+        break;
+    case SceneMode::Insert:
+        color(1, 1, 1);
+        text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Insert");
+        text(20, *GlobalManager::getInstance()->screenHeight - 23, "Left mouse: Insert point");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "Any Key: finish insertion");
+    default:
+        break;
     }
 }
 
 Scene::Scene()
 {
-    mode = lastMode = 0;
+    mode = lastMode = SceneMode::Default;
 }

@@ -2,7 +2,6 @@
 ///To every CanvasObject instantiated, every object has a uniqueId given
 ///in the beggining of its lifetime
 
-
 #ifndef GLOBAL_MANAGER_H
 #define GLOBAL_MANAGER_H
 
@@ -18,7 +17,9 @@ public:
     void render();
     int registerObject(CanvasObject *object);
     CanvasObject *unregisterObject(int objectId);
-    static GlobalManager* getInstance();
+    static GlobalManager *getInstance();
+    int *screenWidth;
+    int *screenHeight;
 
 private:
     static GlobalManager *instance;

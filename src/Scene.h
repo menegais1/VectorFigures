@@ -4,6 +4,15 @@
 #include <vector>
 #include "Figure.h"
 
+enum SceneMode
+{
+    Insert = 'i',
+    Translate = 't',
+    Scale = 's',
+    Rotate = 'r',
+    Default = 0
+};
+
 class Scene : public CanvasObject
 {
 public:
@@ -17,6 +26,9 @@ private:
     std::vector<Float3> tmpVertices;
     int mode;
     int lastMode;
+
+    void renderPolygonInsertion();
+    void renderCurrentMode();
 };
 
 #endif

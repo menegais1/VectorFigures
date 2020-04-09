@@ -6,6 +6,10 @@
 
 GlobalManager::GlobalManager()
 {
+    screenWidth = new int();
+    screenHeight = new int();
+    *screenWidth = 600;
+    *screenHeight = 600;
 }
 GlobalManager *GlobalManager::getInstance()
 {
