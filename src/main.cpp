@@ -9,9 +9,7 @@
 #include <cmath>
 #include "Canvas/gl_canvas2d.h"
 #include "Utilities.h"
-#include "Button/Button.h"
 #include "Managers/GlobalManager.h"
-#include "Vector4.h"
 
 using namespace std;
 int screenWidth = 600, screenHeight = 600;
@@ -39,9 +37,6 @@ void mouse(int button, int state, int wheel, int direction, int x, int y)
 int main(void)
 {
    initCanvas(&screenWidth, &screenHeight, "BitmapReader");
-   Vector4 test(1,2,3,4);
-   for(int i =0; i< 4;i++){
-      cout << test[i] << endl;;
-   }
+
    runCanvas();
 }

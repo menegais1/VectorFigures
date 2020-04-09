@@ -12,6 +12,21 @@ void CanvasObject::keyboardUp(int key)
 void CanvasObject::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
 }
+void CanvasObject::onMouseEnter(int x, int y)
+{
+}
+void CanvasObject::onMouseLeave(int x, int y)
+{
+}
+void CanvasObject::onMouseStay(int x, int y)
+{
+}
+void CanvasObject::onMouseButonDown(int button, int state, int x, int y)
+{
+}
+void CanvasObject::onMouseButonUp(int button, int state, int x, int y)
+{
+}
 void CanvasObject::render()
 {
 }
@@ -42,6 +57,6 @@ CanvasObject::CanvasObject()
     objectId = GlobalManager::getInstance()->registerObject(this);
     isActive = true;
     lastActiveState = true;
-    transform.position = {0, 0};
-    transform.scale = {1, 1};
+    position = {0, 0};
+    scale = {1, 1};
 }
