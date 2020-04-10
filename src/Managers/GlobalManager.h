@@ -17,11 +17,13 @@ public:
     void render();
     int registerObject(CanvasObject *object);
     CanvasObject *unregisterObject(int objectId);
+    void changeObjectZIndex(CanvasObject *object);
     static GlobalManager *getInstance();
     int *screenWidth;
     int *screenHeight;
 
 private:
+    int objectIdCounter;
     static GlobalManager *instance;
     std::vector<CanvasObject *> objects;
     GlobalManager();

@@ -3,6 +3,9 @@
 #include "../Base/CanvasObject.h"
 #include "GlobalManager.h"
 #include <iostream>
+#include <algorithm>
+#include <chrono>
+using namespace std::chrono;
 
 GlobalManager::GlobalManager()
 {
@@ -20,7 +23,7 @@ GlobalManager *GlobalManager::getInstance()
 void GlobalManager::keyboard(int key)
 {
 
-    for (int i = 0; i < objects.size(); i++)
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
@@ -29,7 +32,7 @@ void GlobalManager::keyboard(int key)
 }
 void GlobalManager::keyboardUp(int key)
 {
-    for (int i = 0; i < objects.size(); i++)
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
@@ -38,7 +41,7 @@ void GlobalManager::keyboardUp(int key)
 }
 void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    for (int i = 0; i < objects.size(); i++)
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
@@ -47,7 +50,7 @@ void GlobalManager::mouse(int button, int state, int wheel, int direction, int x
 }
 void GlobalManager::render()
 {
-    for (int i = 0; i < GlobalManager::objects.size(); i++)
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
@@ -56,9 +59,59 @@ void GlobalManager::render()
 }
 int GlobalManager::registerObject(CanvasObject *object)
 {
-    objects.push_back(object);
-    return objects.size() - 1;
+    std::cout << "teste" << std::endl;
+    if (objects.size() == 0)
+    {
+        objects.push_back(object);
+    }
+    else
+    {
+        for (int i = 0; i < objects.size(); i++)
+        {
+            if (objects[i]->getZIndex() <= object->getZIndex())
+            {
+                objects.insert(objects.begin() + i, object);
+                break;
+            }
+        }
+    }
+    return objectIdCounter++;
 }
+
+void GlobalManager::changeObjectZIndex(CanvasObject *object)
+{
+    auto start = high_resolution_clock::now();
+
+    auto iterator = std::find(objects.begin(), objects.end(), object);
+    if (iterator != objects.cend())
+    {
+        int index = std::distance(objects.begin(), iterator);
+        if (index + 1 < objects.size() && objects[index + 1]->getZIndex() > object->getZIndex())
+        {
+            while (index + 1 < objects.size() && objects[index + 1]->getZIndex() > object->getZIndex())
+            {
+                objects[index] = objects[index + 1];
+                objects[index + 1] = object;
+                index++;
+            }
+        }
+        else if (index - 1 > -1 && objects[index - 1]->getZIndex() < object->getZIndex())
+        {
+            while (index - 1 > -1 && objects[index - 1]->getZIndex() < object->getZIndex())
+            {
+                objects[index] = objects[index - 1];
+                objects[index - 1] = object;
+                index--;
+            }
+        }
+    }
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(end - start);
+    std::cout << "Time taken by function: "
+         << duration.count() << " microseconds" << std::endl;
+}
+
 CanvasObject *GlobalManager::unregisterObject(int objectId)
 {
     CanvasObject *object = objects[objectId];

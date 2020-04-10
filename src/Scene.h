@@ -21,6 +21,7 @@ public:
     std::vector<Figure *> selectedFigures;
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void keyboardUp(int key) override;
+    void keyboard(int key) override;
     void render() override;
     Scene();
 
@@ -33,9 +34,11 @@ private:
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();
-
+    void singleSelection(int x, int y);
+    void multipleSelection(int x, int y);
+    void sendToBack();
+    void sendToFront();
     //Components
-
 };
 
 #endif

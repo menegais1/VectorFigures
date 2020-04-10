@@ -11,13 +11,13 @@ public:
     Float3 position;
     Float3 scale;
     Float3 rotation;
-    int zIndex;
     void keyboard(int key) override;
     void keyboardUp(int key) override;
 
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
-
+    void setZIndex(int zIndex);
+    int getZIndex();
     CanvasObject();
     virtual void setActive(bool isActive);
     bool getActive();
@@ -28,6 +28,7 @@ protected:
     int objectId;
 
 private:
+    int zIndex;
     bool lastActiveState;
 };
 #endif

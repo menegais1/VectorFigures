@@ -245,7 +245,7 @@ void initCanvas(int *w, int *h, const char *title)
    glutPassiveMotionFunc(motion);
    glutMotionFunc(motion);
    glutMouseWheelFunc(mouseWheelCB);
-   //glutIgnoreKeyRepeat(1);
+   glutIgnoreKeyRepeat(1);
    printf("GL Version: %s", glGetString(GL_VERSION));
 }
 

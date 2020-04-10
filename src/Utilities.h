@@ -64,6 +64,6 @@ typedef struct float4
 bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
 
 int isLeft(Float3 P0, Float3 P1, Float3 P2);
-int isPointInsidePolygon(Float3 P, std::vector<Float3> vertices, int n);
+bool isPointInsidePolygon(Float3 P, std::vector<Float3> vertices, int n);
 bool leftMouseClicked(int button, int state);
 #endif

@@ -37,6 +37,17 @@ bool CanvasObject::checkIfCanExecuteCallback()
     return this->isActive;
 }
 
+void CanvasObject::setZIndex(int zIndex)
+{
+    this->zIndex = zIndex;
+    GlobalManager::getInstance()->changeObjectZIndex(this);
+}
+
+int CanvasObject::getZIndex()
+{
+    return zIndex;
+}
+
 CanvasObject::CanvasObject()
 {
     objectId = GlobalManager::getInstance()->registerObject(this);
