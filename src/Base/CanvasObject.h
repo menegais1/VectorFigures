@@ -8,10 +8,10 @@
 class CanvasObject : public IRender, public IKeyboard, public IMouse
 {
 public:
-
     Float3 position;
     Float3 scale;
     Float3 rotation;
+    int zIndex;
     void keyboard(int key) override;
     void keyboardUp(int key) override;
 

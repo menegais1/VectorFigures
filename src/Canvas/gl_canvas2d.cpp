@@ -122,7 +122,10 @@ void color(float r, float g, float b)
 {
    glColor3d(r, g, b);
 }
-
+void color(float r, float g, float b, float a)
+{
+   glColor4d(r, g, b, a);
+}
 void special(int key, int, int)
 {
    keyboard(key + 100);

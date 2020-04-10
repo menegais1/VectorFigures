@@ -3,6 +3,7 @@
 #include "Figure.h"
 #include "Canvas/gl_canvas2d.h"
 #include "Managers/GlobalManager.h"
+#include "Label/Label.h"
 #include <iostream>
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
@@ -14,17 +15,42 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
             std::cout << "insert" << std::endl;
         }
     }
-    else if (lastMode == SceneMode::Insert)
+    if (mode == SceneMode::Default)
     {
-        Figure *fig = new Figure();
-        fig->backgroundColor = {1, 1, 1};
-        fig->lineColor = {0, 1, 0};
-        fig->vertices = tmpVertices;
-        figures.push_back(fig);
-        std::cout << "new figure" << std::endl;
+        if (leftMouseClicked(button, state))
+        {
+            for (int i = 0; i < figures.size(); i++)
+            {
+                figures[i]->isSelected = false;
+            }
+            for (int i = 0; i < figures.size(); i++)
+            {
+                if (isPointInsidePolygon({x, y, 0}, figures[i]->vertices, figures[i]->vertices.size()))
+                {
+                    figures[i]->isSelected = true;
+                    return;
+                }
+            }
+        }
+    }
+    if (lastMode == SceneMode::Insert)
+    {
+        insertNewFigure();
         lastMode = SceneMode::Default;
     }
 }
+
+void Scene::insertNewFigure()
+{
+    Figure *fig = new Figure();
+    fig->backgroundColor = {0.2, 0.2, 0.2};
+    fig->lineColor = {0, 1, 0};
+    fig->vertices = tmpVertices;
+    fig->highlightColor = this->highlightColor;
+    figures.push_back(fig);
+    std::cout << "new figure" << std::endl;
+}
+
 void Scene::keyboardUp(int key)
 {
 
@@ -85,4 +111,5 @@ void Scene::renderCurrentMode()
 Scene::Scene()
 {
     mode = lastMode = SceneMode::Default;
+    highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.6};
 }

@@ -53,6 +53,8 @@
 		<Unit filename="src/Canvas/gl_canvas2d.cpp" />
 		<Unit filename="src/Canvas/gl_canvas2d.h" />
 		<Unit filename="src/Utilities.h" />
+		<Unit filename="src/Label/Label.h" />
+		<Unit filename="src/Slider/Slider.h" />
 		<Unit filename="src/Figure.h" />
 		<Unit filename="src/Scene.h" />
 		<Unit filename="src/Base/IRender.h" />
@@ -63,6 +65,8 @@
 		<Unit filename="src/Managers/GlobalManager.h" />
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/Label/Label.cpp" />
+		<Unit filename="src/Slider/Slider.cpp" />
 		<Unit filename="src/Figure.cpp" />
 		<Unit filename="src/Managers/GlobalManager.cpp" />
 		<Unit filename="src/main.cpp" />

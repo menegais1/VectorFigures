@@ -20,6 +20,9 @@ public:
     Float3 lineColor;
     std::vector<Float3> vertices;
 
+    bool isSelected;
+    Float4 highlightColor;
+
     void render() override;
     Figure();
 

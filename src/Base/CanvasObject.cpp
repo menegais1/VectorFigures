@@ -44,4 +44,5 @@ CanvasObject::CanvasObject()
     lastActiveState = true;
     position = {0, 0};
     scale = {1, 1};
+    zIndex = 0;
 }

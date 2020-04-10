@@ -31,6 +31,7 @@ void circleFill( int x, int y, int raio, int div );
 
 //especifica a cor de desenho e de limpeza de tela
 void color(float r, float g, float b);
+void color(float r, float g, float b, float a);
 void clear(float r, float g, float b);
 
 //desenha texto na coordenada (x,y)
