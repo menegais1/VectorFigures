@@ -17,12 +17,23 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
     }
     if (mode == SceneMode::Default)
     {
-        if (leftMouseClicked(button, state))
+        if (leftMouseClicked(button, state) && !multipleSelect)
         {
             for (int i = 0; i < figures.size(); i++)
             {
                 figures[i]->isSelected = false;
             }
+            for (int i = 0; i < figures.size(); i++)
+            {
+                if (isPointInsidePolygon({x, y, 0}, figures[i]->vertices, figures[i]->vertices.size()))
+                {
+                    figures[i]->isSelected = true;
+                    return;
+                }
+            }
+        }
+        else if (leftMouseClicked(button, state) && multipleSelect)
+        {
             for (int i = 0; i < figures.size(); i++)
             {
                 if (isPointInsidePolygon({x, y, 0}, figures[i]->vertices, figures[i]->vertices.size()))
@@ -63,6 +74,11 @@ void Scene::keyboardUp(int key)
     {
         lastMode = mode;
         mode = SceneMode::Default;
+    }
+
+    if (mode == SceneMode::Default && key == 214)
+    {
+        multipleSelect = true;
     }
 }
 

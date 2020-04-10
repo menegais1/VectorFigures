@@ -29,13 +29,12 @@ private:
     Float4 highlightColor;
     int mode;
     int lastMode;
-
+    bool multipleSelect;
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();
 
     //Components
-
 
 };
 
