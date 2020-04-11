@@ -5,6 +5,7 @@
 #include "Managers/GlobalManager.h"
 #include "Label/Label.h"
 #include <iostream>
+#include <algorithm>
 
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
@@ -74,9 +75,53 @@ void Scene::insertNewFigure()
     std::cout << "end insert vertices" << std::endl;
     fig->highlightColor = this->highlightColor;
     fig->setZIndex(figures.size());
-    figures.push_back(fig);
+    addFigure(figures, fig);
 }
 
+void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
+{
+    if (figures.size() == 0)
+    {
+        figures.push_back(figure);
+    }
+    else
+    {
+        for (int i = 0; i < figures.size(); i++)
+        {
+            if (figures[i]->getZIndex() <= figure->getZIndex())
+            {
+                figures.insert(figures.begin() + i, figure);
+                break;
+            }
+        }
+    }
+}
+void Scene::changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure)
+{
+    auto iterator = std::find(figures.begin(), figures.end(), figure);
+    if (iterator != figures.cend())
+    {
+        int index = std::distance(figures.begin(), iterator);
+        if (index + 1 < figures.size() && figures[index + 1]->getZIndex() > figure->getZIndex())
+        {
+            while (index + 1 < figures.size() && figures[index + 1]->getZIndex() > figure->getZIndex())
+            {
+                figures[index] = figures[index + 1];
+                figures[index + 1] = figure;
+                index++;
+            }
+        }
+        else if (index - 1 > -1 && figures[index - 1]->getZIndex() < figure->getZIndex())
+        {
+            while (index - 1 > -1 && figures[index - 1]->getZIndex() < figure->getZIndex())
+            {
+                figures[index] = figures[index - 1];
+                figures[index - 1] = figure;
+                index--;
+            }
+        }
+    }
+}
 void Scene::keyboard(int key)
 {
     if (mode == SceneMode::Default && key == 214)
@@ -163,7 +208,9 @@ void Scene::sendToBack()
     {
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() - 1);
+            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() - 10);
+            changeFigureZIndex(selectedFigures, selectedFigures[i]);
+            changeFigureZIndex(figures, selectedFigures[i]);
         }
     }
 }
@@ -174,7 +221,9 @@ void Scene::sendToFront()
     {
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() + 1);
+            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() + 10);
+            changeFigureZIndex(selectedFigures, selectedFigures[i]);
+            changeFigureZIndex(figures, selectedFigures[i]);
         }
     }
 }

@@ -38,6 +38,8 @@ private:
     void multipleSelection(int x, int y);
     void sendToBack();
     void sendToFront();
+    void addFigure(std::vector<Figure *> &figures, Figure *figure);
+    void changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure);
     //Components
 };
 

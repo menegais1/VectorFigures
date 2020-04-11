@@ -81,7 +81,7 @@
 	"../Base/CanvasObject.h"
 	"string"
 
-1586555621 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
+1586567710 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
 	<vector>
 	"../Base/CanvasObject.h"
 	"GlobalManager.h"
@@ -144,7 +144,7 @@
 	"Base/CanvasObject.h"
 	"Utilities.h"
 
-1586556522 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586567890 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
