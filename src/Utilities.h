@@ -65,5 +65,6 @@ bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
 
 int isLeft(Float3 P0, Float3 P1, Float3 P2);
 bool isPointInsidePolygon(Float3 P, std::vector<Float3> vertices, int n);
-bool leftMouseClicked(int button, int state);
+bool leftMouseDown(int button, int state);
+bool leftMouseUp(int button, int state);
 #endif

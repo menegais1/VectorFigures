@@ -18,16 +18,20 @@ class Figure : public CanvasObject
 public:
     Float3 backgroundColor;
     Float3 lineColor;
+    Float3 center;
     std::vector<Float3> vertices;
 
     bool isSelected;
     Float4 highlightColor;
 
     void render() override;
-    Figure();
+    Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices);
+
+    void translate(Float3 translationAmount);
 
 private:
     FigureType figureType;
+    void calculateCenter();
 };
 
 #endif

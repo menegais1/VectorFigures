@@ -5,6 +5,14 @@
 #include "Figure.h"
 #include "Label/Label.h"
 
+enum Key
+{
+    Enter = 13,
+    LeftArrow = 200,
+    RightArrow = 202,
+    CTRL = 214
+};
+
 enum SceneMode
 {
     Insert = 'i',
@@ -30,6 +38,8 @@ private:
     Float4 highlightColor;
     int mode;
     int lastMode;
+    Float2 lastMousePosition;
+    Float2 currentMousePosition;
     bool multipleSelect;
     void renderPolygonInsertion();
     void renderCurrentMode();

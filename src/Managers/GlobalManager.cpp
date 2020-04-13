@@ -41,6 +41,7 @@ void GlobalManager::keyboardUp(int key)
 }
 void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
+    mousePosition = {x, y};
     for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
@@ -109,7 +110,7 @@ void GlobalManager::changeObjectZIndex(CanvasObject *object)
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(end - start);
     std::cout << "Time taken by function: "
-         << duration.count() << " microseconds" << std::endl;
+              << duration.count() << " microseconds" << std::endl;
 }
 
 CanvasObject *GlobalManager::unregisterObject(int objectId)

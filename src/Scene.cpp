@@ -9,24 +9,37 @@
 
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
+    currentMousePosition = {x, y};
     if (mode == SceneMode::Insert)
     {
-        if (leftMouseClicked(button, state))
+        if (leftMouseDown(button, state))
         {
             tmpVertices.push_back({x, y, 0});
         }
     }
     if (mode == SceneMode::Default)
     {
-        if (leftMouseClicked(button, state) && !multipleSelect)
-        {
-            singleSelection(x, y);
-        }
-        else if (leftMouseClicked(button, state) && multipleSelect)
+        bool isLeftMouseClicked = leftMouseDown(button, state);
+        if (!isLeftMouseClicked)
+            return;
+        if (multipleSelect)
         {
             multipleSelection(x, y);
         }
+        else
+        {
+            singleSelection(x, y);
+        }
     }
+    if (mode == SceneMode::Translate)
+    {
+        Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
+        for (int i = 0; i < selectedFigures.size(); i++)
+        {
+            selectedFigures[i]->translate(translation);
+        }
+    }
+    lastMousePosition = currentMousePosition;
 }
 
 void Scene::singleSelection(int x, int y)
@@ -66,14 +79,12 @@ void Scene::multipleSelection(int x, int y)
 
 void Scene::insertNewFigure()
 {
-    Figure *fig = new Figure();
-    fig->backgroundColor = {0.2, 0.2, 0.2};
-    fig->lineColor = {0, 1, 0};
-    std::cout << "insert vertices" << std::endl;
+    if (tmpVertices.size() < 2)
+        return;
+    Float3 backgroundColor = {0.2, 0.2, 0.2};
+    Float3 lineColor = {0, 1, 0};
     tmpVertices.push_back(tmpVertices[0]);
-    fig->vertices = tmpVertices;
-    std::cout << "end insert vertices" << std::endl;
-    fig->highlightColor = this->highlightColor;
+    Figure *fig = new Figure(backgroundColor, lineColor, highlightColor, tmpVertices);
     fig->setZIndex(figures.size());
     addFigure(figures, fig);
 }
@@ -96,6 +107,7 @@ void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
         }
     }
 }
+
 void Scene::changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure)
 {
     auto iterator = std::find(figures.begin(), figures.end(), figure);
@@ -122,6 +134,7 @@ void Scene::changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure)
         }
     }
 }
+
 void Scene::keyboard(int key)
 {
     if (mode == SceneMode::Default && key == 214)
@@ -133,31 +146,43 @@ void Scene::keyboard(int key)
 void Scene::keyboardUp(int key)
 {
     std::cout << key << std::endl;
-    if (key == SceneMode::Insert)
+    switch (key)
     {
+    case SceneMode::Insert:
         mode = SceneMode::Insert;
         tmpVertices.clear();
-    }
-    else
-    {
+        break;
+    case SceneMode::Translate:
         lastMode = mode;
-        mode = SceneMode::Default;
-        if (lastMode == SceneMode::Insert)
+        if (mode == SceneMode::Translate)
+        {
+            mode = SceneMode::Default;
+        }
+        else
+        {
+            mode = SceneMode::Translate;
+            lastMousePosition = GlobalManager::getInstance()->mousePosition;
+        }
+    case Key::CTRL:
+        multipleSelect = false;
+        break;
+    case Key::LeftArrow:
+        sendToBack();
+        break;
+    case Key::RightArrow:
+        sendToFront();
+        break;
+    case Key::Enter:
+        if (mode == SceneMode::Insert)
         {
             insertNewFigure();
-            lastMode = SceneMode::Default;
+            lastMode = mode;
+            mode = SceneMode::Default;
         }
-    }
+    default:
 
-    if (key == 214)
-    {
-        multipleSelect = false;
+        break;
     }
-
-    if (key == 200)
-        sendToBack();
-    if (key == 202)
-        sendToFront();
 }
 
 void Scene::render()
@@ -167,6 +192,7 @@ void Scene::render()
 
     renderCurrentMode();
 }
+
 void Scene::renderPolygonInsertion()
 {
     int size = tmpVertices.size();
@@ -196,7 +222,15 @@ void Scene::renderCurrentMode()
         color(1, 1, 1);
         text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Insert");
         text(20, *GlobalManager::getInstance()->screenHeight - 23, "Left mouse: Insert point");
-        text(20, *GlobalManager::getInstance()->screenHeight - 35, "Any Key: finish insertion");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "I key: clear points");
+        text(20, *GlobalManager::getInstance()->screenHeight - 47, "Enter key: finish insertion");
+        break;
+    case SceneMode::Translate:
+        color(1, 1, 1);
+        text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Translation");
+        text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Translate selected figures");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "Any Key: finish translation");
+        break;
     default:
         break;
     }

@@ -21,7 +21,7 @@ public:
     static GlobalManager *getInstance();
     int *screenWidth;
     int *screenHeight;
-
+    Float2 mousePosition;
 private:
     int objectIdCounter;
     static GlobalManager *instance;
