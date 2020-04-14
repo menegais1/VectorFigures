@@ -51,7 +51,6 @@ void GlobalManager::mouse(int button, int state, int wheel, int direction, int x
 }
 void GlobalManager::render()
 {
-    std::cout << objects.size() << std::endl;
     for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())

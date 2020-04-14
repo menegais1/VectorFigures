@@ -53,7 +53,7 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
         float scale = scale1.length() - scale2.length();
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y,0}, selectionCenter);
+            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
         }
     }
 
@@ -245,9 +245,26 @@ void Scene::keyboardUp(int key)
             lastMode = mode;
             mode = SceneMode::Default;
         }
+        break;
+    case Key::y:
+        fixatedAxis = {0, 1};
+        break;
+    case Key::x:
+        fixatedAxis = {1, 0};
+        break;
+    case Key::b:
+        drawPolygonBounds();
     default:
 
         break;
+    }
+}
+
+void Scene::drawPolygonBounds()
+{
+    for (int i = 0; i < figures.size(); i++)
+    {
+        figures[i]->drawBounds = !figures[i]->drawBounds;
     }
 }
 

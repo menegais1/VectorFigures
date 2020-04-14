@@ -12,7 +12,10 @@ enum Key
     Enter = 13,
     LeftArrow = 200,
     RightArrow = 202,
-    CTRL = 214
+    CTRL = 214,
+    x = 120,
+    y = 121,
+    b = 98
 };
 
 enum SceneMode
@@ -52,6 +55,7 @@ private:
     void multipleSelection(int x, int y);
     void sendToBack();
     void sendToFront();
+    void drawPolygonBounds();
     void calculateSelectedFiguresCenter();
     void addFigure(std::vector<Figure *> &figures, Figure *figure);
     void changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure);

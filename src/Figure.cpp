@@ -22,10 +22,13 @@ void Figure::render()
         polygonFill(vertices.data(), vertices.size());
     }
 
-    line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
-    line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
-    line(bounds.corners[2].x, bounds.corners[2].y, bounds.corners[3].x, bounds.corners[3].y);
-    line(bounds.corners[3].x, bounds.corners[3].y, bounds.corners[0].x, bounds.corners[0].y);
+    if (drawBounds)
+    {
+        line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
+        line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
+        line(bounds.corners[2].x, bounds.corners[2].y, bounds.corners[3].x, bounds.corners[3].y);
+        line(bounds.corners[3].x, bounds.corners[3].y, bounds.corners[0].x, bounds.corners[0].y);
+    }
 }
 
 Float3 Figure::getCenter()
@@ -99,4 +102,5 @@ Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, 
     this->vertices = vertices;
     initializeBounds();
     isSelected = false;
+    drawBounds = false;
 }

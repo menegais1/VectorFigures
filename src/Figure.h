@@ -25,6 +25,7 @@ public:
     std::vector<Float3> vertices;
 
     bool isSelected;
+    bool drawBounds;
     Float4 highlightColor;
 
     void render() override;
