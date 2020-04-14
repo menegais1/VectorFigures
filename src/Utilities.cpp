@@ -1,5 +1,7 @@
 #include "Utilities.h"
 #include <vector>
+#include <cstdlib>
+#include <cmath>
 bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale)
 {
     return point.x < position.x + scale.x && point.x > position.x && point.y < position.y + scale.y && point.y > position.y;
@@ -37,4 +39,9 @@ bool leftMouseDown(int button, int state)
 bool leftMouseUp(int button, int state)
 {
     return button == MouseButton::Left && state == MouseState::Up;
+}
+
+float Float2::length()
+{
+    return std::sqrt(x * x + y * y);
 }

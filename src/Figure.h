@@ -28,6 +28,7 @@ public:
     Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices);
 
     void translate(Float3 translationAmount);
+    void rotation(float angle, Float3 center);
 
 private:
     FigureType figureType;

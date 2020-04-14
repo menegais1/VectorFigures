@@ -44,6 +44,8 @@ typedef struct float2
 {
     float x;
     float y;
+
+    float length();
 } Float2;
 
 typedef struct float3

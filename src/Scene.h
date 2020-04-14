@@ -39,6 +39,7 @@ private:
     int mode;
     int lastMode;
     Float2 lastMousePosition;
+    Float3 rotationCenter;
     Float2 currentMousePosition;
     bool multipleSelect;
     void renderPolygonInsertion();
@@ -48,6 +49,7 @@ private:
     void multipleSelection(int x, int y);
     void sendToBack();
     void sendToFront();
+    void calculateSelectedFiguresCenter();
     void addFigure(std::vector<Figure *> &figures, Figure *figure);
     void changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure);
     //Components

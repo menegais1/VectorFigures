@@ -6,6 +6,7 @@
 #include "Label/Label.h"
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
@@ -37,6 +38,27 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
         for (int i = 0; i < selectedFigures.size(); i++)
         {
             selectedFigures[i]->translate(translation);
+        }
+    }
+
+    if (mode == SceneMode::Rotate)
+    {
+        Float2 vector1 = {currentMousePosition.x - rotationCenter.x, currentMousePosition.y - rotationCenter.y};
+        Float2 vector2 = {lastMousePosition.x - rotationCenter.x, lastMousePosition.y - rotationCenter.y};
+        float length = vector1.length();
+        vector1 = {vector1.x / length, vector1.y / length};
+        length = vector2.length();
+        vector2 = {vector2.x / length, vector2.y / length};
+        float direction = vector1.x * vector2.y - vector1.y * vector2.x;
+        direction = direction > 0 ? -1 : 1;
+        std::cout << vector1.x << " " << vector1.y << std::endl;
+        std::cout << vector2.x << " " << vector2.y << std::endl;
+        float dot = vector1.x * vector2.x + vector1.y * vector2.y;
+        dot = dot > 1 ? 1 : dot;
+        float angle = std::acos(dot);
+        for (int i = 0; i < selectedFigures.size(); i++)
+        {
+            selectedFigures[i]->rotation(angle * direction, rotationCenter);
         }
     }
     lastMousePosition = currentMousePosition;
@@ -163,6 +185,19 @@ void Scene::keyboardUp(int key)
             mode = SceneMode::Translate;
             lastMousePosition = GlobalManager::getInstance()->mousePosition;
         }
+        break;
+    case SceneMode::Rotate:
+        lastMode = mode;
+        if (mode == SceneMode::Rotate)
+        {
+            mode = SceneMode::Default;
+        }
+        else
+        {
+            mode = SceneMode::Rotate;
+            calculateSelectedFiguresCenter();
+        }
+        break;
     case Key::CTRL:
         multipleSelect = false;
         break;
@@ -183,6 +218,20 @@ void Scene::keyboardUp(int key)
 
         break;
     }
+}
+
+void Scene::calculateSelectedFiguresCenter()
+{
+    Float3 mean = {0, 0, 0};
+    int size = selectedFigures.size();
+    for (int i = 0; i < size; i++)
+    {
+        mean.x += selectedFigures[i]->center.x;
+        mean.y += selectedFigures[i]->center.y;
+        mean.z += selectedFigures[i]->center.z;
+    }
+
+    rotationCenter = {mean.x / size, mean.y / size, mean.z / size};
 }
 
 void Scene::render()
@@ -229,7 +278,13 @@ void Scene::renderCurrentMode()
         color(1, 1, 1);
         text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Translation");
         text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Translate selected figures");
-        text(20, *GlobalManager::getInstance()->screenHeight - 35, "Any Key: finish translation");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "T Key: finish translation");
+        break;
+    case SceneMode::Rotate:
+        color(1, 1, 1);
+        text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Rotation");
+        text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Rotate selected figures");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "R Key: finish rotation");
         break;
     default:
         break;
