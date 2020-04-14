@@ -39,8 +39,9 @@ private:
     int mode;
     int lastMode;
     Float2 lastMousePosition;
-    Float3 rotationCenter;
+    Float3 selectionCenter;
     Float2 currentMousePosition;
+    Float2 fixatedAxis;
     bool multipleSelect;
     void renderPolygonInsertion();
     void renderCurrentMode();

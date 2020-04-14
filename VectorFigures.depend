@@ -17,7 +17,7 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
 
-1586828102 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+1586872468 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
 	<vector>
 
 1586827693 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
@@ -112,7 +112,7 @@
 	<functional>
 	<vector>
 
-1586828160 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1586872487 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
 	<vector>
 	<cstdlib>
@@ -134,7 +134,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1586829293 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1586873639 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -142,17 +142,17 @@
 	"Canvas/gl_canvas2d.h"
 	"Figure.h"
 
-1586828601 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1586871708 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
 	"Utilities.h"
 
-1586827399 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586871345 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
 
-1586829123 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586873368 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"

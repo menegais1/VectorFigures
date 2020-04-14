@@ -53,6 +53,8 @@ typedef struct float3
     float x;
     float y;
     float z;
+    float length();
+
 } Float3;
 
 typedef struct float4

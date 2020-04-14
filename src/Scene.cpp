@@ -35,16 +35,29 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
     if (mode == SceneMode::Translate)
     {
         Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
+
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->translate(translation);
+            selectedFigures[i]->translate({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, translation.z});
+        }
+    }
+
+    if (mode == SceneMode::Scale)
+    {
+        Float3 scale1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y, 0};
+        Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
+
+        float scale = scale1.length() - scale2.length();
+        for (int i = 0; i < selectedFigures.size(); i++)
+        {
+            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y}, selectionCenter);
         }
     }
 
     if (mode == SceneMode::Rotate)
     {
-        Float2 vector1 = {currentMousePosition.x - rotationCenter.x, currentMousePosition.y - rotationCenter.y};
-        Float2 vector2 = {lastMousePosition.x - rotationCenter.x, lastMousePosition.y - rotationCenter.y};
+        Float2 vector1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y};
+        Float2 vector2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y};
         float length = vector1.length();
         vector1 = {vector1.x / length, vector1.y / length};
         length = vector2.length();
@@ -58,7 +71,7 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
         float angle = std::acos(dot);
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->rotation(angle * direction, rotationCenter);
+            selectedFigures[i]->rotation(angle * direction, selectionCenter);
         }
     }
     lastMousePosition = currentMousePosition;
@@ -184,6 +197,7 @@ void Scene::keyboardUp(int key)
         {
             mode = SceneMode::Translate;
             lastMousePosition = GlobalManager::getInstance()->mousePosition;
+            fixatedAxis = {1, 1};
         }
         break;
     case SceneMode::Rotate:
@@ -196,6 +210,20 @@ void Scene::keyboardUp(int key)
         {
             mode = SceneMode::Rotate;
             calculateSelectedFiguresCenter();
+        }
+        break;
+    case SceneMode::Scale:
+        lastMode = mode;
+        if (mode == SceneMode::Scale)
+        {
+            mode = SceneMode::Default;
+        }
+        else
+        {
+            mode = SceneMode::Scale;
+            lastMousePosition = GlobalManager::getInstance()->mousePosition;
+            calculateSelectedFiguresCenter();
+            fixatedAxis = {1, 1};
         }
         break;
     case Key::CTRL:
@@ -231,15 +259,21 @@ void Scene::calculateSelectedFiguresCenter()
         mean.z += selectedFigures[i]->center.z;
     }
 
-    rotationCenter = {mean.x / size, mean.y / size, mean.z / size};
+    selectionCenter = {mean.x / size, mean.y / size, mean.z / size};
 }
 
 void Scene::render()
 {
+    color(1, 1, 1, 1);
     if (tmpVertices.size() > 0 && mode == SceneMode::Insert)
         renderPolygonInsertion();
 
     renderCurrentMode();
+
+    if (mode == SceneMode::Rotate || mode == SceneMode::Scale)
+    {
+        line(selectionCenter.x, selectionCenter.y, currentMousePosition.x, currentMousePosition.y);
+    }
 }
 
 void Scene::renderPolygonInsertion()
@@ -279,12 +313,22 @@ void Scene::renderCurrentMode()
         text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Translation");
         text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Translate selected figures");
         text(20, *GlobalManager::getInstance()->screenHeight - 35, "T Key: finish translation");
+        text(20, *GlobalManager::getInstance()->screenHeight - 47, "X Key: Fixate x axis");
+        text(20, *GlobalManager::getInstance()->screenHeight - 59, "Y Key: Fixate y axis");
         break;
     case SceneMode::Rotate:
         color(1, 1, 1);
         text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Rotation");
         text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Rotate selected figures");
         text(20, *GlobalManager::getInstance()->screenHeight - 35, "R Key: finish rotation");
+        break;
+    case SceneMode::Scale:
+        color(1, 1, 1);
+        text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Scaling");
+        text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Scale selected figures");
+        text(20, *GlobalManager::getInstance()->screenHeight - 35, "S Key: finish scaling");
+        text(20, *GlobalManager::getInstance()->screenHeight - 47, "X Key: Fixate x axis");
+        text(20, *GlobalManager::getInstance()->screenHeight - 59, "Y Key: Fixate y axis");
         break;
     default:
         break;

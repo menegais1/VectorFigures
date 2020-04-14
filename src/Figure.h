@@ -29,6 +29,7 @@ public:
 
     void translate(Float3 translationAmount);
     void rotation(float angle, Float3 center);
+    void rescale(Float2 scale, Float3 center);
 
 private:
     FigureType figureType;

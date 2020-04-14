@@ -43,6 +43,7 @@ void Figure::translate(Float3 translationAmount)
         vertices[i].y += translationAmount.y;
         vertices[i].z += translationAmount.z;
     }
+    calculateCenter();
 }
 
 void Figure::rotation(float angle, Float3 center)
@@ -60,6 +61,21 @@ void Figure::rotation(float angle, Float3 center)
         calculateCenter();
 }
 
+void Figure::rescale(Float2 scale, Float3 center)
+{
+    std::cout << scale.x << std::endl;
+    translate({-center.x, -center.y, 0});
+    for (int i = 0; i < vertices.size(); i++)
+    {
+        float x = vertices[i].x * (scale.x + 1);
+        float y = vertices[i].y * (scale.y + 1);
+        vertices[i].x = x;
+        vertices[i].y = y;
+    }
+    translate({center.x, center.y, 0});
+    if (center.x != this->center.x || center.y != this->center.y)
+        calculateCenter();
+}
 Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices)
 {
     this->backgroundColor = backgroundColor;

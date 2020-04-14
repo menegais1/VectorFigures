@@ -45,3 +45,7 @@ float Float2::length()
 {
     return std::sqrt(x * x + y * y);
 }
+float Float3::length()
+{
+    return std::sqrt(x * x + y * y + z * z);
+}
