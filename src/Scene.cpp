@@ -365,4 +365,5 @@ Scene::Scene()
 {
     mode = lastMode = SceneMode::Default;
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.6};
+    setZIndex(100);
 }

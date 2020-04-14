@@ -51,6 +51,7 @@ void GlobalManager::mouse(int button, int state, int wheel, int direction, int x
 }
 void GlobalManager::render()
 {
+    std::cout << objects.size() << std::endl;
     for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
     {
         if (!objects[i]->checkIfCanExecuteCallback())
@@ -61,13 +62,14 @@ void GlobalManager::render()
 int GlobalManager::registerObject(CanvasObject *object)
 {
     std::cout << "teste" << std::endl;
-    if (objects.size() == 0)
+    int size = objects.size();
+    if (size == 0)
     {
         objects.push_back(object);
     }
     else
     {
-        for (int i = 0; i < objects.size(); i++)
+        for (int i = 0; i < size; i++)
         {
             if (objects[i]->getZIndex() <= object->getZIndex())
             {
@@ -75,6 +77,8 @@ int GlobalManager::registerObject(CanvasObject *object)
                 break;
             }
         }
+        if (size == objects.size())
+            objects.push_back(object);
     }
     return objectIdCounter++;
 }
