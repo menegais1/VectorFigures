@@ -3,8 +3,10 @@
 
 #include <vector>
 #include "Base/CanvasObject.h"
+#include "Base/ITransformable.h"
 #include "Vectors/Float2.h"
 #include "Vectors/Float4.h"
+#include "Bounds.h"
 
 enum FigureType
 {
@@ -14,12 +16,12 @@ enum FigureType
     Polygon = 3
 };
 
-class Figure : public CanvasObject
+class Figure : public CanvasObject, public ITransformable
 {
 public:
     Float3 backgroundColor;
     Float3 lineColor;
-    Float3 center;
+    Bounds bounds;
     std::vector<Float3> vertices;
 
     bool isSelected;
@@ -27,14 +29,14 @@ public:
 
     void render() override;
     Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices);
-
-    void translate(Float3 translationAmount);
-    void rotation(float angle, Float3 center);
-    void rescale(Float2 scale, Float3 center);
+    Float3 getCenter();
+    void translate(Float3 translationAmount) override;
+    void rotate(float angle, Float3 center) override;
+    void rescale(Float3 scale, Float3 center) override;
 
 private:
     FigureType figureType;
-    void calculateCenter();
+    void initializeBounds();
 };
 
 #endif

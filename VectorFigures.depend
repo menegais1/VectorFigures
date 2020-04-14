@@ -124,7 +124,7 @@
 	"../Vectors/Float2.h"
 	"../Vectors/Float3.h"
 
-1586886359 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1586886741 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
 	<vector>
 	<cstdlib>
@@ -149,7 +149,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1586886577 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1586892675 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -157,12 +157,15 @@
 	"Vectors/Float4.h"
 	"Canvas/gl_canvas2d.h"
 	"Figure.h"
+	"Bounds.h"
 
-1586886564 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1586892506 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
+	"Base/ITransformable.h"
 	"Vectors/Float2.h"
 	"Vectors/Float4.h"
+	"Bounds.h"
 
 1586886626 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
@@ -171,7 +174,7 @@
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1586886345 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586892649 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -200,7 +203,7 @@
 
 1586885806 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
 
-1586885815 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
+1586891353 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
 	"Float2.h"
 
 1586885832 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h
@@ -210,7 +213,7 @@
 	"Float2.h"
 	<cmath>
 
-1586885789 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
+1586891380 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
 	"Float3.h"
 	"Float2.h"
 	<cmath>
@@ -218,5 +221,18 @@
 1586885773 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp
 	"Float3.h"
 	"Float4.h"
+	<cmath>
+
+1586892793 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/ITransformable.h
+	"../Vectors/Float3.h"
+
+1586892614 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.h
+	"Base/ITransformable.h"
+	"Vectors/Float3.h"
+	<vector>
+
+1586892884 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp
+	"Bounds.h"
+	"Vectors/Float3.h"
 	<cmath>
 

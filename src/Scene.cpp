@@ -53,7 +53,7 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
         float scale = scale1.length() - scale2.length();
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y}, selectionCenter);
+            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y,0}, selectionCenter);
         }
     }
 
@@ -74,7 +74,7 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
         float angle = std::acos(dot);
         for (int i = 0; i < selectedFigures.size(); i++)
         {
-            selectedFigures[i]->rotation(angle * direction, selectionCenter);
+            selectedFigures[i]->rotate(angle * direction, selectionCenter);
         }
     }
     lastMousePosition = currentMousePosition;
@@ -257,9 +257,9 @@ void Scene::calculateSelectedFiguresCenter()
     int size = selectedFigures.size();
     for (int i = 0; i < size; i++)
     {
-        mean.x += selectedFigures[i]->center.x;
-        mean.y += selectedFigures[i]->center.y;
-        mean.z += selectedFigures[i]->center.z;
+        mean.x += selectedFigures[i]->getCenter().x;
+        mean.y += selectedFigures[i]->getCenter().y;
+        mean.z += selectedFigures[i]->getCenter().z;
     }
 
     selectionCenter = {mean.x / size, mean.y / size, mean.z / size};

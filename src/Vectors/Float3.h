@@ -13,8 +13,10 @@ public:
     Float3(Float2, float);
     Float3(float, float, float);
     Float3();
-    Float3 operator+(const Float3 &);
-    Float3 operator*(const float);
+    Float3 operator+(const Float3 &) const;
+    Float3 operator-(const Float3 &) const;
+    Float3 operator-() const;
+    Float3 operator*(const float)const;
 };
 
 #endif

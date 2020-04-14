@@ -1,6 +1,8 @@
 #ifndef ITRANSFORMABLE_H
 #define ITRANSFORMABLE_H
 
+#include "../Vectors/Float3.h"
+
 class ITransformable
 {
 public:

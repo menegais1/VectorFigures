@@ -25,13 +25,25 @@ Float3::Float3() : x(0), y(0), z(0)
 {
 }
 
-Float3 Float3::operator+(const Float3 &v2)
+Float3 Float3::operator+(const Float3 &v2) const
 {
     Float3 res(x + v2.x, y + v2.y, z + v2.z);
     return res;
 }
 
-Float3 Float3::operator*(const float scalar)
+Float3 Float3::operator-(const Float3 &v2) const
+{
+    Float3 res(x - v2.x, y - v2.y, z - v2.z);
+    return res;
+}
+
+Float3 Float3::operator-() const
+{
+    Float3 res(-x, -y, -z);
+    return res;
+}
+
+Float3 Float3::operator*(const float scalar) const
 {
     Float3 res(x * scalar, y * scalar, z * scalar);
     return res;
