@@ -52,6 +52,9 @@
 		<Unit filename="include/GL/glut.h" />
 		<Unit filename="src/Canvas/gl_canvas2d.cpp" />
 		<Unit filename="src/Canvas/gl_canvas2d.h" />
+		<Unit filename="src/Vectors/Float4.h" />
+		<Unit filename="src/Vectors/Float2.h" />
+		<Unit filename="src/Vectors/Float3.h" />
 		<Unit filename="src/Utilities.h" />
 		<Unit filename="src/Label/Label.h" />
 		<Unit filename="src/Slider/Slider.h" />
@@ -60,9 +63,13 @@
 		<Unit filename="src/Base/IRender.h" />
 		<Unit filename="src/Base/IMouse.h" />
 		<Unit filename="src/Base/IKeyboard.h" />
+		<Unit filename="src/Base/ITransformable.h" />
 		<Unit filename="src/Base/CanvasObject.h" />
 		<Unit filename="src/Base/CanvasObject.cpp" />
 		<Unit filename="src/Managers/GlobalManager.h" />
+		<Unit filename="src/Vectors/Float4.cpp" />
+		<Unit filename="src/Vectors/Float2.cpp" />
+		<Unit filename="src/Vectors/Float3.cpp" />
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Label/Label.cpp" />

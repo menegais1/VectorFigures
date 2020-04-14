@@ -8,7 +8,9 @@
 
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
-#include "../Utilities.h"
+#include "../Vectors/Float2.h"
+#include "../Vectors/Float3.h"
+#include "../Vectors/Float4.h"
 #define PI_2 6.28318530717958
 
 #define Y_CANVAS_CRESCE_PARA_CIMA 1

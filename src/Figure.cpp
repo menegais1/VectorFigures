@@ -2,7 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
-#include "Utilities.h"
+#include "Vectors/Float2.h"
+#include "Vectors/Float4.h"
 #include "Canvas/gl_canvas2d.h"
 #include "Figure.h"
 void Figure::render()

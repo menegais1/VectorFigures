@@ -3,6 +3,8 @@
 #include "../Canvas/gl_canvas2d.h"
 #include <cstdlib>
 #include <iostream>
+#include "../Vectors/Float2.h"
+#include "../Vectors/Float3.h"
 
 Slider::Slider(Float3 position, Float3 scale, Float3 backgroundColor, float handleSize, Float3 handleColor) : CanvasObject()
 {
@@ -35,7 +37,7 @@ void Slider::mouse(int button, int state, int wheel, int direction, int x, int y
 {
     bool isPointInside = isPointInsideBounds({x, y}, {handlePosition.x - handleSize, handlePosition.y - handleSize}, {handleSize * 2, handleSize * 2});
     if ((state == MouseState::Down && button == MouseButton::Left && isPointInside) ||
-            state == MouseState::Up)
+        state == MouseState::Up)
     {
         this->lastMouseState = state;
         isDragging = false;

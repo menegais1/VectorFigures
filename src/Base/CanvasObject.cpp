@@ -2,6 +2,7 @@
 #include "../Managers/GlobalManager.h"
 #include "../Utilities.h"
 #include <iostream>
+#include "../Vectors/Float3.h"
 
 void CanvasObject::keyboard(int key)
 {
@@ -53,7 +54,7 @@ CanvasObject::CanvasObject()
     objectId = GlobalManager::getInstance()->registerObject(this);
     isActive = true;
     lastActiveState = true;
-    position = {0, 0};
-    scale = {1, 1};
+    position = {0, 0, 0};
+    scale = {1, 1, 1};
     zIndex = 0;
 }

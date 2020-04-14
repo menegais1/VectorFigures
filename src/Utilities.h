@@ -4,6 +4,9 @@
 #define UTILITIES_H
 
 #include <vector>
+#include "Vectors/Float2.h"
+#include "Vectors/Float3.h"
+#include "Vectors/Float4.h"
 enum Channel
 {
     Red = 0,
@@ -39,31 +42,6 @@ typedef struct int2
     int x;
     int y;
 } Int2;
-
-typedef struct float2
-{
-    float x;
-    float y;
-
-    float length();
-} Float2;
-
-typedef struct float3
-{
-    float x;
-    float y;
-    float z;
-    float length();
-
-} Float3;
-
-typedef struct float4
-{
-    float x;
-    float y;
-    float z;
-    float w;
-} Float4;
 
 bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
 

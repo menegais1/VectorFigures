@@ -7,6 +7,9 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include "Vectors/Float2.h"
+#include "Vectors/Float3.h"
+#include "Vectors/Float4.h"
 
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {

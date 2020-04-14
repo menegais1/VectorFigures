@@ -5,6 +5,7 @@
 #include "IMouse.h"
 #include "IKeyboard.h"
 #include "IRender.h"
+#include "../Vectors/Float3.h"
 class CanvasObject : public IRender, public IKeyboard, public IMouse
 {
 public:

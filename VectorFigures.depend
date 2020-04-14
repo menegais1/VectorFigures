@@ -1,15 +1,17 @@
 # depslib dependency file v1.0
-1586555174 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
+1586886538 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
 	"CanvasObject.h"
 	"../Managers/GlobalManager.h"
 	"../Utilities.h"
 	<iostream>
+	"../Vectors/Float3.h"
 
-1586555157 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
+1586886500 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
 	"../Utilities.h"
 	"IMouse.h"
 	"IKeyboard.h"
 	"IRender.h"
+	"../Vectors/Float3.h"
 
 1586442313 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IMouse.h
 
@@ -17,8 +19,11 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
 
-1586872468 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+1586886397 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
 	<vector>
+	"Vectors/Float2.h"
+	"Vectors/Float3.h"
+	"Vectors/Float4.h"
 
 1586827693 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
 	<vector>
@@ -41,14 +46,16 @@
 	<functional>
 	"../Vector4.h"
 
-1586479203 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
+1586886554 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<string.h>
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
-	"../Utilities.h"
+	"../Vectors/Float2.h"
+	"../Vectors/Float3.h"
+	"../Vectors/Float4.h"
 
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/glut.h
 	"freeglut_std.h"
@@ -77,11 +84,12 @@
 	"string"
 	"../Canvas/gl_canvas2d.h"
 
-1586476811 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.h
+1586886596 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.h
 	"../Base/CanvasObject.h"
+	"../Vectors/Float3.h"
 	"string"
 
-1586874962 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
+1586875109 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
 	<vector>
 	"../Base/CanvasObject.h"
 	"GlobalManager.h"
@@ -99,24 +107,31 @@
 	<vector>
 	"../Vector4.h"
 
-1586476844 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
+1586886651 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
 	"Slider.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
 	<cstdlib>
 	<iostream>
+	"../Vectors/Float2.h"
+	"../Vectors/Float3.h"
 
-1586476834 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h
+1586886639 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h
 	"../Base/CanvasObject.h"
 	"../Utilities.h"
 	<functional>
 	<vector>
+	"../Vectors/Float2.h"
+	"../Vectors/Float3.h"
 
-1586872487 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1586886359 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
 	<vector>
 	<cstdlib>
 	<cmath>
+	"Vectors/Float2.h"
+	"Vectors/Float3.h"
+	"Vectors/Float4.h"
 
 1586554265 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
 	<GL/glut.h>
@@ -134,25 +149,29 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1586873750 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1586886577 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
-	"Utilities.h"
+	"Vectors/Float2.h"
+	"Vectors/Float4.h"
 	"Canvas/gl_canvas2d.h"
 	"Figure.h"
 
-1586871708 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1586886564 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
-	"Utilities.h"
+	"Vectors/Float2.h"
+	"Vectors/Float4.h"
 
-1586871345 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586886626 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
+	"Vectors/Float3.h"
+	"Vectors/Float4.h"
 
-1586874998 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586886345 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -161,5 +180,43 @@
 	"Label/Label.h"
 	<iostream>
 	<algorithm>
+	<cmath>
+	"Vectors/Float2.h"
+	"Vectors/Float3.h"
+	"Vectors/Float4.h"
+
+1586885494 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Float4.h
+	"Float3.h"
+	"Utilities.h"
+
+1586884511 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Float3.h
+
+1586884508 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Float2.h
+
+1586884946 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Float4.cpp
+	"Float3.h"
+	"Float4.h"
+	<cmath>
+
+1586885806 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
+
+1586885815 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
+	"Float2.h"
+
+1586885832 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h
+	"Float3.h"
+
+1586886701 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
+	"Float2.h"
+	<cmath>
+
+1586885789 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
+	"Float3.h"
+	"Float2.h"
+	<cmath>
+
+1586885773 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp
+	"Float3.h"
+	"Float4.h"
 	<cmath>
 

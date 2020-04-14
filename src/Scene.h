@@ -4,6 +4,8 @@
 #include <vector>
 #include "Figure.h"
 #include "Label/Label.h"
+#include "Vectors/Float3.h"
+#include "Vectors/Float4.h"
 
 enum Key
 {

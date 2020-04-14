@@ -3,7 +3,8 @@
 
 #include <vector>
 #include "Base/CanvasObject.h"
-#include "Utilities.h"
+#include "Vectors/Float2.h"
+#include "Vectors/Float4.h"
 
 enum FigureType
 {

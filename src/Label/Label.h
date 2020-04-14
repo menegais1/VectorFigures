@@ -4,6 +4,7 @@
 #define LABEL_H
 
 #include "../Base/CanvasObject.h"
+#include "../Vectors/Float3.h"
 #include "string"
 class Label : public CanvasObject
 {

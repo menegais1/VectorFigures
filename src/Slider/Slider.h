@@ -12,6 +12,9 @@
 #include "../Utilities.h"
 #include <functional>
 #include <vector>
+#include "../Vectors/Float2.h"
+#include "../Vectors/Float3.h"
+
 class Slider : public CanvasObject
 {
 public:
