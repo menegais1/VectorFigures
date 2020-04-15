@@ -14,68 +14,23 @@
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
     currentMousePosition = {x, y};
-    if (mode == SceneMode::Insert)
+    switch (mode)
     {
-        if (leftMouseDown(button, state))
-        {
-            tmpVertices.push_back({x, y, 0});
-        }
-    }
-    if (mode == SceneMode::Default)
-    {
-        bool isLeftMouseClicked = leftMouseDown(button, state);
-        if (!isLeftMouseClicked)
-            return;
-        if (multipleSelect)
-        {
-            multipleSelection(x, y);
-        }
-        else
-        {
-            singleSelection(x, y);
-        }
-    }
-    if (mode == SceneMode::Translate)
-    {
-        Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
-
-        for (int i = 0; i < selectedFigures.size(); i++)
-        {
-            selectedFigures[i]->translate({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, translation.z});
-        }
-    }
-
-    if (mode == SceneMode::Scale)
-    {
-        Float3 scale1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y, 0};
-        Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
-
-        float scale = scale1.length() - scale2.length();
-        for (int i = 0; i < selectedFigures.size(); i++)
-        {
-            selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
-        }
-    }
-
-    if (mode == SceneMode::Rotate)
-    {
-        Float2 vector1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y};
-        Float2 vector2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y};
-        float length = vector1.length();
-        vector1 = {vector1.x / length, vector1.y / length};
-        length = vector2.length();
-        vector2 = {vector2.x / length, vector2.y / length};
-        float direction = vector1.x * vector2.y - vector1.y * vector2.x;
-        direction = direction > 0 ? -1 : 1;
-        std::cout << vector1.x << " " << vector1.y << std::endl;
-        std::cout << vector2.x << " " << vector2.y << std::endl;
-        float dot = vector1.x * vector2.x + vector1.y * vector2.y;
-        dot = dot > 1 ? 1 : dot;
-        float angle = std::acos(dot);
-        for (int i = 0; i < selectedFigures.size(); i++)
-        {
-            selectedFigures[i]->rotate(angle * direction, selectionCenter);
-        }
+    case SceneMode::Insert:
+        handleInsertMode(button, state);
+        break;
+    case SceneMode::Translate:
+        handleTranslateMode();
+        break;
+    case SceneMode::Rotate:
+        handleRotateMode();
+        break;
+    case SceneMode::Scale:
+        handleScaleMode();
+        break;
+    case SceneMode::Default:
+        handleDefaultMode(button, state);
+        break;
     }
     lastMousePosition = currentMousePosition;
 }
@@ -171,61 +126,43 @@ void Scene::keyboard(int key)
 void Scene::keyboardUp(int key)
 {
     std::cout << key << std::endl;
-    switch (key)
+    handleSceneMode(static_cast<SceneMode>(key));
+    handleSceneOperator(static_cast<Operator>(key));
+}
+
+void Scene::handleSceneMode(SceneMode sceneMode)
+{
+    switch (sceneMode)
     {
     case SceneMode::Insert:
-        mode = SceneMode::Insert;
-        tmpVertices.clear();
+        setInsertMode();
         break;
     case SceneMode::Translate:
-        lastMode = mode;
-        if (mode == SceneMode::Translate)
-        {
-            mode = SceneMode::Default;
-        }
-        else
-        {
-            mode = SceneMode::Translate;
-            lastMousePosition = GlobalManager::getInstance()->mousePosition;
-            fixatedAxis = {1, 1};
-        }
+        setTranslateMode();
         break;
     case SceneMode::Rotate:
-        lastMode = mode;
-        if (mode == SceneMode::Rotate)
-        {
-            mode = SceneMode::Default;
-        }
-        else
-        {
-            mode = SceneMode::Rotate;
-            calculateSelectedFiguresCenter();
-        }
+        setRotateMode();
         break;
     case SceneMode::Scale:
-        lastMode = mode;
-        if (mode == SceneMode::Scale)
-        {
-            mode = SceneMode::Default;
-        }
-        else
-        {
-            mode = SceneMode::Scale;
-            lastMousePosition = GlobalManager::getInstance()->mousePosition;
-            calculateSelectedFiguresCenter();
-            fixatedAxis = {1, 1};
-        }
+        setScaleMode();
         break;
-    case Key::CTRL:
+    }
+}
+
+void Scene::handleSceneOperator(Operator op)
+{
+    switch (op)
+    {
+    case Operator::MultipleSelect:
         multipleSelect = false;
         break;
-    case Key::LeftArrow:
+    case Operator::SendToBack:
         sendToBack();
         break;
-    case Key::RightArrow:
+    case Operator::SendToFront:
         sendToFront();
         break;
-    case Key::Enter:
+    case Operator::InsertPolygon:
         if (mode == SceneMode::Insert)
         {
             insertNewFigure();
@@ -233,17 +170,16 @@ void Scene::keyboardUp(int key)
             mode = SceneMode::Default;
         }
         break;
-    case Key::y:
+    case Operator::FixY:
         fixatedAxis = {0, 1};
         break;
-    case Key::x:
+    case Operator::FixX:
         fixatedAxis = {1, 0};
         break;
-    case Key::b:
+    case Operator::RenderBounds:
         drawBounds = !drawBounds;
         drawPolygonBounds();
     default:
-
         break;
     }
 }
@@ -375,4 +311,118 @@ Scene::Scene()
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.6};
     setZIndex(100);
     drawBounds = false;
+}
+
+void Scene::setInsertMode()
+{
+    lastMode = mode;
+    mode = SceneMode::Insert;
+    tmpVertices.clear();
+}
+
+void Scene::setTranslateMode()
+{
+    lastMode = mode;
+    if (mode == SceneMode::Translate)
+    {
+        mode = SceneMode::Default;
+    }
+    else
+    {
+        mode = SceneMode::Translate;
+        lastMousePosition = GlobalManager::getInstance()->mousePosition;
+        fixatedAxis = {1, 1};
+    }
+}
+
+void Scene::setScaleMode()
+{
+    lastMode = mode;
+    if (mode == SceneMode::Scale)
+    {
+        mode = SceneMode::Default;
+    }
+    else
+    {
+        mode = SceneMode::Scale;
+        lastMousePosition = GlobalManager::getInstance()->mousePosition;
+        calculateSelectedFiguresCenter();
+        fixatedAxis = {1, 1};
+    }
+}
+void Scene::setRotateMode()
+{
+    lastMode = mode;
+    if (mode == SceneMode::Rotate)
+    {
+        mode = SceneMode::Default;
+    }
+    else
+    {
+        mode = SceneMode::Rotate;
+        calculateSelectedFiguresCenter();
+    }
+}
+void Scene::setDefaultMode()
+{
+}
+
+void Scene::handleInsertMode(int button, int state)
+{
+    if (leftMouseDown(button, state))
+    {
+        tmpVertices.push_back({currentMousePosition.x, currentMousePosition.y, 0});
+    }
+}
+void Scene::handleTranslateMode()
+{
+    Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
+
+    for (int i = 0; i < selectedFigures.size(); i++)
+    {
+        selectedFigures[i]->translate({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, translation.z});
+    }
+}
+void Scene::handleScaleMode()
+{
+    Float3 scale1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y, 0};
+    Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
+
+    float scale = scale1.length() - scale2.length();
+    for (int i = 0; i < selectedFigures.size(); i++)
+    {
+        selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
+    }
+}
+void Scene::handleRotateMode()
+{
+    Float2 vector1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y};
+    Float2 vector2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y};
+    float length = vector1.length();
+    vector1 = {vector1.x / length, vector1.y / length};
+    length = vector2.length();
+    vector2 = {vector2.x / length, vector2.y / length};
+    float direction = vector1.x * vector2.y - vector1.y * vector2.x;
+    direction = direction > 0 ? -1 : 1;
+    float dot = vector1.x * vector2.x + vector1.y * vector2.y;
+    dot = dot > 1 ? 1 : dot;
+    float angle = std::acos(dot);
+    for (int i = 0; i < selectedFigures.size(); i++)
+    {
+        selectedFigures[i]->rotate(angle * direction, selectionCenter);
+    }
+}
+void Scene::handleDefaultMode(int button, int state)
+{
+    bool isLeftMouseClicked = leftMouseDown(button, state);
+    if (!isLeftMouseClicked)
+        return;
+    if (multipleSelect)
+    {
+        multipleSelection(currentMousePosition.x, currentMousePosition.y);
+    }
+    else
+    {
+        singleSelection(currentMousePosition.x, currentMousePosition.y);
+    }
 }

@@ -7,15 +7,15 @@
 #include "Vectors/Float3.h"
 #include "Vectors/Float4.h"
 
-enum Key
+enum Operator
 {
-    Enter = 13,
-    LeftArrow = 200,
-    RightArrow = 202,
-    CTRL = 214,
-    x = 120,
-    y = 121,
-    b = 98
+    InsertPolygon = 13,
+    SendToBack = 200,
+    SendToFront = 202,
+    MultipleSelect = 214,
+    FixX = 'x',
+    FixY = 'y',
+    RenderBounds = 'b'
 };
 
 enum SceneMode
@@ -40,15 +40,16 @@ public:
 
 private:
     std::vector<Float3> tmpVertices;
-    Float4 highlightColor;
     int mode;
     int lastMode;
+    Float4 highlightColor;
     Float2 lastMousePosition;
     Float3 selectionCenter;
     Float2 currentMousePosition;
     Float2 fixatedAxis;
     bool multipleSelect;
     bool drawBounds;
+
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();
@@ -60,6 +61,21 @@ private:
     void calculateSelectedFiguresCenter();
     void addFigure(std::vector<Figure *> &figures, Figure *figure);
     void changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure);
+
+    void handleSceneMode(SceneMode sceneMode);
+    void handleSceneOperator(Operator op);
+    //Scene Mode handle
+    void setInsertMode();
+    void setTranslateMode();
+    void setScaleMode();
+    void setRotateMode();
+    void setDefaultMode();
+
+    void handleInsertMode(int button,int state);
+    void handleTranslateMode();
+    void handleScaleMode();
+    void handleRotateMode();
+    void handleDefaultMode(int button,int state);
     //Components
 };
 
