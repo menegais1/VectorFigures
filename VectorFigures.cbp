@@ -58,6 +58,7 @@
 		<Unit filename="src/Utilities.h" />
 		<Unit filename="src/Label/Label.h" />
 		<Unit filename="src/Slider/Slider.h" />
+		<Unit filename="src/FigureListManager.h" />
 		<Unit filename="src/Bounds.h" />
 		<Unit filename="src/Figure.h" />
 		<Unit filename="src/Scene.h" />
@@ -71,6 +72,7 @@
 		<Unit filename="src/Vectors/Float4.cpp" />
 		<Unit filename="src/Vectors/Float2.cpp" />
 		<Unit filename="src/Vectors/Float3.cpp" />
+		<Unit filename="src/FigureListManager.cpp" />
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Bounds.cpp" />

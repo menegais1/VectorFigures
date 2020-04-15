@@ -6,6 +6,7 @@
 #include "Label/Label.h"
 #include "Vectors/Float3.h"
 #include "Vectors/Float4.h"
+#include "FigureListManager.h"
 
 enum Operator
 {
@@ -31,8 +32,6 @@ enum SceneMode
 class Scene : public CanvasObject
 {
 public:
-    std::vector<Figure *> figures;
-    std::vector<Figure *> selectedFigures;
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void keyboardUp(int key) override;
     void keyboard(int key) override;
@@ -40,6 +39,7 @@ public:
     Scene();
 
 private:
+    FigureListManager figureListManager;
     std::vector<Float3> tmpVertices;
     int mode;
     int lastMode;
@@ -54,16 +54,11 @@ private:
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();
-    void deleteSelectedFigures();
-    void removeFigure(std::vector<Figure *> &figures, Figure *figure);
     void singleSelection(int x, int y);
     void multipleSelection(int x, int y);
     void sendToBack();
     void sendToFront();
     void drawPolygonBounds();
-    void calculateSelectedFiguresCenter();
-    void addFigure(std::vector<Figure *> &figures, Figure *figure);
-    void changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure);
 
     void handleSceneMode(SceneMode sceneMode);
     void handleSceneOperator(Operator op);

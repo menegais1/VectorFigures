@@ -19,7 +19,7 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
 
-1586886397 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+1586973717 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
 	<vector>
 	"Vectors/Float2.h"
 	"Vectors/Float3.h"
@@ -124,7 +124,7 @@
 	"../Vectors/Float2.h"
 	"../Vectors/Float3.h"
 
-1586886741 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1586973710 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
 	<vector>
 	<cstdlib>
@@ -167,14 +167,15 @@
 	"Vectors/Float4.h"
 	"Bounds.h"
 
-1586966673 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586974066 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
+	"FigureListManager.h"
 
-1586917044 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586975092 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -235,4 +236,15 @@
 	"Bounds.h"
 	"Vectors/Float3.h"
 	<cmath>
+
+1586975933 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp
+	<vector>
+	<iostream>
+	<algorithm>
+	"Figure.h"
+	"FigureListManager.h"
+
+1586975896 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h
+	<vector>
+	"Figure.h"
 

@@ -37,37 +37,25 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 
 void Scene::singleSelection(int x, int y)
 {
-    selectedFigures.clear();
-    for (int i = 0; i < figures.size(); i++)
+    figureListManager.clearSelectedFigures();
+    Figure *fig = figureListManager.getFirstInteractedFigure({x, y});
+    if (fig != nullptr)
     {
-        figures[i]->isSelected = false;
-    }
-    for (int i = 0; i < figures.size(); i++)
-    {
-        std::cout << figures[i] << std::endl;
-        if (isPointInsidePolygon({x, y, 0}, figures[i]->vertices, figures[i]->vertices.size() - 1))
-        {
-            figures[i]->isSelected = true;
-            selectedFigures.push_back(figures[i]);
-            return;
-        }
+        figureListManager.selectFigure(fig);
     }
 }
 
 void Scene::multipleSelection(int x, int y)
 {
-    bool someFigureWasClicked = false;
-    for (int i = 0; i < figures.size(); i++)
+    Figure *fig = figureListManager.getFirstInteractedFigure({x, y});
+    if (fig != nullptr)
     {
-        if (isPointInsidePolygon({x, y, 0}, figures[i]->vertices, figures[i]->vertices.size() - 1))
-        {
-            figures[i]->isSelected = true;
-            selectedFigures.push_back(figures[i]);
-            someFigureWasClicked = true;
-        }
+        figureListManager.selectFigure(fig);
     }
-    if (!someFigureWasClicked)
-        selectedFigures.clear();
+    else
+    {
+        figureListManager.clearSelectedFigures();
+    }
 }
 
 void Scene::insertNewFigure()
@@ -78,65 +66,9 @@ void Scene::insertNewFigure()
     Float3 lineColor = {0, 1, 0};
     tmpVertices.push_back(tmpVertices[0]);
     Figure *fig = new Figure(backgroundColor, lineColor, highlightColor, tmpVertices);
-    fig->setZIndex(figures.size());
+    fig->setZIndex(0);
     fig->drawBounds = drawBounds;
-    addFigure(figures, fig);
-}
-
-void Scene::deleteSelectedFigures()
-{
-    if (selectedFigures.size() == 0)
-        return;
-    for (int i = 0; i < selectedFigures.size(); i++)
-    {
-        Figure *fig = selectedFigures[i];
-        removeFigure(figures, fig);
-        delete fig;
-    }
-
-    selectedFigures.clear();
-    std::cout << figures.size() << std::endl;
-}
-
-void Scene::removeFigure(std::vector<Figure *> &figures, Figure *figure)
-{
-    auto iterator = std::find(figures.begin(), figures.end(), figure);
-    if (iterator != figures.cend())
-    {
-        figures.erase(iterator);
-    }
-}
-
-void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
-{
-    int size = figures.size();
-    if (size == 0)
-    {
-        figures.push_back(figure);
-    }
-    else
-    {
-        for (int i = 0; i < size; i++)
-        {
-            if (figures[i]->getZIndex() <= figure->getZIndex())
-            {
-                figures.insert(figures.begin() + i, figure);
-                break;
-            }
-        }
-        if (size == figures.size())
-            figures.push_back(figure);
-    }
-}
-
-void Scene::changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure)
-{
-    auto iterator = std::find(figures.begin(), figures.end(), figure);
-    if (iterator != figures.cend())
-    {
-        figures.erase(iterator);
-        addFigure(figures, figure);
-    }
+    figureListManager.addFigure(fig);
 }
 
 void Scene::keyboard(int key)
@@ -205,7 +137,7 @@ void Scene::handleSceneOperator(Operator op)
         drawPolygonBounds();
         break;
     case Operator::DeleteSelected:
-        deleteSelectedFigures();
+        figureListManager.deleteSelectedFigures();
     default:
         break;
     }
@@ -213,24 +145,7 @@ void Scene::handleSceneOperator(Operator op)
 
 void Scene::drawPolygonBounds()
 {
-    for (int i = 0; i < figures.size(); i++)
-    {
-        figures[i]->drawBounds = drawBounds;
-    }
-}
-
-void Scene::calculateSelectedFiguresCenter()
-{
-    Float3 mean = {0, 0, 0};
-    int size = selectedFigures.size();
-    for (int i = 0; i < size; i++)
-    {
-        mean.x += selectedFigures[i]->getCenter().x;
-        mean.y += selectedFigures[i]->getCenter().y;
-        mean.z += selectedFigures[i]->getCenter().z;
-    }
-
-    selectionCenter = {mean.x / size, mean.y / size, mean.z / size};
+    figureListManager.setDrawBounds(drawBounds);
 }
 
 void Scene::render()
@@ -308,28 +223,12 @@ void Scene::renderCurrentMode()
 
 void Scene::sendToBack()
 {
-    if (selectedFigures.size() > 0)
-    {
-        for (int i = 0; i < selectedFigures.size(); i++)
-        {
-            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() - 10);
-            changeFigureZIndex(selectedFigures, selectedFigures[i]);
-            changeFigureZIndex(figures, selectedFigures[i]);
-        }
-    }
+    figureListManager.updateSelectedFiguresZIndex(-10);
 }
 
 void Scene::sendToFront()
 {
-    if (selectedFigures.size() > 0)
-    {
-        for (int i = 0; i < selectedFigures.size(); i++)
-        {
-            selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() + 10);
-            changeFigureZIndex(selectedFigures, selectedFigures[i]);
-            changeFigureZIndex(figures, selectedFigures[i]);
-        }
-    }
+    figureListManager.updateSelectedFiguresZIndex(10);
 }
 
 Scene::Scene()
@@ -373,7 +272,7 @@ void Scene::setScaleMode()
     {
         mode = SceneMode::Scale;
         lastMousePosition = GlobalManager::getInstance()->mousePosition;
-        calculateSelectedFiguresCenter();
+        selectionCenter = figureListManager.calculateSelectedFiguresCenter();
         fixatedAxis = {1, 1};
     }
 }
@@ -387,7 +286,7 @@ void Scene::setRotateMode()
     else
     {
         mode = SceneMode::Rotate;
-        calculateSelectedFiguresCenter();
+        selectionCenter = figureListManager.calculateSelectedFiguresCenter();
     }
 }
 void Scene::setDefaultMode()
@@ -404,11 +303,7 @@ void Scene::handleInsertMode(int button, int state)
 void Scene::handleTranslateMode()
 {
     Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
-
-    for (int i = 0; i < selectedFigures.size(); i++)
-    {
-        selectedFigures[i]->translate({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, translation.z});
-    }
+    figureListManager.translateFigures({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, 0});
 }
 void Scene::handleScaleMode()
 {
@@ -416,10 +311,7 @@ void Scene::handleScaleMode()
     Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
 
     float scale = scale1.length() - scale2.length();
-    for (int i = 0; i < selectedFigures.size(); i++)
-    {
-        selectedFigures[i]->rescale({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
-    }
+    figureListManager.rescaleFigures({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
 }
 void Scene::handleRotateMode()
 {
@@ -434,10 +326,7 @@ void Scene::handleRotateMode()
     float dot = vector1.x * vector2.x + vector1.y * vector2.y;
     dot = dot > 1 ? 1 : dot;
     float angle = std::acos(dot);
-    for (int i = 0; i < selectedFigures.size(); i++)
-    {
-        selectedFigures[i]->rotate(angle * direction, selectionCenter);
-    }
+    figureListManager.rotateFigures(angle * direction, selectionCenter);
 }
 void Scene::handleDefaultMode(int button, int state)
 {
