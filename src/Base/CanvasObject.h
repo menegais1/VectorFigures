@@ -20,6 +20,7 @@ public:
     void setZIndex(int zIndex);
     int getZIndex();
     CanvasObject();
+    ~CanvasObject();
     virtual void setActive(bool isActive);
     bool getActive();
     bool checkIfCanExecuteCallback();

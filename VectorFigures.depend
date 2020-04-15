@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1586886538 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
+1586966553 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp
 	"CanvasObject.h"
 	"../Managers/GlobalManager.h"
 	"../Utilities.h"
 	<iostream>
 	"../Vectors/Float3.h"
 
-1586886500 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
+1586966521 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
 	"../Utilities.h"
 	"IMouse.h"
 	"IKeyboard.h"
@@ -149,7 +149,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1586906698 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1586966621 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -159,7 +159,7 @@
 	"Figure.h"
 	"Bounds.h"
 
-1586906652 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1586966626 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
 	"Base/ITransformable.h"
@@ -167,14 +167,14 @@
 	"Vectors/Float4.h"
 	"Bounds.h"
 
-1586910257 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586966673 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1586907202 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586917044 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"

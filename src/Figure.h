@@ -30,6 +30,7 @@ public:
 
     void render() override;
     Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices);
+    ~Figure() = default;
     Float3 getCenter();
     void translate(Float3 translationAmount) override;
     void rotate(float angle, Float3 center) override;

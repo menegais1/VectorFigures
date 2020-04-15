@@ -15,7 +15,8 @@ enum Operator
     MultipleSelect = 214,
     FixX = 'x',
     FixY = 'y',
-    RenderBounds = 'b'
+    RenderBounds = 'b',
+    DeleteSelected = 127
 };
 
 enum SceneMode
@@ -53,6 +54,8 @@ private:
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();
+    void deleteSelectedFigures();
+    void removeFigure(std::vector<Figure *> &figures, Figure *figure);
     void singleSelection(int x, int y);
     void multipleSelection(int x, int y);
     void sendToBack();
@@ -71,11 +74,11 @@ private:
     void setRotateMode();
     void setDefaultMode();
 
-    void handleInsertMode(int button,int state);
+    void handleInsertMode(int button, int state);
     void handleTranslateMode();
     void handleScaleMode();
     void handleRotateMode();
-    void handleDefaultMode(int button,int state);
+    void handleDefaultMode(int button, int state);
     //Components
 };
 

@@ -58,3 +58,8 @@ CanvasObject::CanvasObject()
     scale = {1, 1, 1};
     zIndex = 0;
 }
+
+CanvasObject::~CanvasObject()
+{
+    GlobalManager::getInstance()->unregisterObject(this);
+}

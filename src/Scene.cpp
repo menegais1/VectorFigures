@@ -83,6 +83,30 @@ void Scene::insertNewFigure()
     addFigure(figures, fig);
 }
 
+void Scene::deleteSelectedFigures()
+{
+    if (selectedFigures.size() == 0)
+        return;
+    for (int i = 0; i < selectedFigures.size(); i++)
+    {
+        Figure *fig = selectedFigures[i];
+        removeFigure(figures, fig);
+        delete fig;
+    }
+
+    selectedFigures.clear();
+    std::cout << figures.size() << std::endl;
+}
+
+void Scene::removeFigure(std::vector<Figure *> &figures, Figure *figure)
+{
+    auto iterator = std::find(figures.begin(), figures.end(), figure);
+    if (iterator != figures.cend())
+    {
+        figures.erase(iterator);
+    }
+}
+
 void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
 {
     int size = figures.size();
@@ -179,6 +203,9 @@ void Scene::handleSceneOperator(Operator op)
     case Operator::RenderBounds:
         drawBounds = !drawBounds;
         drawPolygonBounds();
+        break;
+    case Operator::DeleteSelected:
+        deleteSelectedFigures();
     default:
         break;
     }
