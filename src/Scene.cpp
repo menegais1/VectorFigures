@@ -124,18 +124,20 @@ void Scene::insertNewFigure()
     tmpVertices.push_back(tmpVertices[0]);
     Figure *fig = new Figure(backgroundColor, lineColor, highlightColor, tmpVertices);
     fig->setZIndex(figures.size());
+    fig->drawBounds = drawBounds;
     addFigure(figures, fig);
 }
 
 void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
 {
-    if (figures.size() == 0)
+    int size = figures.size();
+    if (size == 0)
     {
         figures.push_back(figure);
     }
     else
     {
-        for (int i = 0; i < figures.size(); i++)
+        for (int i = 0; i < size; i++)
         {
             if (figures[i]->getZIndex() <= figure->getZIndex())
             {
@@ -143,6 +145,8 @@ void Scene::addFigure(std::vector<Figure *> &figures, Figure *figure)
                 break;
             }
         }
+        if (size == figures.size())
+            figures.push_back(figure);
     }
 }
 
@@ -151,25 +155,8 @@ void Scene::changeFigureZIndex(std::vector<Figure *> &figures, Figure *figure)
     auto iterator = std::find(figures.begin(), figures.end(), figure);
     if (iterator != figures.cend())
     {
-        int index = std::distance(figures.begin(), iterator);
-        if (index + 1 < figures.size() && figures[index + 1]->getZIndex() > figure->getZIndex())
-        {
-            while (index + 1 < figures.size() && figures[index + 1]->getZIndex() > figure->getZIndex())
-            {
-                figures[index] = figures[index + 1];
-                figures[index + 1] = figure;
-                index++;
-            }
-        }
-        else if (index - 1 > -1 && figures[index - 1]->getZIndex() < figure->getZIndex())
-        {
-            while (index - 1 > -1 && figures[index - 1]->getZIndex() < figure->getZIndex())
-            {
-                figures[index] = figures[index - 1];
-                figures[index - 1] = figure;
-                index--;
-            }
-        }
+        figures.erase(iterator);
+        addFigure(figures, figure);
     }
 }
 
@@ -253,6 +240,7 @@ void Scene::keyboardUp(int key)
         fixatedAxis = {1, 0};
         break;
     case Key::b:
+        drawBounds = !drawBounds;
         drawPolygonBounds();
     default:
 
@@ -264,7 +252,7 @@ void Scene::drawPolygonBounds()
 {
     for (int i = 0; i < figures.size(); i++)
     {
-        figures[i]->drawBounds = !figures[i]->drawBounds;
+        figures[i]->drawBounds = drawBounds;
     }
 }
 
@@ -386,4 +374,5 @@ Scene::Scene()
     mode = lastMode = SceneMode::Default;
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.6};
     setZIndex(100);
+    drawBounds = false;
 }

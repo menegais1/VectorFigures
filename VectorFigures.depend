@@ -25,7 +25,7 @@
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1586827693 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
+1586910020 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h
 	<vector>
 	"../Base/CanvasObject.h"
 
@@ -89,7 +89,7 @@
 	"../Vectors/Float3.h"
 	"string"
 
-1586906767 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
+1586907690 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
 	<vector>
 	"../Base/CanvasObject.h"
 	"GlobalManager.h"
@@ -167,14 +167,14 @@
 	"Vectors/Float4.h"
 	"Bounds.h"
 
-1586906944 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1586910257 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1586892649 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586907202 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"

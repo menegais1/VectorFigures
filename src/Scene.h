@@ -48,6 +48,7 @@ private:
     Float2 currentMousePosition;
     Float2 fixatedAxis;
     bool multipleSelect;
+    bool drawBounds;
     void renderPolygonInsertion();
     void renderCurrentMode();
     void insertNewFigure();

@@ -16,17 +16,19 @@ public:
     void mouse(int button, int state, int wheel, int direction, int x, int y);
     void render();
     int registerObject(CanvasObject *object);
-    CanvasObject *unregisterObject(int objectId);
+    CanvasObject *unregisterObject(CanvasObject *object);
     void changeObjectZIndex(CanvasObject *object);
     static GlobalManager *getInstance();
     int *screenWidth;
     int *screenHeight;
     Float2 mousePosition;
+
 private:
     int objectIdCounter;
     static GlobalManager *instance;
     std::vector<CanvasObject *> objects;
     GlobalManager();
+    void addObjectToList(CanvasObject *object);
 };
 
 #endif

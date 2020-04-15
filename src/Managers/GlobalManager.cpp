@@ -60,7 +60,12 @@ void GlobalManager::render()
 }
 int GlobalManager::registerObject(CanvasObject *object)
 {
-    std::cout << "teste" << std::endl;
+    addObjectToList(object);
+    return objectIdCounter++;
+}
+
+void GlobalManager::addObjectToList(CanvasObject *object)
+{
     int size = objects.size();
     if (size == 0)
     {
@@ -79,46 +84,20 @@ int GlobalManager::registerObject(CanvasObject *object)
         if (size == objects.size())
             objects.push_back(object);
     }
-    return objectIdCounter++;
 }
-
 void GlobalManager::changeObjectZIndex(CanvasObject *object)
 {
-    auto start = high_resolution_clock::now();
-
     auto iterator = std::find(objects.begin(), objects.end(), object);
     if (iterator != objects.cend())
     {
-        int index = std::distance(objects.begin(), iterator);
-        if (index + 1 < objects.size() && objects[index + 1]->getZIndex() > object->getZIndex())
-        {
-            while (index + 1 < objects.size() && objects[index + 1]->getZIndex() > object->getZIndex())
-            {
-                objects[index] = objects[index + 1];
-                objects[index + 1] = object;
-                index++;
-            }
-        }
-        else if (index - 1 > -1 && objects[index - 1]->getZIndex() < object->getZIndex())
-        {
-            while (index - 1 > -1 && objects[index - 1]->getZIndex() < object->getZIndex())
-            {
-                objects[index] = objects[index - 1];
-                objects[index - 1] = object;
-                index--;
-            }
-        }
+        objects.erase(iterator);
+        addObjectToList(object);
     }
-
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start);
-    std::cout << "Time taken by function: "
-              << duration.count() << " microseconds" << std::endl;
 }
 
-CanvasObject *GlobalManager::unregisterObject(int objectId)
+CanvasObject *GlobalManager::unregisterObject(CanvasObject *object)
 {
-    CanvasObject *object = objects[objectId];
-    objects.erase(objects.begin() + objectId);
+    auto iterator = std::find(objects.begin(), objects.end(), object);
+    objects.erase(iterator);
     return object;
 }
