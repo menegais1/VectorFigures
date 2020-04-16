@@ -19,10 +19,12 @@ class Slider : public CanvasObject
 {
 public:
     float handleSize;
+    bool vertical;
     Float2 handlePosition;
     Float3 handleColor;
 
-    Float3 backgroundColor;
+    Float3 backgroundColor0;
+    Float3 backgroundColor1;
 
     float tolerance;
     float minValue;
@@ -31,15 +33,18 @@ public:
     float stepAmount;
     int steps;
 
-    Slider(Float3 position, Float3 scale, Float3 backgroundColor, float handleSize, Float3 handleColor);
+    Slider(Float3 position, Float3 scale, Float3 backgroundColor, float handleSize, Float3 handleColor, bool vertical);
+    Slider(Float3 position, Float3 scale, Float3 backgroundColor0, Float3 backgroundColor1, float handleSize, Float3 handleColor, bool vertical);
     void initializeSlider(float minValue, float maxValue, int steps, float tolerance);
     void render() override;
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void addOnValueChangedListener(std::function<void(float value)> listener);
     void notifyOnValueChangedListeners();
     void setCurrentValue(float curValue);
+    void generateBackgroundTexture();
 
 private:
+    Float3 *backgroundTexture;
     bool isDragging;
     float screenStep;
     int lastMouseState;

@@ -6,15 +6,43 @@
 #include "../Vectors/Float2.h"
 #include "../Vectors/Float3.h"
 
-Slider::Slider(Float3 position, Float3 scale, Float3 backgroundColor, float handleSize, Float3 handleColor) : CanvasObject()
+Slider::Slider(Float3 position, Float3 scale, Float3 backgroundColor, float handleSize, Float3 handleColor, bool vertical) : CanvasObject()
 {
     this->position = position;
     this->scale = scale;
-    this->backgroundColor = backgroundColor;
+    this->backgroundColor0 = backgroundColor;
     this->handleSize = handleSize;
     this->handleColor = handleColor;
     this->lastMouseState = MouseState::None;
-    this->handlePosition = {this->position.x, this->position.y + scale.y / 2};
+    this->vertical = vertical;
+    if (vertical)
+    {
+        this->handlePosition = {this->position.x + scale.x / 2, this->position.y};
+    }
+    else
+    {
+        this->handlePosition = {this->position.x, this->position.y + scale.y / 2};
+    }
+}
+
+Slider::Slider(Float3 position, Float3 scale, Float3 backgroundColor0, Float3 backgroundColor1, float handleSize, Float3 handleColor, bool vertical) : CanvasObject()
+{
+    this->position = position;
+    this->scale = scale;
+    this->backgroundColor0 = backgroundColor0;
+    this->backgroundColor1 = backgroundColor1;
+    this->handleSize = handleSize;
+    this->handleColor = handleColor;
+    this->lastMouseState = MouseState::None;
+    this->vertical = vertical;
+    if (vertical)
+    {
+        this->handlePosition = {this->position.x + scale.x / 2, this->position.y};
+    }
+    else
+    {
+        this->handlePosition = {this->position.x, this->position.y + scale.y / 2};
+    }
 }
 void Slider::initializeSlider(float minValue, float maxValue, int steps, float tolerance)
 {
@@ -23,12 +51,19 @@ void Slider::initializeSlider(float minValue, float maxValue, int steps, float t
     this->steps = steps;
     this->tolerance = tolerance;
     curValue = minValue;
-    screenStep = (position.x + scale.x - position.x) / steps;
+    if (vertical)
+    {
+        screenStep = (position.y + scale.y - position.y) / steps;
+    }
+    else
+    {
+        screenStep = (position.x + scale.x - position.x) / steps;
+    }
     stepAmount = (maxValue - minValue) / steps;
 }
 void Slider::render()
 {
-    color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
+    color(backgroundColor0.x, backgroundColor0.y, backgroundColor0.z);
     rect(position.x, position.y, position.x + scale.x, position.y + scale.y);
     color(handleColor.x, handleColor.y, handleColor.z);
     circleFill(handlePosition.x, handlePosition.y, handleSize, 30);
@@ -44,31 +79,68 @@ void Slider::mouse(int button, int state, int wheel, int direction, int x, int y
     }
 
     direction = 0;
-    if (x - prevMousePosition.x > 0)
-        direction = 1;
-    else if (x - prevMousePosition.x < 0)
-        direction = -1;
+    float mouseDelta = 0;
+    if (vertical)
+    {
+        if (y - prevMousePosition.y > 0)
+            direction = 1;
+        else if (y - prevMousePosition.y < 0)
+            direction = -1;
+        mouseDelta = abs(y - handlePosition.y);
+    }
+    else
+    {
+        if (x - prevMousePosition.x > 0)
+            direction = 1;
+        else if (x - prevMousePosition.x < 0)
+            direction = -1;
+        mouseDelta = abs(x - handlePosition.x);
+    }
 
     if (state == MouseState::None &&
         this->lastMouseState == MouseState::Down &&
         (isPointInside || isDragging) &&
-        abs(x - handlePosition.x) > tolerance &&
+        mouseDelta > tolerance &&
         direction != 0)
     {
         isDragging = true;
         if (curValue >= maxValue && direction > 0)
         {
             curValue = maxValue;
-            handlePosition.x = position.x + scale.x;
+            if (vertical)
+            {
+
+                handlePosition.y = position.y + scale.y;
+            }
+            else
+            {
+
+                handlePosition.x = position.x + scale.x;
+            }
         }
         else if (curValue <= minValue && direction < 0)
         {
             curValue = minValue;
-            handlePosition.x = position.x;
+            if (vertical)
+            {
+                handlePosition.y = position.y;
+            }
+            else
+            {
+                handlePosition.x = position.x;
+            }
         }
         else
         {
-            handlePosition.x += screenStep * direction;
+            if (vertical)
+            {
+                handlePosition.y += screenStep * direction;
+            }
+            else
+            {
+
+                handlePosition.x += screenStep * direction;
+            }
             curValue += stepAmount * direction;
             if (curValue < minValue)
                 curValue = minValue;
@@ -95,5 +167,21 @@ void Slider::notifyOnValueChangedListeners()
 void Slider::setCurrentValue(float curValue)
 {
     this->curValue = curValue;
-    this->handlePosition.x = (position.x + scale.x) - ((maxValue - curValue) / this->stepAmount) * screenStep;
+    if (vertical)
+    {
+        this->handlePosition.y = (position.y + scale.y) - ((maxValue - curValue) / this->stepAmount) * screenStep;
+    }
+    else
+    {
+        this->handlePosition.x = (position.x + scale.x) - ((maxValue - curValue) / this->stepAmount) * screenStep;
+    }
+}
+
+void Slider::generateBackgroundTexture()
+{
+    for (size_t i = 0; i < 1; i+=0)
+    {
+        /* code */
+    }
+    
 }

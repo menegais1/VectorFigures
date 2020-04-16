@@ -11,6 +11,10 @@
 #include "Utilities.h"
 #include "Managers/GlobalManager.h"
 #include "Scene.h"
+#include "ColorPicker/ColorPicker.h"
+#include "ColorPicker/ColorSlider.h"
+#include "Slider/Slider.h"
+#include "Vectors/Float3.h"
 
 using namespace std;
 
@@ -38,5 +42,8 @@ int main(void)
 {
    initCanvas(GlobalManager::getInstance()->screenWidth, GlobalManager::getInstance()->screenHeight, "VectorFigures");
    Scene *scene = new Scene();
+   ColorPicker* picker = new ColorPicker({10,10,0},200,200);
+   ColorSlider* slider = new ColorSlider({300,300,0},10,200);
+   slider->setColors({0,0,0},{1,0,0});
    runCanvas();
 }

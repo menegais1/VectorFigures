@@ -12,6 +12,7 @@ public:
     Float2(float, float);
     Float2();
     Float2 operator+(const Float2 &);
+    Float2 operator-(const Float2 &);
     Float2 operator*(const float);
 };
 

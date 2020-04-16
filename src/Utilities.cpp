@@ -44,3 +44,8 @@ bool leftMouseUp(int button, int state)
 {
     return button == MouseButton::Left && state == MouseState::Up;
 }
+
+Float3 lerp(Float3 x0, Float3 x1, float t)
+{
+    return x0 * (1 - t) + x1 * t;
+}

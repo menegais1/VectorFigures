@@ -49,4 +49,6 @@ int isLeft(Float3 P0, Float3 P1, Float3 P2);
 bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n);
 bool leftMouseDown(int button, int state);
 bool leftMouseUp(int button, int state);
+Float3 lerp(Float3 x0, Float3 x1, float t);
+
 #endif

@@ -26,6 +26,12 @@ Float2 Float2::operator+(const Float2 &v2)
     return res;
 }
 
+Float2 Float2::operator-(const Float2 &v2)
+{
+    Float2 res(x - v2.x, y - v2.y);
+    return res;
+}
+
 Float2 Float2::operator*(const float scalar)
 {
     Float2 res(x * scalar, y * scalar);

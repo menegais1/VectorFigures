@@ -68,6 +68,8 @@
 		<Unit filename="src/Base/ITransformable.h" />
 		<Unit filename="src/Base/CanvasObject.h" />
 		<Unit filename="src/Base/CanvasObject.cpp" />
+		<Unit filename="src/ColorPicker/ColorPicker.h" />
+		<Unit filename="src/ColorPicker/ColorSlider.h" />
 		<Unit filename="src/Managers/GlobalManager.h" />
 		<Unit filename="src/Vectors/Float4.cpp" />
 		<Unit filename="src/Vectors/Float2.cpp" />
@@ -76,6 +78,8 @@
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Bounds.cpp" />
+		<Unit filename="src/ColorPicker/ColorPicker.cpp" />
+		<Unit filename="src/ColorPicker/ColorSlider.cpp" />
 		<Unit filename="src/Label/Label.cpp" />
 		<Unit filename="src/Slider/Slider.cpp" />
 		<Unit filename="src/Figure.cpp" />

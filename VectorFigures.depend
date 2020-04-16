@@ -19,7 +19,7 @@
 
 1585681483 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h
 
-1586973717 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
+1587001141 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h
 	<vector>
 	"Vectors/Float2.h"
 	"Vectors/Float3.h"
@@ -107,7 +107,7 @@
 	<vector>
 	"../Vector4.h"
 
-1586886651 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
+1587001433 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
 	"Slider.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
@@ -116,7 +116,7 @@
 	"../Vectors/Float2.h"
 	"../Vectors/Float3.h"
 
-1586886639 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h
+1587001315 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h
 	"../Base/CanvasObject.h"
 	"../Utilities.h"
 	<functional>
@@ -124,7 +124,7 @@
 	"../Vectors/Float2.h"
 	"../Vectors/Float3.h"
 
-1586973710 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
+1587001148 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 	"Utilities.h"
 	<vector>
 	<cstdlib>
@@ -133,7 +133,7 @@
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1586554265 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
+1587003215 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -143,6 +143,10 @@
 	"Utilities.h"
 	"Managers/GlobalManager.h"
 	"Scene.h"
+	"ColorPicker/ColorPicker.h"
+	"ColorPicker/ColorSlider.h"
+	"Slider/Slider.h"
+	"Vectors/Float3.h"
 
 1586392402 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.h
 
@@ -175,7 +179,7 @@
 	"Vectors/Float4.h"
 	"FigureListManager.h"
 
-1586975092 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1586975957 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -202,7 +206,7 @@
 	"Float4.h"
 	<cmath>
 
-1586885806 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
+1586998122 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
 
 1586891353 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
 	"Float2.h"
@@ -210,7 +214,7 @@
 1586885832 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h
 	"Float3.h"
 
-1586886701 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
+1586998134 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
 	"Float2.h"
 	<cmath>
 
@@ -247,4 +251,40 @@
 1586975896 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h
 	<vector>
 	"Figure.h"
+
+1587001136 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker.cpp
+	"ColorPicker.h"
+	"Vectors/Float3.h"
+	"Canvas/gl_canvas2d.h"
+	"Utilities.h"
+	<iostream>
+
+1586996628 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker.h
+	"Base/CanvasObject.h"
+	"Vectors/Float3.h"
+	<vector>
+
+1587002946 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPicker.h
+	"../Base/CanvasObject.h"
+	"../Vectors/Float3.h"
+	<vector>
+
+1587002959 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.h
+	"../Base/CanvasObject.h"
+	"../Vectors/Float3.h"
+	<vector>
+
+1587004551 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPicker.cpp
+	"ColorPicker.h"
+	"../Vectors/Float3.h"
+	"../Canvas/gl_canvas2d.h"
+	"../Utilities.h"
+	<iostream>
+
+1587003740 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.cpp
+	"ColorSlider.h"
+	"../Vectors/Float3.h"
+	"../Canvas/gl_canvas2d.h"
+	"../Utilities.h"
+	<iostream>
 
