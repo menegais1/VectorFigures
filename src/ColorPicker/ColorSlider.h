@@ -4,6 +4,7 @@
 #include "../Base/CanvasObject.h"
 #include "../Vectors/Float3.h"
 #include <vector>
+#include <functional>
 class ColorSlider : public CanvasObject
 {
 public:
@@ -12,6 +13,9 @@ public:
     void setColors(Float3 bottomColor, Float3 topColor);
     ColorSlider(Float3 position, int width, int height);
     Float3 currentSample;
+
+    void addOnValueChangedListener(std::function<void(Float3 color)> listener);
+    void notifyOnValueChangedListeners();
 
 private:
     int width;
@@ -25,6 +29,8 @@ private:
 
     void generateTexture();
     Float3 sampleTexture(Float2 position);
+
+    std::vector<std::function<void(Float3 color)>> onValueChangedListeners;
 };
 
 #endif

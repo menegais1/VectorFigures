@@ -1,33 +1,30 @@
-#ifndef COLORPICKER_H
-#define COLORPICKER_H
+#ifndef COLORPICKERPANEL_H
+#define COLORPICKERPANEL_H
 
 #include "../Base/CanvasObject.h"
+#include "../Panel/Panel.h"
 #include "../Vectors/Float3.h"
+#include "ColorPicker.h"
+#include "ColorSlider.h"
 #include <vector>
 #include <functional>
-class ColorPicker : public CanvasObject
+
+class ColorPickerPanel : public Panel
 {
 public:
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
-    ColorPicker(Float3 position, int width, int height);
-    Float3 currentSample;
-
+    ColorPickerPanel(Float3 position, Float3 scale, Float3 backgroundColor);
     void addOnValueChangedListener(std::function<void(Float3 color)> listener);
     void notifyOnValueChangedListeners();
 
-    int width;
-    int height;
 private:
     bool mouseDragging;
     bool mouseInside;
     Float2 currentMousePosition;
-    Float3 *texture;
-    std::vector<Float3> topVertices;
-    std::vector<Float3> bottomVertices;
-
-    void generateTexture();
-    Float3 sampleTexture(Float2 position);
+    ColorPicker *colorPicker;
+    ColorSlider *colorSlider;
+    Float3 colorPreview;
     std::vector<std::function<void(Float3 color)>> onValueChangedListeners;
 };
 

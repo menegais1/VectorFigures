@@ -28,7 +28,13 @@ void ColorSlider::mouse(int button, int state, int wheel, int direction, int x, 
             currentMousePosition.x = position.x;
         if (y < position.y)
             currentMousePosition.y = position.y;
-        currentSample = sampleTexture(currentMousePosition);
+
+        Float3 sample = sampleTexture(currentMousePosition);
+        if (sample.x != currentSample.x || sample.y != currentSample.y || sample.z != currentSample.z)
+        {
+            currentSample = sample;
+            notifyOnValueChangedListeners();
+        }
     }
 }
 
@@ -52,8 +58,6 @@ void ColorSlider::render()
         circleFill(position.x + width / 2, currentMousePosition.y, 6, 20);
     }
 
-    color(currentSample.x, currentSample.y, currentSample.z);
-    rectFill(position.x + width + 10, 10, position.x + width + 10 + 30, 40);
 }
 
 Float3 ColorSlider::sampleTexture(Float2 position)
@@ -67,8 +71,6 @@ void ColorSlider::generateTexture()
     {
         float stepY = y / height;
         Float3 interpColor = lerp(bottomColor, topColor, stepY);
-        std::cout << interpColor.x << " " << interpColor.y << " " << interpColor.z << std::endl;
-        std::cout << stepY << std::endl;
         texture[(int)y] = interpColor;
     }
 }
@@ -78,6 +80,18 @@ void ColorSlider::setColors(Float3 bottomColor, Float3 topColor)
     this->bottomColor = bottomColor;
     this->topColor = topColor;
     generateTexture();
+}
+
+void ColorSlider::addOnValueChangedListener(std::function<void(Float3 color)> listener)
+{
+    this->onValueChangedListeners.push_back(listener);
+}
+void ColorSlider::notifyOnValueChangedListeners()
+{
+    for (int i = 0; i < onValueChangedListeners.size(); i++)
+    {
+        this->onValueChangedListeners[i](currentSample);
+    }
 }
 
 ColorSlider::ColorSlider(Float3 position, int width, int height)

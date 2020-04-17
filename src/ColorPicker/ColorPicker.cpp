@@ -28,7 +28,13 @@ void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, 
             currentMousePosition.x = position.x;
         if (y < position.y)
             currentMousePosition.y = position.y;
-        currentSample = sampleTexture(currentMousePosition);
+        Float3 sample = sampleTexture(currentMousePosition);
+        if (sample.x != currentSample.x || sample.y != currentSample.y || sample.z != currentSample.z)
+        {
+            currentSample = sample;
+            //SLOW CODE, CAN BE OPTIMIZED
+            notifyOnValueChangedListeners();
+        }
     }
 }
 
@@ -48,14 +54,12 @@ void ColorPicker::render()
     color(0.2, 0.2, 0.2);
     circleFill(currentMousePosition.x, currentMousePosition.y, 6, 20);
 
-    color(currentSample.x, currentSample.y, currentSample.z);
-    rectFill(position.x + width + 10, 10, position.x + width + 10 + 30, 40);
 }
 
 Float3 ColorPicker::sampleTexture(Float2 position)
 {
     position = position - Float2(this->position.x, this->position.y);
-    int idx = position.y * width + position.x;
+    int idx = (int)position.y * width + (int) position.x;
     return texture[idx];
 }
 
@@ -80,6 +84,19 @@ void ColorPicker::generateTexture()
         }
     }
 }
+
+void ColorPicker::addOnValueChangedListener(std::function<void(Float3 color)> listener)
+{
+    this->onValueChangedListeners.push_back(listener);
+}
+void ColorPicker::notifyOnValueChangedListeners()
+{
+    for (int i = 0; i < onValueChangedListeners.size(); i++)
+    {
+        this->onValueChangedListeners[i](currentSample);
+    }
+}
+
 ColorPicker::ColorPicker(Float3 position, int width, int height)
 {
     topVertices.push_back({1, 0, 0});
@@ -100,5 +117,6 @@ ColorPicker::ColorPicker(Float3 position, int width, int height)
     this->width = width;
     this->height = height;
     this->texture = new Float3[width * height];
+    mouseDragging = false;
     generateTexture();
 }

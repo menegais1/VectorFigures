@@ -62,6 +62,7 @@
 		<Unit filename="src/Bounds.h" />
 		<Unit filename="src/Figure.h" />
 		<Unit filename="src/Scene.h" />
+		<Unit filename="src/Panel/Panel.h" />
 		<Unit filename="src/Base/IRender.h" />
 		<Unit filename="src/Base/IMouse.h" />
 		<Unit filename="src/Base/IKeyboard.h" />
@@ -69,6 +70,7 @@
 		<Unit filename="src/Base/CanvasObject.h" />
 		<Unit filename="src/Base/CanvasObject.cpp" />
 		<Unit filename="src/ColorPicker/ColorPicker.h" />
+		<Unit filename="src/ColorPicker/ColorPickerPanel.h" />
 		<Unit filename="src/ColorPicker/ColorSlider.h" />
 		<Unit filename="src/Managers/GlobalManager.h" />
 		<Unit filename="src/Vectors/Float4.cpp" />
@@ -78,8 +80,10 @@
 		<Unit filename="src/Utilities.cpp" />
 		<Unit filename="src/Scene.cpp" />
 		<Unit filename="src/Bounds.cpp" />
+		<Unit filename="src/Panel/Panel.cpp" />
 		<Unit filename="src/ColorPicker/ColorPicker.cpp" />
 		<Unit filename="src/ColorPicker/ColorSlider.cpp" />
+		<Unit filename="src/ColorPicker/ColorPickerPanel.cpp" />
 		<Unit filename="src/Label/Label.cpp" />
 		<Unit filename="src/Slider/Slider.cpp" />
 		<Unit filename="src/Figure.cpp" />
