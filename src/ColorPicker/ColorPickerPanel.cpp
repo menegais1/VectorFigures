@@ -10,6 +10,22 @@
 
 void ColorPickerPanel::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
+    bool pointInside = isMouseInsideObject();
+    currentMousePosition = {x, y};
+    if (leftMouseDown(button, state) && pointInside)
+    {
+        mouseDragging = true;
+    }
+    else if (leftMouseUp(button, state))
+    {
+        mouseDragging = false;
+    }
+
+    if (mouseDragging)
+    {
+        translate(Float3(currentMousePosition - lastMousePosition, 0));
+    }
+    lastMousePosition = currentMousePosition;
 }
 
 void ColorPickerPanel::render()
@@ -33,6 +49,10 @@ ColorPickerPanel::ColorPickerPanel(Float3 position, Float3 scale, Float3 backgro
     colorSlider->addOnValueChangedListener([this](Float3 currentSample) {
         this->colorPreview = currentSample;
     });
+    mouseDragging = false;
+
+    children.push_back(colorSlider);
+    children.push_back(colorPicker);
 }
 
 void ColorPickerPanel::addOnValueChangedListener(std::function<void(Float3 color)> listener)
@@ -40,4 +60,9 @@ void ColorPickerPanel::addOnValueChangedListener(std::function<void(Float3 color
 }
 void ColorPickerPanel::notifyOnValueChangedListeners()
 {
+}
+
+bool ColorPickerPanel::pointIntersectsObject(Float3 point)
+{
+    return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {scale.x, scale.y});
 }

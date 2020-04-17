@@ -22,3 +22,17 @@ void Panel::setActive(bool isActive)
 Panel::Panel()
 {
 }
+
+bool Panel::pointIntersectsObject(Float3 point)
+{
+    return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {scale.x, scale.y});
+}
+
+void Panel::translate(Float3 translationAmount)
+{
+    this->position = position + translationAmount;
+    for (int i = 0; i < children.size(); i++)
+    {
+        children[i]->translate(translationAmount);
+    }
+}

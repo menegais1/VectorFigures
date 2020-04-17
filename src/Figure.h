@@ -35,6 +35,7 @@ public:
     void translate(Float3 translationAmount) override;
     void rotate(float angle, Float3 center) override;
     void rescale(Float3 scale, Float3 center) override;
+    bool pointIntersectsObject(Float3 point) override;
 
 private:
     FigureType figureType;

@@ -10,9 +10,11 @@ class ColorSlider : public CanvasObject
 public:
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
+    bool pointIntersectsObject(Float3 point) override;
     void setColors(Float3 bottomColor, Float3 topColor);
     ColorSlider(Float3 position, int width, int height);
     Float3 currentSample;
+    void translate(Float3 translationAmount);
 
     void addOnValueChangedListener(std::function<void(Float3 color)> listener);
     void notifyOnValueChangedListeners();

@@ -104,3 +104,8 @@ Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, 
     isSelected = false;
     drawBounds = false;
 }
+
+bool Figure::pointIntersectsObject(Float3 point)
+{
+    return isPointInsidePolygon({point.x, point.y}, vertices, vertices.size() - 1);
+}

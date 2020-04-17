@@ -6,6 +6,7 @@
 #define PANEL_H
 
 #include "../Base/CanvasObject.h"
+#include "../Base/ITransformable.h"
 #include "../Utilities.h"
 #include <vector>
 class Panel : public CanvasObject
@@ -17,6 +18,8 @@ public:
     Panel();
     Panel(Float3 position, Float3 scale, Float3 backgroundColor);
     void setActive(bool isActive) override;
+    bool pointIntersectsObject(Float3 point) override;
+    void translate(Float3) override;
 };
 
 #endif

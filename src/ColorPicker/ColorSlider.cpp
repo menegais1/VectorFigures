@@ -7,7 +7,7 @@
 
 void ColorSlider::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    bool pointInside = isPointInsideBounds({x, y}, {position.x, position.y}, {width, height});
+    bool pointInside = isMouseInsideObject();
     if (leftMouseDown(button, state) && pointInside)
     {
         mouseDragging = true;
@@ -106,5 +106,17 @@ ColorSlider::ColorSlider(Float3 position, int width, int height)
     this->height = height;
     this->texture = new Float3[height];
     this->mouseDragging = false;
-    this->currentMousePosition = {-1, -1};
+    this->currentMousePosition = {position.x, position.y};
+}
+
+bool ColorSlider::pointIntersectsObject(Float3 point)
+{
+    //  std::cout << point.x << std::endl;
+    return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {width, height});
+}
+
+void ColorSlider::translate(Float3 translationAmount)
+{
+    CanvasObject::translate(translationAmount);
+    currentMousePosition = currentMousePosition + Float2(translationAmount.x, translationAmount.y);
 }

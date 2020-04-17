@@ -36,6 +36,8 @@ public:
     void keyboardUp(int key) override;
     void keyboard(int key) override;
     void render() override;
+    bool pointIntersectsObject(Float3 point) override;
+
     Scene();
 
 private:

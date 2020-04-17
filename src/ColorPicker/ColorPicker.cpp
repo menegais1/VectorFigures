@@ -7,7 +7,7 @@
 
 void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, int y)
 {
-    bool pointInside = isPointInsideBounds({x, y}, {position.x, position.y}, {width, height});
+    bool pointInside = isMouseInsideObject();
     if (leftMouseDown(button, state) && pointInside)
     {
         mouseDragging = true;
@@ -53,13 +53,12 @@ void ColorPicker::render()
 
     color(0.2, 0.2, 0.2);
     circleFill(currentMousePosition.x, currentMousePosition.y, 6, 20);
-
 }
 
 Float3 ColorPicker::sampleTexture(Float2 position)
 {
     position = position - Float2(this->position.x, this->position.y);
-    int idx = (int)position.y * width + (int) position.x;
+    int idx = (int)position.y * width + (int)position.x;
     return texture[idx];
 }
 
@@ -118,5 +117,17 @@ ColorPicker::ColorPicker(Float3 position, int width, int height)
     this->height = height;
     this->texture = new Float3[width * height];
     mouseDragging = false;
+    this->currentMousePosition = {position.x, position.y};
     generateTexture();
+}
+
+bool ColorPicker::pointIntersectsObject(Float3 point)
+{
+    return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {width, height});
+}
+
+void ColorPicker::translate(Float3 translationAmount)
+{
+    CanvasObject::translate(translationAmount);
+    currentMousePosition = currentMousePosition + Float2(translationAmount.x, translationAmount.y);
 }

@@ -16,6 +16,7 @@ public:
     void mouse(int button, int state, int wheel, int direction, int x, int y);
     void render();
     int registerObject(CanvasObject *object);
+    bool isMouseInsideObject(CanvasObject *object);
     CanvasObject *unregisterObject(CanvasObject *object);
     void changeObjectZIndex(CanvasObject *object);
     static GlobalManager *getInstance();
@@ -26,6 +27,7 @@ public:
 private:
     int objectIdCounter;
     static GlobalManager *instance;
+    //The order of the objects is descending, so what will be rendered first is last 
     std::vector<CanvasObject *> objects;
     GlobalManager();
     void addObjectToList(CanvasObject *object);

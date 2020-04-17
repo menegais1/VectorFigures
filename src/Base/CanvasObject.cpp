@@ -63,3 +63,19 @@ CanvasObject::~CanvasObject()
 {
     GlobalManager::getInstance()->unregisterObject(this);
 }
+
+bool CanvasObject::isMouseInsideObject()
+{
+    GlobalManager::getInstance()->isMouseInsideObject(this);
+}
+
+void CanvasObject::translate(Float3 translationAmount)
+{
+    position = position + translationAmount;
+}
+void CanvasObject::rotate(float, Float3)
+{
+}
+void CanvasObject::rescale(Float3, Float3)
+{
+}

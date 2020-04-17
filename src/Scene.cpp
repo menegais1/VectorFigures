@@ -342,3 +342,8 @@ void Scene::handleDefaultMode(int button, int state)
         singleSelection(currentMousePosition.x, currentMousePosition.y);
     }
 }
+
+bool Scene::pointIntersectsObject(Float3 point)
+{
+    return false;
+}

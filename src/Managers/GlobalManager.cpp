@@ -5,6 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <chrono>
+#include "../Vectors/Float2.h"
 using namespace std::chrono;
 
 GlobalManager::GlobalManager()
@@ -85,6 +86,26 @@ void GlobalManager::addObjectToList(CanvasObject *object)
             objects.push_back(object);
     }
 }
+
+bool GlobalManager::isMouseInsideObject(CanvasObject *object)
+{
+    for (int i = 0; i < objects.size(); i++)
+    {
+        if (!objects[i]->getActive())
+            continue;
+        if (objects[i]->pointIntersectsObject(Float3(mousePosition, 0)))
+        {
+
+            if (object == objects[i])
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    return false;
+}
+
 void GlobalManager::changeObjectZIndex(CanvasObject *object)
 {
     auto iterator = std::find(objects.begin(), objects.end(), object);

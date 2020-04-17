@@ -10,14 +10,16 @@ class ColorPicker : public CanvasObject
 public:
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
+    bool pointIntersectsObject(Float3 point) override;
     ColorPicker(Float3 position, int width, int height);
     Float3 currentSample;
 
     void addOnValueChangedListener(std::function<void(Float3 color)> listener);
     void notifyOnValueChangedListeners();
-
+    void translate(Float3 translationAmount);
     int width;
     int height;
+
 private:
     bool mouseDragging;
     bool mouseInside;
