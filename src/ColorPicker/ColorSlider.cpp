@@ -57,7 +57,6 @@ void ColorSlider::render()
         color(0.2, 0.2, 0.2);
         circleFill(position.x + width / 2, currentMousePosition.y, 6, 20);
     }
-
 }
 
 Float3 ColorSlider::sampleTexture(Float2 position)
@@ -80,6 +79,12 @@ void ColorSlider::setColors(Float3 bottomColor, Float3 topColor)
     this->bottomColor = bottomColor;
     this->topColor = topColor;
     generateTexture();
+    Float3 sample = sampleTexture(currentMousePosition);
+    if (sample.x != currentSample.x || sample.y != currentSample.y || sample.z != currentSample.z)
+    {
+        currentSample = sample;
+        notifyOnValueChangedListeners();
+    }
 }
 
 void ColorSlider::addOnValueChangedListener(std::function<void(Float3 color)> listener)

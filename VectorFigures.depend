@@ -281,7 +281,7 @@
 	"../Utilities.h"
 	<iostream>
 
-1587083191 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.cpp
+1587084180 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.cpp
 	"ColorSlider.h"
 	"../Vectors/Float3.h"
 	"../Canvas/gl_canvas2d.h"
@@ -297,15 +297,14 @@
 	<vector>
 	<functional>
 
-1587083229 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.cpp
-	"../Base/CanvasObject.h"
-	"../Panel/Panel.h"
-	"../Vectors/Float3.h"
+1587084121 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.cpp
 	"ColorPicker.h"
 	"ColorSlider.h"
 	"ColorPickerPanel.h"
+	"../Base/CanvasObject.h"
 	"../Panel/Panel.h"
+	"../Vectors/Float3.h"
+	"../Canvas/gl_canvas2d.h"
 	<vector>
 	<functional>
-	"../Canvas/gl_canvas2d.h"
 
