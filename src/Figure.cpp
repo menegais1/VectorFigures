@@ -16,18 +16,19 @@ void Figure::render()
     polygonFill(vertices.data(), vertices.size());
     color(lineColor.x, lineColor.y, lineColor.z);
     polygon(vertices.data(), vertices.size());
-    if (isSelected)
-    {
-        color(highlightColor.x, highlightColor.y, highlightColor.z, highlightColor.w);
-        polygonFill(vertices.data(), vertices.size());
-    }
-
+    
     if (drawBounds)
     {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
         line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
         line(bounds.corners[2].x, bounds.corners[2].y, bounds.corners[3].x, bounds.corners[3].y);
         line(bounds.corners[3].x, bounds.corners[3].y, bounds.corners[0].x, bounds.corners[0].y);
+    }
+
+    if (isSelected)
+    {
+        color(highlightColor.x, highlightColor.y, highlightColor.z, highlightColor.w);
+        polygonFill(vertices.data(), vertices.size());
     }
 }
 

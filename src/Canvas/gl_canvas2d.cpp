@@ -247,6 +247,10 @@ void initCanvas(int *w, int *h, const char *title)
    glutMouseWheelFunc(mouseWheelCB);
    glutIgnoreKeyRepeat(1);
    printf("GL Version: %s", glGetString(GL_VERSION));
+   glEnable(GL_BLEND);  
+   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  
+
+
 }
 
 void runCanvas()

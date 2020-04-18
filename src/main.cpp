@@ -41,8 +41,5 @@ int main(void)
 {
    initCanvas(GlobalManager::getInstance()->screenWidth, GlobalManager::getInstance()->screenHeight, "VectorFigures");
    Scene *scene = new Scene();
-   ColorPickerPanel* picker = new ColorPickerPanel({10,10,0},{250,250,0},{0.3,0.3,0.3});
-   //ColorSlider* slider = new ColorSlider({300,300,0},10,200);
-   //slider->setColors({0,0,0},{1,0,0});
    runCanvas();
 }

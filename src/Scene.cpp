@@ -37,10 +37,14 @@ void Scene::mouse(int button, int state, int wheel, int direction, int x, int y)
 
 void Scene::singleSelection(int x, int y)
 {
-    figureListManager.clearSelectedFigures();
+    if (isMouseInsideObject())
+    {
+        figureListManager.clearSelectedFigures();
+    }
     Figure *fig = figureListManager.getFirstInteractedFigure({x, y});
     if (fig != nullptr)
     {
+        figureListManager.clearSelectedFigures();
         figureListManager.selectFigure(fig);
     }
 }
@@ -52,7 +56,7 @@ void Scene::multipleSelection(int x, int y)
     {
         figureListManager.selectFigure(fig);
     }
-    else
+    else if (isMouseInsideObject())
     {
         figureListManager.clearSelectedFigures();
     }
@@ -138,6 +142,13 @@ void Scene::handleSceneOperator(Operator op)
         break;
     case Operator::DeleteSelected:
         figureListManager.deleteSelectedFigures();
+        break;
+    case Operator::SelectFillColor:
+        selectFillColor();
+        break;
+    case Operator::SelectLineColor:
+        selectLineColor();
+        break;
     default:
         break;
     }
@@ -186,6 +197,10 @@ void Scene::renderCurrentMode()
     case SceneMode::Default:
         color(1, 1, 1);
         text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Default");
+        if (selectingFillColor)
+            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Selecting Fill Color");
+        if (selectingLineColor)
+            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Selecting Line Color");
         break;
     case SceneMode::Insert:
         color(1, 1, 1);
@@ -234,9 +249,45 @@ void Scene::sendToFront()
 Scene::Scene()
 {
     mode = lastMode = SceneMode::Default;
-    highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.6};
+    highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.8};
     setZIndex(100);
     drawBounds = false;
+    colorPickerPanel = new ColorPickerPanel({10, 10, 0}, {250, 250, 0}, {0.3, 0.3, 0.3});
+    colorPickerPanel->setActive(false);
+    selectFillColorButton = new Button({10, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Fill Color", {0, 0, 0});
+    selectFillColorButton->addListener([this] {
+        selectFillColor();
+    });
+    selectLineColorButton = new Button({132, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Line Color", {0, 0, 0});
+    selectLineColorButton->addListener([this] {
+        selectLineColor();
+    });
+    colorPickerPanel->addOnValueChangedListener([this](Float3 color) {
+        this->figureListManager.setSelectedFiguresColor(color, this->selectingFillColor);
+    });
+    colorPickerPanel->addOnActivateListener([this](bool isActive) {
+        if (!isActive)
+        {
+            this->selectingLineColor = false;
+            this->selectingFillColor = false;
+        }
+    });
+    this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);
+    this->setZIndex(-1);
+}
+
+void Scene::selectFillColor()
+{
+    this->selectingFillColor = true;
+    this->selectingLineColor = false;
+    this->colorPickerPanel->setActive(true);
+}
+
+void Scene::selectLineColor()
+{
+    this->selectingLineColor = true;
+    this->selectingFillColor = false;
+    this->colorPickerPanel->setActive(true);
 }
 
 void Scene::setInsertMode()
@@ -345,5 +396,5 @@ void Scene::handleDefaultMode(int button, int state)
 
 bool Scene::pointIntersectsObject(Float3 point)
 {
-    return false;
+    return true;
 }

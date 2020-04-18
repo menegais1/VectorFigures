@@ -17,6 +17,8 @@ void Panel::setActive(bool isActive)
     {
         children[i]->setActive(isActive);
     }
+    this->isActive = isActive;
+    notifyOnActivateListeners();
 };
 
 Panel::Panel()
@@ -34,5 +36,18 @@ void Panel::translate(Float3 translationAmount)
     for (int i = 0; i < children.size(); i++)
     {
         children[i]->translate(translationAmount);
+    }
+}
+
+void Panel::addOnActivateListener(std::function<void(bool isActive)> listener)
+{
+    this->onActivateListeners.push_back(listener);
+}
+
+void Panel::notifyOnActivateListeners()
+{
+    for (int i = 0; i < onActivateListeners.size(); i++)
+    {
+        this->onActivateListeners[i](isActive);
     }
 }

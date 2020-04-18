@@ -7,6 +7,7 @@
 #include "Vectors/Float3.h"
 #include "Vectors/Float4.h"
 #include "FigureListManager.h"
+#include "ColorPicker/ColorPickerPanel.h"
 
 enum Operator
 {
@@ -17,7 +18,9 @@ enum Operator
     FixX = 'x',
     FixY = 'y',
     RenderBounds = 'b',
-    DeleteSelected = 127
+    DeleteSelected = 127,
+    SelectFillColor = 'f',
+    SelectLineColor = 'l'
 };
 
 enum SceneMode
@@ -45,13 +48,18 @@ private:
     std::vector<Float3> tmpVertices;
     int mode;
     int lastMode;
+    bool multipleSelect;
+    bool drawBounds;
     Float4 highlightColor;
     Float2 lastMousePosition;
     Float3 selectionCenter;
     Float2 currentMousePosition;
     Float2 fixatedAxis;
-    bool multipleSelect;
-    bool drawBounds;
+    ColorPickerPanel *colorPickerPanel;
+    Button *selectFillColorButton;
+    Button *selectLineColorButton;
+    bool selectingFillColor;
+    bool selectingLineColor;
 
     void renderPolygonInsertion();
     void renderCurrentMode();
@@ -60,6 +68,8 @@ private:
     void multipleSelection(int x, int y);
     void sendToBack();
     void sendToFront();
+    void selectFillColor();
+    void selectLineColor();
     void drawPolygonBounds();
 
     void handleSceneMode(SceneMode sceneMode);

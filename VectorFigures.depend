@@ -30,7 +30,7 @@
 	<vector>
 	"../Base/CanvasObject.h"
 
-1586391915 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.cpp
+1587236411 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.cpp
 	<vector>
 	<functional>
 	<iostream>
@@ -38,14 +38,14 @@
 	"../Base/CanvasObject.h"
 	"../Utilities.h"
 	"../Canvas/gl_canvas2d.h"
-	"../Vector4.h"
+	"../Vectors/Float3.h"
 
-1586391722 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.h
+1587236094 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.h
 	"../Base/CanvasObject.h"
 	"../Utilities.h"
+	"../Vectors/Float3.h"
 	<vector>
 	<functional>
-	"../Vector4.h"
 
 1586886554 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h
 	<stdio.h>
@@ -75,7 +75,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1586535564 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
+1587239796 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	"../Utilities.h"
 	<GL/glut.h>
@@ -90,7 +90,7 @@
 	"../Vectors/Float3.h"
 	"string"
 
-1587090264 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
+1587092530 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
 	<vector>
 	"../Base/CanvasObject.h"
 	"GlobalManager.h"
@@ -99,15 +99,16 @@
 	<chrono>
 	"../Vectors/Float2.h"
 
-1587091673 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
+1587241023 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
 	"Panel.h"
 	<iostream>
 
-1587091625 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h
+1587241078 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h
 	"../Base/CanvasObject.h"
 	"../Base/ITransformable.h"
 	"../Utilities.h"
 	<vector>
+	<functional>
 
 1587001433 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
 	"Slider.h"
@@ -135,7 +136,7 @@
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 
-1587081333 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
+1587236623 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
 	<string>
@@ -154,7 +155,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1587089156 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1587239948 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -172,15 +173,16 @@
 	"Vectors/Float4.h"
 	"Bounds.h"
 
-1587089028 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1587240235 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
 	"Vectors/Float3.h"
 	"Vectors/Float4.h"
 	"FigureListManager.h"
+	"ColorPicker/ColorPickerPanel.h"
 
-1587089162 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1587240758 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -242,14 +244,14 @@
 	"Vectors/Float3.h"
 	<cmath>
 
-1586975933 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp
+1587238935 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp
 	<vector>
 	<iostream>
 	<algorithm>
 	"Figure.h"
 	"FigureListManager.h"
 
-1586975896 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h
+1587238882 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h
 	<vector>
 	"Figure.h"
 
@@ -291,16 +293,17 @@
 	"../Utilities.h"
 	<iostream>
 
-1587091622 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.h
+1587240883 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.h
 	"../Base/CanvasObject.h"
 	"../Panel/Panel.h"
 	"../Vectors/Float3.h"
 	"ColorPicker.h"
 	"ColorSlider.h"
+	"../Button/Button.h"
 	<vector>
 	<functional>
 
-1587091935 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.cpp
+1587241048 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.cpp
 	"ColorPicker.h"
 	"ColorSlider.h"
 	"ColorPickerPanel.h"

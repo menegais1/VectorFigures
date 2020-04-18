@@ -18,6 +18,7 @@ public:
     void translateFigures(Float3 translationAmount);
     void rotateFigures(float angle, Float3 center);
     void rescaleFigures(Float3 scale, Float3 center);
+    void setSelectedFiguresColor(Float3 color, bool fillColor);
     Figure *getFirstInteractedFigure(Float2 mousePosition);
 
 private:

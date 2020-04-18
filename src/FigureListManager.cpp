@@ -156,3 +156,14 @@ void FigureListManager::rescaleFigures(Float3 scale, Float3 center)
         selectedFigures[i]->rescale({scale.x, scale.y, scale.z}, center);
     }
 }
+
+void FigureListManager::setSelectedFiguresColor(Float3 color, bool fillColor)
+{
+    for (int i = 0; i < selectedFigures.size(); i++)
+    {
+        if (fillColor)
+            selectedFigures[i]->backgroundColor = color;
+        else
+            selectedFigures[i]->lineColor = color;
+    }
+}

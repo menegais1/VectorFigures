@@ -9,6 +9,7 @@
 #include "../Base/ITransformable.h"
 #include "../Utilities.h"
 #include <vector>
+#include <functional>
 class Panel : public CanvasObject
 {
 public:
@@ -20,6 +21,11 @@ public:
     void setActive(bool isActive) override;
     bool pointIntersectsObject(Float3 point) override;
     void translate(Float3) override;
+    void addOnActivateListener(std::function<void(bool isActive)> listener);
+    void notifyOnActivateListeners();
+
+private:
+    std::vector<std::function<void(bool isActive)>> onActivateListeners;
 };
 
 #endif

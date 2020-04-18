@@ -6,6 +6,7 @@
 #include "../Vectors/Float3.h"
 #include "ColorPicker.h"
 #include "ColorSlider.h"
+#include "../Button/Button.h"
 #include <vector>
 #include <functional>
 
@@ -26,8 +27,10 @@ private:
     Float2 lastMousePosition;
     ColorPicker *colorPicker;
     ColorSlider *colorSlider;
+    Button *closeButton;
     Float3 colorPreview;
     std::vector<std::function<void(Float3 color)>> onValueChangedListeners;
+    std::vector<std::function<void(bool isActive)>> onActivateListeners;
 };
 
 #endif

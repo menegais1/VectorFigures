@@ -48,18 +48,32 @@ ColorPickerPanel::ColorPickerPanel(Float3 position, Float3 scale, Float3 backgro
     });
     colorSlider->addOnValueChangedListener([this](Float3 currentSample) {
         this->colorPreview = currentSample;
+        notifyOnValueChangedListeners();
+    });
+
+    closeButton = new Button(position + scale - Float3(scale.x / 3, scale.y - 10, 0), Float3(scale.x / 4, scale.y / 6, 0), Float3(0, 0, 0), "Close", Float3(1, 1, 1));
+    closeButton->addListener([this] {
+        this->setActive(false);
+        this->notifyOnActivateListeners();
     });
     mouseDragging = false;
 
     children.push_back(colorSlider);
+    children.push_back(closeButton);
     children.push_back(colorPicker);
 }
 
 void ColorPickerPanel::addOnValueChangedListener(std::function<void(Float3 color)> listener)
 {
+    this->onValueChangedListeners.push_back(listener);
 }
+
 void ColorPickerPanel::notifyOnValueChangedListeners()
 {
+    for (int i = 0; i < onValueChangedListeners.size(); i++)
+    {
+        this->onValueChangedListeners[i](colorPreview);
+    }
 }
 
 bool ColorPickerPanel::pointIntersectsObject(Float3 point)
