@@ -1,6 +1,7 @@
 
 #include "Float3.h"
 #include "Float2.h"
+#include "Float4.h"
 #include <cmath>
 
 float Float3::length()
@@ -22,6 +23,10 @@ Float3::Float3(float x, float y, float z) : x(x), y(y), z(z)
 }
 
 Float3::Float3() : x(0), y(0), z(0)
+{
+}
+
+Float3::Float3(Float4 v1) : x(v1.x), y(v1.y), z(v1.z)
 {
 }
 

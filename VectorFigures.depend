@@ -75,7 +75,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1587239796 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
+1587256744 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	"../Utilities.h"
 	<GL/glut.h>
@@ -155,7 +155,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1587239948 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1587257219 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -165,7 +165,7 @@
 	"Figure.h"
 	"Bounds.h"
 
-1587088982 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1587255351 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
 	"Base/ITransformable.h"
@@ -182,7 +182,7 @@
 	"FigureListManager.h"
 	"ColorPicker/ColorPickerPanel.h"
 
-1587240758 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1587254814 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -209,21 +209,22 @@
 	"Float4.h"
 	<cmath>
 
-1586998122 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
+1587256440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h
 
-1586891353 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
-	"Float2.h"
+1587256193 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h
 
-1586885832 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h
+1587255929 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h
 	"Float3.h"
 
-1586998134 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
+1587256423 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
 	"Float2.h"
+	"Float3.h"
 	<cmath>
 
-1586891380 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
+1587256225 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
 	"Float3.h"
 	"Float2.h"
+	"Float4.h"
 	<cmath>
 
 1586885773 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp

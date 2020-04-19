@@ -197,7 +197,7 @@ void reshape(int w, int h)
 //definicao de valores para limpar buffers
 void inicializa()
 {
-   glClearColor(0, 0, 0, 0);
+   glClearColor(99 / 255.0, 98 / 255.0, 91 / 255.0, 0);
    glPolygonMode(GL_FRONT, GL_FILL);
 }
 
@@ -249,7 +249,6 @@ void initCanvas(int *w, int *h, const char *title)
    printf("GL Version: %s", glGetString(GL_VERSION));
    glEnable(GL_BLEND);  
    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  
-
 
 }
 

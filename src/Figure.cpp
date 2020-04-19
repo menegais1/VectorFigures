@@ -15,8 +15,17 @@ void Figure::render()
     color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
     polygonFill(vertices.data(), vertices.size());
     color(lineColor.x, lineColor.y, lineColor.z);
+    float thickness = 0.01;
+    for (int i = 0; i < vertices.size() - 1; i++)
+    {
+        Float3 center = getCenter();
+        Float3 start = ((vertices[i] - center) * (1 - thickness / 2)) + center;
+        Float3 end = ((vertices[i+1] - center) * (1 - thickness / 2)) + center;
+        drawThickLine(start, end, thickness);
+    }
+
     polygon(vertices.data(), vertices.size());
-    
+
     if (drawBounds)
     {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
@@ -30,6 +39,22 @@ void Figure::render()
         color(highlightColor.x, highlightColor.y, highlightColor.z, highlightColor.w);
         polygonFill(vertices.data(), vertices.size());
     }
+}
+
+void Figure::drawThickLine(Float2 start, Float2 end, float thickness)
+{
+    Float2 clockWiseVector = end - start;
+    Float2 counterClockwiseVector = end - start;
+    clockWiseVector = {-clockWiseVector.y, clockWiseVector.x};
+    counterClockwiseVector = -clockWiseVector;
+
+    Float3 points[4];
+    points[0] = Float3(start + clockWiseVector * thickness, 0);
+    points[1] = Float3(end + clockWiseVector * thickness, 0);
+    points[2] = Float3(end + counterClockwiseVector * thickness, 0);
+    points[3] = Float3(start + counterClockwiseVector * thickness, 0);
+
+    polygonFill(points, 4);
 }
 
 Float3 Figure::getCenter()

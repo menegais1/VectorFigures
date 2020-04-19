@@ -40,6 +40,7 @@ public:
 private:
     FigureType figureType;
     void initializeBounds();
+    void drawThickLine(Float2 start, Float2 end, float thickness);
 };
 
 #endif
