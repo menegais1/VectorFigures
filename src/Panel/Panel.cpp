@@ -51,3 +51,12 @@ void Panel::notifyOnActivateListeners()
         this->onActivateListeners[i](isActive);
     }
 }
+
+void Panel::setZIndex(int zIndex)
+{
+    CanvasObject::setZIndex(zIndex);
+    for (int i = 0; i < children.size(); i++)
+    {
+        children[i]->setZIndex(children[i]->getZIndex() + zIndex);
+    }
+}

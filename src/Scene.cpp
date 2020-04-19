@@ -254,6 +254,7 @@ Scene::Scene()
     drawBounds = false;
     colorPickerPanel = new ColorPickerPanel({10, 10, 0}, {250, 250, 0}, {0.3, 0.3, 0.3});
     colorPickerPanel->setActive(false);
+    colorPickerPanel->setZIndex(200);
     selectFillColorButton = new Button({10, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Fill Color", {0, 0, 0});
     selectFillColorButton->addListener([this] {
         selectFillColor();

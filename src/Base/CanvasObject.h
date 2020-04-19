@@ -18,7 +18,7 @@ public:
 
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
     void render() override;
-    void setZIndex(int zIndex);
+    virtual void setZIndex(int zIndex);
     int getZIndex();
     CanvasObject();
     ~CanvasObject();

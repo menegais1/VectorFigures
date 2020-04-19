@@ -6,7 +6,7 @@
 	<iostream>
 	"../Vectors/Float3.h"
 
-1587091567 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
+1587258306 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h
 	"../Utilities.h"
 	"IMouse.h"
 	"ITransformable.h"
@@ -75,7 +75,7 @@
 1426372440 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h
 	<stdarg.h>
 
-1587256744 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
+1587257665 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	"../Utilities.h"
 	<GL/glut.h>
@@ -99,11 +99,11 @@
 	<chrono>
 	"../Vectors/Float2.h"
 
-1587241023 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
+1587258406 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
 	"Panel.h"
 	<iostream>
 
-1587241078 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h
+1587258330 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h
 	"../Base/CanvasObject.h"
 	"../Base/ITransformable.h"
 	"../Utilities.h"
@@ -155,7 +155,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1587257219 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1587257888 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -182,7 +182,7 @@
 	"FigureListManager.h"
 	"ColorPicker/ColorPickerPanel.h"
 
-1587254814 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1587258229 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
