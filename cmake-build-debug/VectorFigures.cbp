@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="VectorFigures"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VectorFigures">
+				<Option output="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/VectorFigures" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 VectorFigures"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VectorFigures/fast">
+				<Option output="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/VectorFigures" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider"/>
+					<Add directory="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 VectorFigures/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/ReadMe.md">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/VectorFigures.cbp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/VectorFigures.depend">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_ext.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/freeglut_std.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/include/GL/glut.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/CanvasObject.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IKeyboard.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IMouse.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/IRender.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/ITransformable.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Canvas/gl_canvas2d.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPicker.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPicker.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorPickerPanel.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.h">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp">
+			<Option target="VectorFigures"/>
+		</Unit>
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
