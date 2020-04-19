@@ -18,7 +18,9 @@ enum Operator {
     RenderBounds = 'b',
     DeleteSelected = 127,
     SelectFillColor = 'f',
-    SelectLineColor = 'l'
+    SelectLineColor = 'l',
+    LoadFile = 'o',
+    SaveFile = 'p'
 };
 
 enum SceneMode {

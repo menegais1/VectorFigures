@@ -1,6 +1,7 @@
 
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 #include "Figure/Figure.h"
 #include "FigureListManager.h"
@@ -137,4 +138,58 @@ void FigureListManager::setSelectedFiguresColor(Float3 color, bool fillColor) {
         else
             selectedFigures[i]->lineColor = color;
     }
+}
+
+void FigureListManager::serializeFigures(std::string filename) {
+    std::ofstream file(filename, std::ios::binary | std::ios::out);
+    int figuresSize = figures.size();
+    file.write(reinterpret_cast<char *>(&figuresSize), sizeof(int));
+    for (int i = 0; i < figuresSize; ++i) {
+        Figure *f = figures[i];
+        file.write(reinterpret_cast<char *>(&f->backgroundColor), sizeof(Float3));
+        file.write(reinterpret_cast<char *>(&f->lineColor), sizeof(Float3));
+        file.write(reinterpret_cast<char *>(&f->highlightColor), sizeof(Float4));
+        file.write(reinterpret_cast<char *>(&f->bounds), sizeof(Bounds));
+        file.write(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
+        file.write(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
+        file.write(reinterpret_cast<char *>(&f->position), sizeof(Float3));
+        int verticesSize = f->vertices.size();
+        file.write(reinterpret_cast<char *>(&verticesSize), sizeof(int));
+        Float3 *data = f->vertices.data();
+        for (int j = 0; j < verticesSize; ++j) {
+            file.write(reinterpret_cast<char *>(&data[j]), sizeof(Float3));
+        }
+    }
+    file.close();
+}
+
+void FigureListManager::deserializeFigures(std::string filename) {
+    std::ifstream file(filename, std::ios::binary | std::ios::in);
+    if (!file.is_open() || file.bad()) return;
+    figures.clear();
+    int figuresSize;
+    file.read(reinterpret_cast<char *>(&figuresSize), sizeof(int));
+    for (int j = 0; j < figuresSize; ++j) {
+        std::cout << file.eof() << std::endl;
+        Figure *f = new Figure();
+        file.read(reinterpret_cast<char *>(&f->backgroundColor), sizeof(Float3));
+        file.read(reinterpret_cast<char *>(&f->lineColor), sizeof(Float3));
+        file.read(reinterpret_cast<char *>(&f->highlightColor), sizeof(Float4));
+        Bounds b;
+        file.read(reinterpret_cast<char *>(&b), sizeof(Bounds));
+        f->bounds = b;
+        file.read(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
+        file.read(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
+        file.read(reinterpret_cast<char *>(&f->position), sizeof(Float3));
+        int verticesSize = 0;
+        file.read(reinterpret_cast<char *>(&verticesSize), sizeof(int));
+        for (int i = 0; i < verticesSize; ++i) {
+            Float3 tmp;
+            file.read(reinterpret_cast<char *>(&tmp), sizeof(Float3));
+            f->vertices.push_back(tmp);
+        }
+        addFigure(figures, f);
+    }
+
+    file.close();
 }

@@ -2,6 +2,8 @@
 #define FIGURELISTMANAGER_H
 
 #include <vector>
+#include <string>
+#include <fstream>
 #include "Figure/Figure.h"
 
 class FigureListManager {
@@ -29,6 +31,10 @@ public:
     void rescaleFigures(Float3 scale, Float3 center);
 
     void setSelectedFiguresColor(Float3 color, bool fillColor);
+
+    void serializeFigures(std::string filename);
+
+    void deserializeFigures(std::string filename);
 
     Figure *getFirstInteractedFigure(Float2 mousePosition);
 

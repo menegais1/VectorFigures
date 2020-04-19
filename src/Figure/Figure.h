@@ -17,6 +17,8 @@ enum FigureType {
 
 class Figure : public CanvasObject {
 public:
+    Figure();
+
     Float3 backgroundColor;
     Float3 lineColor;
     Bounds bounds;

@@ -71,7 +71,7 @@ void Scene::keyboard(int key) {
 }
 
 void Scene::keyboardUp(int key) {
-    std::cout << key << std::endl;
+ //   std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
 }
@@ -129,6 +129,12 @@ void Scene::handleSceneOperator(Operator op) {
             break;
         case Operator::SelectLineColor:
             selectLineColor();
+            break;
+        case Operator::LoadFile:
+            figureListManager.deserializeFigures("figures.gr");
+            break;
+        case Operator::SaveFile:
+            figureListManager.serializeFigures("figures.gr");
             break;
         default:
             break;
