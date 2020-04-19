@@ -71,7 +71,7 @@ void Scene::keyboard(int key) {
 }
 
 void Scene::keyboardUp(int key) {
- //   std::cout << key << std::endl;
+    //   std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
 }
@@ -82,13 +82,16 @@ void Scene::handleSceneMode(SceneMode sceneMode) {
             setInsertMode();
             break;
         case SceneMode::Translate:
-            setTranslateMode();
+            if (figureListManager.isFiguresSelected())
+                setTranslateMode();
             break;
         case SceneMode::Rotate:
-            setRotateMode();
+            if (figureListManager.isFiguresSelected())
+                setRotateMode();
             break;
         case SceneMode::Scale:
-            setScaleMode();
+            if (figureListManager.isFiguresSelected())
+                setScaleMode();
             break;
     }
 }
@@ -107,7 +110,6 @@ void Scene::handleSceneOperator(Operator op) {
         case Operator::InsertPolygon:
             if (mode == SceneMode::Insert) {
                 insertNewFigure();
-                lastMode = mode;
                 mode = SceneMode::Default;
             }
             break;
@@ -132,6 +134,7 @@ void Scene::handleSceneOperator(Operator op) {
             break;
         case Operator::LoadFile:
             figureListManager.deserializeFigures("figures.gr");
+            setDefaultMode();
             break;
         case Operator::SaveFile:
             figureListManager.serializeFigures("figures.gr");
@@ -224,7 +227,7 @@ void Scene::sendToFront() {
 }
 
 Scene::Scene() {
-    mode = lastMode = SceneMode::Default;
+    mode = SceneMode::Default;
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.8};
     setZIndex(100);
     drawBounds = false;
@@ -250,6 +253,7 @@ Scene::Scene() {
     });
     this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);
     this->setZIndex(-1);
+    figureListManager.deserializeFigures("figures.gr");
 }
 
 void Scene::selectFillColor() {
@@ -265,13 +269,11 @@ void Scene::selectLineColor() {
 }
 
 void Scene::setInsertMode() {
-    lastMode = mode;
     mode = SceneMode::Insert;
     tmpVertices.clear();
 }
 
 void Scene::setTranslateMode() {
-    lastMode = mode;
     if (mode == SceneMode::Translate) {
         mode = SceneMode::Default;
     } else {
@@ -282,7 +284,6 @@ void Scene::setTranslateMode() {
 }
 
 void Scene::setScaleMode() {
-    lastMode = mode;
     if (mode == SceneMode::Scale) {
         mode = SceneMode::Default;
     } else {
@@ -294,7 +295,6 @@ void Scene::setScaleMode() {
 }
 
 void Scene::setRotateMode() {
-    lastMode = mode;
     if (mode == SceneMode::Rotate) {
         mode = SceneMode::Default;
     } else {
@@ -304,6 +304,7 @@ void Scene::setRotateMode() {
 }
 
 void Scene::setDefaultMode() {
+    mode = SceneMode::Default;
 }
 
 void Scene::handleInsertMode(int button, int state) {
@@ -322,8 +323,9 @@ void Scene::handleScaleMode() {
     Float3 scale1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y, 0};
     Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
 
-    float scale = scale1.length() / scale2.length();
-    figureListManager.rescaleFigures({scale * fixatedAxis.x, scale * fixatedAxis.y, 0}, selectionCenter);
+    float scaleAmount = scale1.length() / scale2.length();
+    Float3 scale = {fixatedAxis.x != 0 ? scaleAmount : 1, fixatedAxis.y != 0 ? scaleAmount : 1, 0};
+    figureListManager.rescaleFigures(scale, selectionCenter);
 }
 
 void Scene::handleRotateMode() {

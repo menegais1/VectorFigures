@@ -38,6 +38,7 @@ public:
 
     Figure *getFirstInteractedFigure(Float2 mousePosition);
 
+    bool isFiguresSelected();
 private:
     std::vector<Figure *> figures;
     std::vector<Figure *> selectedFigures;

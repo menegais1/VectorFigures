@@ -49,7 +49,6 @@ private:
     FigureListManager figureListManager;
     std::vector<Float3> tmpVertices;
     int mode;
-    int lastMode;
     bool multipleSelect;
     bool drawBounds;
     Float4 highlightColor;

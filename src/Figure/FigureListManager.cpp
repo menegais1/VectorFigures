@@ -146,6 +146,8 @@ void FigureListManager::serializeFigures(std::string filename) {
     file.write(reinterpret_cast<char *>(&figuresSize), sizeof(int));
     for (int i = 0; i < figuresSize; ++i) {
         Figure *f = figures[i];
+        f->drawBounds = false;
+        f->isSelected = false;
         file.write(reinterpret_cast<char *>(&f->backgroundColor), sizeof(Float3));
         file.write(reinterpret_cast<char *>(&f->lineColor), sizeof(Float3));
         file.write(reinterpret_cast<char *>(&f->highlightColor), sizeof(Float4));
@@ -166,6 +168,10 @@ void FigureListManager::serializeFigures(std::string filename) {
 void FigureListManager::deserializeFigures(std::string filename) {
     std::ifstream file(filename, std::ios::binary | std::ios::in);
     if (!file.is_open() || file.bad()) return;
+    selectedFigures.clear();
+    for (int k = 0; k < figures.size(); ++k) {
+        delete figures[k];
+    }
     figures.clear();
     int figuresSize;
     file.read(reinterpret_cast<char *>(&figuresSize), sizeof(int));
@@ -192,4 +198,8 @@ void FigureListManager::deserializeFigures(std::string filename) {
     }
 
     file.close();
+}
+
+bool FigureListManager::isFiguresSelected() {
+    return !selectedFigures.empty();
 }
