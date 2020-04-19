@@ -83,9 +83,8 @@ void circle(int x, int y, int raio, int div) {
     float ang, x1, y1;
     float inc = PI_2 / div;
     glBegin(GL_LINE_LOOP);
-    for (ang = 0; ang <
-                  6.27; ang += inc) //nao vai ateh PI_2 pois o ultimo ponto eh fechado automaticamente com o primeiro, pois tem o tipo LINE_LOOP
-    {
+    //nao vai ateh PI_2 pois o ultimo ponto eh fechado automaticamente com o primeiro, pois tem o tipo LINE_LOOP
+    for (ang = 0; ang < 6.27; ang += inc) {
         x1 = (cos(ang) * raio);
         y1 = (sin(ang) * raio);
         glVertex2d(x1 + x, y1 + y);

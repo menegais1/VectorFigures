@@ -1,5 +1,6 @@
 #include "Utilities.h"
 #include <vector>
+#include <Canvas/gl_canvas2d.h>
 #include "Vectors/Float2.h"
 #include "Vectors/Float3.h"
 
@@ -39,4 +40,17 @@ bool leftMouseUp(int button, int state) {
 
 Float3 lerp(Float3 x0, Float3 x1, float t) {
     return x0 * (1 - t) + x1 * t;
+}
+
+std::vector<Float3> generateCircle(Float3 center, Float3 scale, float sides) {
+    float ang, x1, y1;
+    float inc = PI_2 / sides;
+    std::vector<Float3> vertices;
+    for (ang = 0; ang < PI_2; ang += inc) {
+        float x = (cos(ang) * scale.x);
+        float y = (sin(ang) * scale.y);
+        vertices.push_back({center.x + x, center.y + y, center.z});
+    }
+    vertices.push_back(vertices[0]);
+    return vertices;
 }

@@ -23,6 +23,15 @@ enum Operator {
     SaveFile = 'p'
 };
 
+enum FigureType {
+    Polygon = '0',
+    Circle = '1',
+    Triangle = '3',
+    Square = '4',
+    Pentagon = '5',
+    Hexagon = '6'
+};
+
 enum SceneMode {
     Insert = 'i',
     Translate = 't',
@@ -61,6 +70,7 @@ private:
     Button *selectLineColorButton;
     bool selectingFillColor;
     bool selectingLineColor;
+    FigureType insertionType;
 
     void renderPolygonInsertion();
 
@@ -85,6 +95,8 @@ private:
     void handleSceneMode(SceneMode sceneMode);
 
     void handleSceneOperator(Operator op);
+
+    void handleFigureTypeSelection(FigureType type);
 
     //Scene Mode handle
     void setInsertMode();

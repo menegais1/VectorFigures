@@ -6,6 +6,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
+#include <sstream>
 #include "Vectors/Float2.h"
 #include "Vectors/Float3.h"
 #include "Vectors/Float4.h"
@@ -74,6 +75,8 @@ void Scene::keyboardUp(int key) {
     //   std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
+    if (mode == SceneMode::Insert)
+        handleFigureTypeSelection(static_cast<FigureType>(key));
 }
 
 void Scene::handleSceneMode(SceneMode sceneMode) {
@@ -175,6 +178,8 @@ void Scene::renderPolygonInsertion() {
 
 void Scene::renderCurrentMode() {
 
+    std::stringstream stream;
+
     switch (mode) {
         case SceneMode::Default:
             color(1, 1, 1);
@@ -186,10 +191,33 @@ void Scene::renderCurrentMode() {
             break;
         case SceneMode::Insert:
             color(1, 1, 1);
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Insert");
+            stream << "Mode: Insert -> ";
+            switch (insertionType) {
+                case Polygon:
+                    stream << "Polygon";
+                    break;
+                case Circle:
+                    stream << "Circle";
+                    break;
+                case Triangle:
+                    stream << "Triangle";
+                    break;
+                case Square:
+                    stream << "Square";
+                    break;
+                case Pentagon:
+                    stream << "Pentagon";
+                    break;
+                case Hexagon:
+                    stream << "Hexagon";
+                    break;
+            }
+            text(20, *GlobalManager::getInstance()->screenHeight - 10, stream.str().c_str());
             text(20, *GlobalManager::getInstance()->screenHeight - 23, "Left mouse: Insert point");
             text(20, *GlobalManager::getInstance()->screenHeight - 35, "I key: clear points");
             text(20, *GlobalManager::getInstance()->screenHeight - 47, "Enter key: finish insertion");
+            text(20, *GlobalManager::getInstance()->screenHeight - 59,
+                 "Keys from 0-9: Change figure type, 0 is free polygon, 1 is circle, 3 is triangle... 6 is hexagon");
             break;
         case SceneMode::Translate:
             color(1, 1, 1);
@@ -271,6 +299,7 @@ void Scene::selectLineColor() {
 void Scene::setInsertMode() {
     mode = SceneMode::Insert;
     tmpVertices.clear();
+    insertionType = FigureType::Polygon;
 }
 
 void Scene::setTranslateMode() {
@@ -309,7 +338,26 @@ void Scene::setDefaultMode() {
 
 void Scene::handleInsertMode(int button, int state) {
     if (leftMouseDown(button, state)) {
-        tmpVertices.push_back({currentMousePosition.x, currentMousePosition.y, 0});
+        switch (insertionType) {
+            case Polygon:
+                tmpVertices.push_back({currentMousePosition.x, currentMousePosition.y, 0});
+                break;
+            case Circle:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 20);
+                break;
+            case Triangle:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 3);
+                break;
+            case Square:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 4);
+                break;
+            case Pentagon:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 5);
+                break;
+            case Hexagon:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 6);
+                break;
+        }
     }
 }
 
@@ -329,12 +377,9 @@ void Scene::handleScaleMode() {
 }
 
 void Scene::handleRotateMode() {
-    Float2 vector1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y};
-    Float2 vector2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y};
-    float length = vector1.length();
-    vector1 = {vector1.x / length, vector1.y / length};
-    length = vector2.length();
-    vector2 = {vector2.x / length, vector2.y / length};
+    Float2 vector1 = Float2(currentMousePosition.x - selectionCenter.x,
+                            currentMousePosition.y - selectionCenter.y).unit();
+    Float2 vector2 = Float2(lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y).unit();
     float direction = vector1.x * vector2.y - vector1.y * vector2.x;
     direction = direction > 0 ? -1 : 1;
     float dot = vector1.x * vector2.x + vector1.y * vector2.y;
@@ -356,4 +401,19 @@ void Scene::handleDefaultMode(int button, int state) {
 
 bool Scene::pointIntersectsObject(Float3 point) {
     return true;
+}
+
+void Scene::handleFigureTypeSelection(FigureType type) {
+    switch (type) {
+        case Polygon:
+        case Circle:
+        case Triangle:
+        case Square:
+        case Pentagon:
+        case Hexagon:
+            insertionType = type;
+            break;
+        default:
+            insertionType = FigureType::Polygon;
+    }
 }

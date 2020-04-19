@@ -8,13 +8,6 @@
 #include "Vectors/Float4.h"
 #include "Bounds/Bounds.h"
 
-enum FigureType {
-    Square = 0,
-    Triangle = 1,
-    Circle = 2,
-    Polygon = 3
-};
-
 class Figure : public CanvasObject {
 public:
     Figure();
@@ -45,7 +38,6 @@ public:
     bool pointIntersectsObject(Float3 point) override;
 
 private:
-    FigureType figureType;
 
     void initializeBounds();
 

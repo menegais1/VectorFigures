@@ -8,6 +8,8 @@
 #include "Vectors/Float3.h"
 #include "Vectors/Float4.h"
 
+#define stringify( name ) # name
+
 enum Channel {
     Red = 0,
     Green = 1,
@@ -34,6 +36,16 @@ bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale);
 int isLeft(Float3 P0, Float3 P1, Float3 P2);
 
 bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n);
+
+std::vector<Float3> generateSquare(Float3 center, Float3 scale);
+
+std::vector<Float3> generateCircle(Float3 center, Float3 scale, float sides);
+
+std::vector<Float3> generateTriangle(Float3 center, Float3 scale);
+
+std::vector<Float3> generatePentagon(Float3 center, Float3 scale);
+
+std::vector<Float3> generateHexagon(Float3 center, Float3 scale);
 
 bool leftMouseDown(int button, int state);
 
