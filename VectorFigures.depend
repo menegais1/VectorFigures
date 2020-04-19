@@ -155,7 +155,7 @@
 1586320395 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vector4.cpp
 	"Vector4.h"
 
-1587257888 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+1587262238 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
 	<vector>
 	<iostream>
 	<cmath>
@@ -165,7 +165,7 @@
 	"Figure.h"
 	"Bounds.h"
 
-1587255351 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
+1587261756 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h
 	<vector>
 	"Base/CanvasObject.h"
 	"Base/ITransformable.h"
@@ -173,7 +173,7 @@
 	"Vectors/Float4.h"
 	"Bounds.h"
 
-1587240235 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
+1587259015 /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h
 	<vector>
 	"Figure.h"
 	"Label/Label.h"
@@ -182,7 +182,7 @@
 	"FigureListManager.h"
 	"ColorPicker/ColorPickerPanel.h"
 
-1587258229 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+1587262438 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
 	"Scene.h"
 	"Utilities.h"
 	"Figure.h"
@@ -240,7 +240,7 @@
 	"Vectors/Float3.h"
 	<vector>
 
-1586892884 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp
+1587262356 source:/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp
 	"Bounds.h"
 	"Vectors/Float3.h"
 	<cmath>

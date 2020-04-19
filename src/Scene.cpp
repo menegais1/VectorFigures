@@ -357,14 +357,16 @@ void Scene::handleTranslateMode()
     Float3 translation = {currentMousePosition.x - lastMousePosition.x, currentMousePosition.y - lastMousePosition.y, 0};
     figureListManager.translateFigures({translation.x * fixatedAxis.x, translation.y * fixatedAxis.y, 0});
 }
+
 void Scene::handleScaleMode()
 {
     Float3 scale1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y, 0};
     Float3 scale2 = {lastMousePosition.x - selectionCenter.x, lastMousePosition.y - selectionCenter.y, 0};
 
-    float scale = scale1.length() - scale2.length();
-    figureListManager.rescaleFigures({scale / 100 * fixatedAxis.x, scale / 100 * fixatedAxis.y, 0}, selectionCenter);
+    float scale = scale1.length() / scale2.length();
+    figureListManager.rescaleFigures({scale * fixatedAxis.x, scale * fixatedAxis.y, 0}, selectionCenter);
 }
+
 void Scene::handleRotateMode()
 {
     Float2 vector1 = {currentMousePosition.x - selectionCenter.x, currentMousePosition.y - selectionCenter.y};

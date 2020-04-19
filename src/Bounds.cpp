@@ -51,8 +51,8 @@ void Bounds::rescale(Float3 scale, Float3 center)
     translate(-center);
     for (int i = 0; i < 4; i++)
     {
-        float x = corners[i].x * (scale.x + 1);
-        float y = corners[i].y * (scale.y + 1);
+        float x = corners[i].x * scale.x;
+        float y = corners[i].y * scale.y;
         corners[i].x = x;
         corners[i].y = y;
     }

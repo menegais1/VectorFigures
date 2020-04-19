@@ -7,24 +7,24 @@
 #include "Canvas/gl_canvas2d.h"
 #include "Figure.h"
 #include "Bounds.h"
+
+float thickness = 0.95;
+float inversethickness = 1 / thickness;
 void Figure::render()
 {
     if (vertices.size() < 0)
         return;
 
-    color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
-    polygonFill(vertices.data(), vertices.size());
     color(lineColor.x, lineColor.y, lineColor.z);
-    float thickness = 0.01;
-    for (int i = 0; i < vertices.size() - 1; i++)
-    {
-        Float3 center = getCenter();
-        Float3 start = ((vertices[i] - center) * (1 - thickness / 2)) + center;
-        Float3 end = ((vertices[i+1] - center) * (1 - thickness / 2)) + center;
-        drawThickLine(start, end, thickness);
-    }
+    polygonFill(vertices.data(), vertices.size());
 
-    polygon(vertices.data(), vertices.size());
+    color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
+    rescale(Float3(thickness, thickness, 0), getCenter());
+
+    polygonFill(vertices.data(), vertices.size());
+
+    rescale(Float3(inversethickness, inversethickness, 0), getCenter());
+
 
     if (drawBounds)
     {
@@ -91,8 +91,8 @@ void Figure::rescale(Float3 scale, Float3 center)
     translate({-center.x, -center.y, 0});
     for (int i = 0; i < vertices.size(); i++)
     {
-        float x = vertices[i].x * (scale.x + 1);
-        float y = vertices[i].y * (scale.y + 1);
+        float x = vertices[i].x * scale.x;
+        float y = vertices[i].y * scale.y;
         vertices[i].x = x;
         vertices[i].y = y;
     }
