@@ -155,6 +155,8 @@ void FigureListManager::serializeFigures(std::string filename) {
         file.write(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
         file.write(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
         file.write(reinterpret_cast<char *>(&f->position), sizeof(Float3));
+        int zIndex = f->getZIndex();
+        file.write(reinterpret_cast<char *>(&zIndex), sizeof(int));
         int verticesSize = f->vertices.size();
         file.write(reinterpret_cast<char *>(&verticesSize), sizeof(int));
         Float3 *data = f->vertices.data();
@@ -187,6 +189,9 @@ void FigureListManager::deserializeFigures(std::string filename) {
         file.read(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
         file.read(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
         file.read(reinterpret_cast<char *>(&f->position), sizeof(Float3));
+        int zIndex = 0;
+        file.read(reinterpret_cast<char *>(&zIndex), sizeof(int));
+        f->setZIndex(zIndex);
         int verticesSize = 0;
         file.read(reinterpret_cast<char *>(&verticesSize), sizeof(int));
         for (int i = 0; i < verticesSize; ++i) {

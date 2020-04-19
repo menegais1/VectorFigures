@@ -22,36 +22,39 @@ GlobalManager *GlobalManager::getInstance() {
 }
 
 void GlobalManager::keyboard(int key) {
-
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
-        if (!objects[i]->checkIfCanExecuteCallback())
+    std::vector<CanvasObject*> callbackCaller = objects;
+    for (int i = callbackCaller.size() - 1; i >= 0; i--) {
+        if (!callbackCaller[i]->checkIfCanExecuteCallback())
             continue;
-        objects[i]->keyboard(key);
+        callbackCaller[i]->keyboard(key);
     }
 }
 
 void GlobalManager::keyboardUp(int key) {
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
-        if (!objects[i]->checkIfCanExecuteCallback())
+    std::vector<CanvasObject*> callbackCaller = objects;
+    for (int i = callbackCaller.size() - 1; i >= 0; i--) {
+        if (!callbackCaller[i]->checkIfCanExecuteCallback())
             continue;
-        objects[i]->keyboardUp(key);
+        callbackCaller[i]->keyboardUp(key);
     }
 }
 
 void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y) {
+    std::vector<CanvasObject*> callbackCaller = objects;
     mousePosition = {x, y};
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
-        if (!objects[i]->checkIfCanExecuteCallback())
+    for (int i = callbackCaller.size() - 1; i >= 0; i--) {
+        if (!callbackCaller[i]->checkIfCanExecuteCallback())
             continue;
-        objects[i]->mouse(button, state, wheel, direction, x, y);
+        callbackCaller[i]->mouse(button, state, wheel, direction, x, y);
     }
 }
 
 void GlobalManager::render() {
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
-        if (!objects[i]->checkIfCanExecuteCallback())
+    std::vector<CanvasObject*> callbackCaller = objects;
+    for (int i = callbackCaller.size() - 1; i >= 0; i--) {
+        if (!callbackCaller[i]->checkIfCanExecuteCallback())
             continue;
-        objects[i]->render();
+        callbackCaller[i]->render();
     }
 }
 

@@ -72,7 +72,7 @@ void Scene::keyboard(int key) {
 }
 
 void Scene::keyboardUp(int key) {
-    //   std::cout << key << std::endl;
+    std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
     if (mode == SceneMode::Insert)
@@ -257,11 +257,10 @@ void Scene::sendToFront() {
 Scene::Scene() {
     mode = SceneMode::Default;
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.8};
-    setZIndex(100);
     drawBounds = false;
     colorPickerPanel = new ColorPickerPanel({10, 10, 0}, {250, 250, 0}, {0.3, 0.3, 0.3});
     colorPickerPanel->setActive(false);
-    colorPickerPanel->setZIndex(200);
+    colorPickerPanel->setZIndex(10000);
     selectFillColorButton = new Button({10, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Fill Color", {0, 0, 0});
     selectFillColorButton->addListener([this] {
         selectFillColor();
@@ -285,15 +284,28 @@ Scene::Scene() {
 }
 
 void Scene::selectFillColor() {
-    this->selectingFillColor = true;
-    this->selectingLineColor = false;
-    this->colorPickerPanel->setActive(true);
+    if (!this->selectingFillColor) {
+        this->selectingFillColor = true;
+        this->selectingLineColor = false;
+        this->colorPickerPanel->setActive(true);
+    } else {
+        this->selectingFillColor = false;
+        this->selectingLineColor = false;
+        this->colorPickerPanel->setActive(false);
+    }
+
 }
 
 void Scene::selectLineColor() {
-    this->selectingLineColor = true;
-    this->selectingFillColor = false;
-    this->colorPickerPanel->setActive(true);
+    if (!this->selectingLineColor) {
+        this->selectingLineColor = true;
+        this->selectingFillColor = false;
+        this->colorPickerPanel->setActive(true);
+    } else {
+        this->selectingLineColor = false;
+        this->selectingFillColor = false;
+        this->colorPickerPanel->setActive(false);
+    }
 }
 
 void Scene::setInsertMode() {

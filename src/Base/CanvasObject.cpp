@@ -44,12 +44,12 @@ int CanvasObject::getZIndex() {
 }
 
 CanvasObject::CanvasObject() {
-    objectId = GlobalManager::getInstance()->registerObject(this);
+    zIndex = 0;
     isActive = true;
     lastActiveState = true;
     position = {0, 0, 0};
     scale = {1, 1, 1};
-    zIndex = 0;
+    objectId = GlobalManager::getInstance()->registerObject(this);
 }
 
 CanvasObject::~CanvasObject() {

@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <sstream>
 #include "Vectors/Float2.h"
 #include "Vectors/Float4.h"
 #include "Canvas/gl_canvas2d.h"
@@ -25,7 +26,10 @@ void Figure::render() {
 
     rescale(Float3(inversethickness, inversethickness, 0), getCenter());
 
-
+    color(1,1,1);
+    std::stringstream  stream;
+    stream << getZIndex();
+    text(getCenter().x, getCenter().y,stream.str().c_str());
     if (drawBounds) {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
         line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
