@@ -135,22 +135,9 @@ CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.cpp -o CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o: ../src/Label/Label.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp
-
-CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp > CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.i
-
-CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp -o CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.s
-
 CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o: ../src/Managers/GlobalManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp
 
 CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.i: cmake_force
@@ -163,7 +150,7 @@ CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.s: cmake_force
 
 CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o: ../src/Panel/Panel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp
 
 CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.i: cmake_force
@@ -174,22 +161,9 @@ CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.cpp -o CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o: ../src/Slider/Slider.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp
-
-CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp > CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.i
-
-CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp -o CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.s
-
 CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o: ../src/Vectors/Float2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float2.cpp
 
 CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.i: cmake_force
@@ -202,7 +176,7 @@ CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.s: cmake_force
 
 CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o: ../src/Vectors/Float3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float3.cpp
 
 CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.i: cmake_force
@@ -215,7 +189,7 @@ CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.s: cmake_force
 
 CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o: ../src/Vectors/Float4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp
 
 CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.i: cmake_force
@@ -226,48 +200,48 @@ CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Vectors/Float4.cpp -o CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o: ../src/Bounds.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp
+CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
+CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o: ../src/Bounds/Bounds.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds/Bounds.cpp
 
-CMakeFiles/VectorFigures.dir/src/Bounds.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Bounds.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp > CMakeFiles/VectorFigures.dir/src/Bounds.cpp.i
+CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds/Bounds.cpp > CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.i
 
-CMakeFiles/VectorFigures.dir/src/Bounds.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Bounds.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp -o CMakeFiles/VectorFigures.dir/src/Bounds.cpp.s
+CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds/Bounds.cpp -o CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/Figure.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/Figure.cpp.o: ../src/Figure.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VectorFigures.dir/src/Figure.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Figure.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp
+CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
+CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o: ../src/Figure/Figure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/Figure.cpp
 
-CMakeFiles/VectorFigures.dir/src/Figure.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Figure.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp > CMakeFiles/VectorFigures.dir/src/Figure.cpp.i
+CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/Figure.cpp > CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.i
 
-CMakeFiles/VectorFigures.dir/src/Figure.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Figure.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp -o CMakeFiles/VectorFigures.dir/src/Figure.cpp.s
+CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/Figure.cpp -o CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o: ../src/FigureListManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp
+CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
+CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o: ../src/Figure/FigureListManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/FigureListManager.cpp
 
-CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp > CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.i
+CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/FigureListManager.cpp > CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.i
 
-CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp -o CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.s
+CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/FigureListManager.cpp -o CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.s
 
 CMakeFiles/VectorFigures.dir/src/main.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VectorFigures.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/VectorFigures.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/main.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp
 
 CMakeFiles/VectorFigures.dir/src/main.cpp.i: cmake_force
@@ -278,22 +252,22 @@ CMakeFiles/VectorFigures.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/main.cpp -o CMakeFiles/VectorFigures.dir/src/main.cpp.s
 
-CMakeFiles/VectorFigures.dir/src/Scene.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
-CMakeFiles/VectorFigures.dir/src/Scene.cpp.o: ../src/Scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/VectorFigures.dir/src/Scene.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Scene.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp
+CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
+CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o: ../src/Scene/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene/Scene.cpp
 
-CMakeFiles/VectorFigures.dir/src/Scene.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Scene.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp > CMakeFiles/VectorFigures.dir/src/Scene.cpp.i
+CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene/Scene.cpp > CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.i
 
-CMakeFiles/VectorFigures.dir/src/Scene.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Scene.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp -o CMakeFiles/VectorFigures.dir/src/Scene.cpp.s
+CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene/Scene.cpp -o CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.s
 
 CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o: CMakeFiles/VectorFigures.dir/flags.make
 CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o: ../src/Utilities.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o -c /home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp
 
 CMakeFiles/VectorFigures.dir/src/Utilities.cpp.i: cmake_force
@@ -312,18 +286,16 @@ VectorFigures_OBJECTS = \
 "CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorPicker.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorPickerPanel.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/Figure.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o" \
+"CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o" \
+"CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o" \
+"CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/main.cpp.o" \
-"CMakeFiles/VectorFigures.dir/src/Scene.cpp.o" \
+"CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o" \
 "CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o"
 
 # External object files for target VectorFigures
@@ -335,18 +307,16 @@ VectorFigures: CMakeFiles/VectorFigures.dir/src/Canvas/gl_canvas2d.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorPicker.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorPickerPanel.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Managers/GlobalManager.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Vectors/Float2.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Vectors/Float3.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Vectors/Float4.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/Figure.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o
+VectorFigures: CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o
+VectorFigures: CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o
+VectorFigures: CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/main.cpp.o
-VectorFigures: CMakeFiles/VectorFigures.dir/src/Scene.cpp.o
+VectorFigures: CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/src/Utilities.cpp.o
 VectorFigures: CMakeFiles/VectorFigures.dir/build.make
 VectorFigures: /usr/lib/x86_64-linux-gnu/libOpenGL.so
@@ -356,7 +326,7 @@ VectorFigures: /usr/lib/x86_64-linux-gnu/libglut.so
 VectorFigures: /usr/lib/x86_64-linux-gnu/libXmu.so
 VectorFigures: /usr/lib/x86_64-linux-gnu/libXi.so
 VectorFigures: CMakeFiles/VectorFigures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable VectorFigures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable VectorFigures"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/VectorFigures.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

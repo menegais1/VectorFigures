@@ -1,33 +1,27 @@
 #include "Utilities.h"
 #include <vector>
-#include <cstdlib>
-#include <cmath>
 #include "Vectors/Float2.h"
 #include "Vectors/Float3.h"
-#include "Vectors/Float4.h"
 
-bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale)
-{
-    return point.x < position.x + scale.x && point.x > position.x && point.y < position.y + scale.y && point.y > position.y;
+bool isPointInsideBounds(Float2 point, Float2 position, Float2 scale) {
+    return point.x < position.x + scale.x && point.x > position.x && point.y < position.y + scale.y &&
+           point.y > position.y;
 }
 
-int isLeft(Float3 P0, Float3 P1, Float3 P2)
-{
+int isLeft(Float3 P0, Float3 P1, Float3 P2) {
     return ((P1.x - P0.x) * (P2.y - P0.y) - (P2.x - P0.x) * (P1.y - P0.y));
 }
 
-bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n)
-{
+bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n) {
     int cn = 0; // the  crossing number counter
 
     // loop through all edges of the polygon
-    for (int i = 0; i < n; i++)
-    {                                                             // edge from V[i]  to V[i+1]
+    for (int i = 0;
+         i < n; i++) {                                                             // edge from V[i]  to V[i+1]
         if (((vertices[i].y <= P.y) && (vertices[i + 1].y > P.y)) // an upward crossing
-            || ((vertices[i].y > P.y) && (vertices[i + 1].y <= P.y)))
-        { // a downward crossing
+            || ((vertices[i].y > P.y) && (vertices[i + 1].y <= P.y))) { // a downward crossing
             // compute  the actual edge-ray intersect x-coordinate
-            float vt = (float)(P.y - vertices[i].y) / (vertices[i + 1].y - vertices[i].y);
+            float vt = (float) (P.y - vertices[i].y) / (vertices[i + 1].y - vertices[i].y);
             if (P.x < vertices[i].x + vt * (vertices[i + 1].x - vertices[i].x)) // P.x < intersect
                 ++cn;                                                           // a valid crossing of y=P.y right of P.x
         }
@@ -35,17 +29,14 @@ bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n)
     return (cn & 1); // 0 if even (out), and 1 if  odd (in)
 }
 
-bool leftMouseDown(int button, int state)
-{
+bool leftMouseDown(int button, int state) {
     return button == MouseButton::Left && state == MouseState::Down;
 }
 
-bool leftMouseUp(int button, int state)
-{
+bool leftMouseUp(int button, int state) {
     return button == MouseButton::Left && state == MouseState::Up;
 }
 
-Float3 lerp(Float3 x0, Float3 x1, float t)
-{
+Float3 lerp(Float3 x0, Float3 x1, float t) {
     return x0 * (1 - t) + x1 * t;
 }

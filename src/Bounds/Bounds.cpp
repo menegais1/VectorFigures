@@ -3,8 +3,7 @@
 #include "Vectors/Float3.h"
 #include <cmath>
 
-Bounds::Bounds(Float3 minBound, Float3 maxBound) : minBound(minBound), maxBound(maxBound)
-{
+Bounds::Bounds(Float3 minBound, Float3 maxBound) : minBound(minBound), maxBound(maxBound) {
     extents = maxBound - minBound;
     center = minBound + extents * 0.5;
     corners[0] = minBound;
@@ -12,14 +11,12 @@ Bounds::Bounds(Float3 minBound, Float3 maxBound) : minBound(minBound), maxBound(
     corners[2] = maxBound;
     corners[3] = {minBound.x, maxBound.y, 0};
 }
-Bounds::Bounds()
-{
+
+Bounds::Bounds() {
 }
 
-void Bounds::translate(Float3 translationAmount)
-{
-    for (int i = 0; i < 4; i++)
-    {
+void Bounds::translate(Float3 translationAmount) {
+    for (int i = 0; i < 4; i++) {
         corners[i] = corners[i] + translationAmount;
     }
 
@@ -28,12 +25,11 @@ void Bounds::translate(Float3 translationAmount)
     extents = maxBound - minBound;
     center = minBound + extents * 0.5;
 }
-void Bounds::rotate(float angle, Float3 center)
-{
+
+void Bounds::rotate(float angle, Float3 center) {
     translate(-center);
 
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         float x = corners[i].x * cos(angle) - corners[i].y * sin(angle);
         float y = corners[i].x * sin(angle) + corners[i].y * cos(angle);
         corners[i] = {x, y, corners[i].z};
@@ -46,11 +42,10 @@ void Bounds::rotate(float angle, Float3 center)
     extents = maxBound - minBound;
     this->center = minBound + extents * 0.5;
 }
-void Bounds::rescale(Float3 scale, Float3 center)
-{
+
+void Bounds::rescale(Float3 scale, Float3 center) {
     translate(-center);
-    for (int i = 0; i < 4; i++)
-    {
+    for (int i = 0; i < 4; i++) {
         float x = corners[i].x * scale.x;
         float y = corners[i].y * scale.y;
         corners[i].x = x;

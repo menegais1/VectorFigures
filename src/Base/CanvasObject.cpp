@@ -4,33 +4,29 @@
 #include <iostream>
 #include "../Vectors/Float3.h"
 
-void CanvasObject::keyboard(int key)
-{
-}
-void CanvasObject::keyboardUp(int key)
-{
-}
-void CanvasObject::mouse(int button, int state, int wheel, int direction, int x, int y)
-{
-}
-void CanvasObject::render()
-{
+void CanvasObject::keyboard(int key) {
 }
 
-void CanvasObject::setActive(bool isActive)
-{
+void CanvasObject::keyboardUp(int key) {
+}
+
+void CanvasObject::mouse(int button, int state, int wheel, int direction, int x, int y) {
+}
+
+void CanvasObject::render() {
+}
+
+void CanvasObject::setActive(bool isActive) {
     lastActiveState = this->isActive;
     this->isActive = isActive;
 }
-bool CanvasObject::getActive()
-{
+
+bool CanvasObject::getActive() {
     return this->isActive;
 }
 
-bool CanvasObject::checkIfCanExecuteCallback()
-{
-    if (lastActiveState != isActive)
-    {
+bool CanvasObject::checkIfCanExecuteCallback() {
+    if (lastActiveState != isActive) {
         bool tmp = lastActiveState;
         lastActiveState = isActive;
         return tmp;
@@ -38,19 +34,16 @@ bool CanvasObject::checkIfCanExecuteCallback()
     return this->isActive;
 }
 
-void CanvasObject::setZIndex(int zIndex)
-{
+void CanvasObject::setZIndex(int zIndex) {
     this->zIndex = zIndex;
     GlobalManager::getInstance()->changeObjectZIndex(this);
 }
 
-int CanvasObject::getZIndex()
-{
+int CanvasObject::getZIndex() {
     return zIndex;
 }
 
-CanvasObject::CanvasObject()
-{
+CanvasObject::CanvasObject() {
     objectId = GlobalManager::getInstance()->registerObject(this);
     isActive = true;
     lastActiveState = true;
@@ -59,23 +52,20 @@ CanvasObject::CanvasObject()
     zIndex = 0;
 }
 
-CanvasObject::~CanvasObject()
-{
+CanvasObject::~CanvasObject() {
     GlobalManager::getInstance()->unregisterObject(this);
 }
 
-bool CanvasObject::isMouseInsideObject()
-{
+bool CanvasObject::isMouseInsideObject() {
     GlobalManager::getInstance()->isMouseInsideObject(this);
 }
 
-void CanvasObject::translate(Float3 translationAmount)
-{
+void CanvasObject::translate(Float3 translationAmount) {
     position = position + translationAmount;
 }
-void CanvasObject::rotate(float, Float3)
-{
+
+void CanvasObject::rotate(float, Float3) {
 }
-void CanvasObject::rescale(Float3, Float3)
-{
+
+void CanvasObject::rescale(Float3, Float3) {
 }

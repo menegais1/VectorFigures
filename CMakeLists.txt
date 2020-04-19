@@ -37,29 +37,25 @@ add_executable(VectorFigures
         src/ColorPicker/ColorPickerPanel.h
         src/ColorPicker/ColorSlider.cpp
         src/ColorPicker/ColorSlider.h
-        src/Label/Label.cpp
-        src/Label/Label.h
         src/Managers/GlobalManager.cpp
         src/Managers/GlobalManager.h
         src/Panel/Panel.cpp
         src/Panel/Panel.h
-        src/Slider/Slider.cpp
-        src/Slider/Slider.h
         src/Vectors/Float2.cpp
         src/Vectors/Float2.h
         src/Vectors/Float3.cpp
         src/Vectors/Float3.h
         src/Vectors/Float4.cpp
         src/Vectors/Float4.h
-        src/Bounds.cpp
-        src/Bounds.h
-        src/Figure.cpp
-        src/Figure.h
-        src/FigureListManager.cpp
-        src/FigureListManager.h
+        src/Bounds/Bounds.cpp
+        src/Bounds/Bounds.h
+        src/Figure/Figure.cpp
+        src/Figure/Figure.h
+        src/Figure/FigureListManager.cpp
+        src/Figure/FigureListManager.h
         src/main.cpp
-        src/Scene.cpp
-        src/Scene.h
+        src/Scene/Scene.cpp
+        src/Scene/Scene.h
         src/Utilities.cpp
         src/Utilities.h
         ReadMe.md

@@ -150,32 +150,32 @@ src/Base/CanvasObject.cpp.s:
 	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Base/CanvasObject.cpp.s
 .PHONY : src/Base/CanvasObject.cpp.s
 
-src/Bounds.o: src/Bounds.cpp.o
+src/Bounds/Bounds.o: src/Bounds/Bounds.cpp.o
 
-.PHONY : src/Bounds.o
+.PHONY : src/Bounds/Bounds.o
 
 # target to build an object file
-src/Bounds.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds.cpp.o
-.PHONY : src/Bounds.cpp.o
+src/Bounds/Bounds.cpp.o:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.o
+.PHONY : src/Bounds/Bounds.cpp.o
 
-src/Bounds.i: src/Bounds.cpp.i
+src/Bounds/Bounds.i: src/Bounds/Bounds.cpp.i
 
-.PHONY : src/Bounds.i
+.PHONY : src/Bounds/Bounds.i
 
 # target to preprocess a source file
-src/Bounds.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds.cpp.i
-.PHONY : src/Bounds.cpp.i
+src/Bounds/Bounds.cpp.i:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.i
+.PHONY : src/Bounds/Bounds.cpp.i
 
-src/Bounds.s: src/Bounds.cpp.s
+src/Bounds/Bounds.s: src/Bounds/Bounds.cpp.s
 
-.PHONY : src/Bounds.s
+.PHONY : src/Bounds/Bounds.s
 
 # target to generate assembly for a file
-src/Bounds.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds.cpp.s
-.PHONY : src/Bounds.cpp.s
+src/Bounds/Bounds.cpp.s:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Bounds/Bounds.cpp.s
+.PHONY : src/Bounds/Bounds.cpp.s
 
 src/Button/Button.o: src/Button/Button.cpp.o
 
@@ -312,86 +312,59 @@ src/ColorPicker/ColorSlider.cpp.s:
 	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/ColorPicker/ColorSlider.cpp.s
 .PHONY : src/ColorPicker/ColorSlider.cpp.s
 
-src/Figure.o: src/Figure.cpp.o
+src/Figure/Figure.o: src/Figure/Figure.cpp.o
 
-.PHONY : src/Figure.o
-
-# target to build an object file
-src/Figure.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure.cpp.o
-.PHONY : src/Figure.cpp.o
-
-src/Figure.i: src/Figure.cpp.i
-
-.PHONY : src/Figure.i
-
-# target to preprocess a source file
-src/Figure.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure.cpp.i
-.PHONY : src/Figure.cpp.i
-
-src/Figure.s: src/Figure.cpp.s
-
-.PHONY : src/Figure.s
-
-# target to generate assembly for a file
-src/Figure.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure.cpp.s
-.PHONY : src/Figure.cpp.s
-
-src/FigureListManager.o: src/FigureListManager.cpp.o
-
-.PHONY : src/FigureListManager.o
+.PHONY : src/Figure/Figure.o
 
 # target to build an object file
-src/FigureListManager.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.o
-.PHONY : src/FigureListManager.cpp.o
+src/Figure/Figure.cpp.o:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.o
+.PHONY : src/Figure/Figure.cpp.o
 
-src/FigureListManager.i: src/FigureListManager.cpp.i
+src/Figure/Figure.i: src/Figure/Figure.cpp.i
 
-.PHONY : src/FigureListManager.i
+.PHONY : src/Figure/Figure.i
 
 # target to preprocess a source file
-src/FigureListManager.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.i
-.PHONY : src/FigureListManager.cpp.i
+src/Figure/Figure.cpp.i:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.i
+.PHONY : src/Figure/Figure.cpp.i
 
-src/FigureListManager.s: src/FigureListManager.cpp.s
+src/Figure/Figure.s: src/Figure/Figure.cpp.s
 
-.PHONY : src/FigureListManager.s
+.PHONY : src/Figure/Figure.s
 
 # target to generate assembly for a file
-src/FigureListManager.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/FigureListManager.cpp.s
-.PHONY : src/FigureListManager.cpp.s
+src/Figure/Figure.cpp.s:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/Figure.cpp.s
+.PHONY : src/Figure/Figure.cpp.s
 
-src/Label/Label.o: src/Label/Label.cpp.o
+src/Figure/FigureListManager.o: src/Figure/FigureListManager.cpp.o
 
-.PHONY : src/Label/Label.o
+.PHONY : src/Figure/FigureListManager.o
 
 # target to build an object file
-src/Label/Label.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.o
-.PHONY : src/Label/Label.cpp.o
+src/Figure/FigureListManager.cpp.o:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.o
+.PHONY : src/Figure/FigureListManager.cpp.o
 
-src/Label/Label.i: src/Label/Label.cpp.i
+src/Figure/FigureListManager.i: src/Figure/FigureListManager.cpp.i
 
-.PHONY : src/Label/Label.i
+.PHONY : src/Figure/FigureListManager.i
 
 # target to preprocess a source file
-src/Label/Label.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.i
-.PHONY : src/Label/Label.cpp.i
+src/Figure/FigureListManager.cpp.i:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.i
+.PHONY : src/Figure/FigureListManager.cpp.i
 
-src/Label/Label.s: src/Label/Label.cpp.s
+src/Figure/FigureListManager.s: src/Figure/FigureListManager.cpp.s
 
-.PHONY : src/Label/Label.s
+.PHONY : src/Figure/FigureListManager.s
 
 # target to generate assembly for a file
-src/Label/Label.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Label/Label.cpp.s
-.PHONY : src/Label/Label.cpp.s
+src/Figure/FigureListManager.cpp.s:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Figure/FigureListManager.cpp.s
+.PHONY : src/Figure/FigureListManager.cpp.s
 
 src/Managers/GlobalManager.o: src/Managers/GlobalManager.cpp.o
 
@@ -447,59 +420,32 @@ src/Panel/Panel.cpp.s:
 	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Panel/Panel.cpp.s
 .PHONY : src/Panel/Panel.cpp.s
 
-src/Scene.o: src/Scene.cpp.o
+src/Scene/Scene.o: src/Scene/Scene.cpp.o
 
-.PHONY : src/Scene.o
-
-# target to build an object file
-src/Scene.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene.cpp.o
-.PHONY : src/Scene.cpp.o
-
-src/Scene.i: src/Scene.cpp.i
-
-.PHONY : src/Scene.i
-
-# target to preprocess a source file
-src/Scene.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene.cpp.i
-.PHONY : src/Scene.cpp.i
-
-src/Scene.s: src/Scene.cpp.s
-
-.PHONY : src/Scene.s
-
-# target to generate assembly for a file
-src/Scene.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene.cpp.s
-.PHONY : src/Scene.cpp.s
-
-src/Slider/Slider.o: src/Slider/Slider.cpp.o
-
-.PHONY : src/Slider/Slider.o
+.PHONY : src/Scene/Scene.o
 
 # target to build an object file
-src/Slider/Slider.cpp.o:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.o
-.PHONY : src/Slider/Slider.cpp.o
+src/Scene/Scene.cpp.o:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.o
+.PHONY : src/Scene/Scene.cpp.o
 
-src/Slider/Slider.i: src/Slider/Slider.cpp.i
+src/Scene/Scene.i: src/Scene/Scene.cpp.i
 
-.PHONY : src/Slider/Slider.i
+.PHONY : src/Scene/Scene.i
 
 # target to preprocess a source file
-src/Slider/Slider.cpp.i:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.i
-.PHONY : src/Slider/Slider.cpp.i
+src/Scene/Scene.cpp.i:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.i
+.PHONY : src/Scene/Scene.cpp.i
 
-src/Slider/Slider.s: src/Slider/Slider.cpp.s
+src/Scene/Scene.s: src/Scene/Scene.cpp.s
 
-.PHONY : src/Slider/Slider.s
+.PHONY : src/Scene/Scene.s
 
 # target to generate assembly for a file
-src/Slider/Slider.cpp.s:
-	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Slider/Slider.cpp.s
-.PHONY : src/Slider/Slider.cpp.s
+src/Scene/Scene.cpp.s:
+	$(MAKE) -f CMakeFiles/VectorFigures.dir/build.make CMakeFiles/VectorFigures.dir/src/Scene/Scene.cpp.s
+.PHONY : src/Scene/Scene.cpp.s
 
 src/Utilities.o: src/Utilities.cpp.o
 
@@ -648,9 +594,9 @@ help:
 	@echo "... src/Base/CanvasObject.o"
 	@echo "... src/Base/CanvasObject.i"
 	@echo "... src/Base/CanvasObject.s"
-	@echo "... src/Bounds.o"
-	@echo "... src/Bounds.i"
-	@echo "... src/Bounds.s"
+	@echo "... src/Bounds/Bounds.o"
+	@echo "... src/Bounds/Bounds.i"
+	@echo "... src/Bounds/Bounds.s"
 	@echo "... src/Button/Button.o"
 	@echo "... src/Button/Button.i"
 	@echo "... src/Button/Button.s"
@@ -666,27 +612,21 @@ help:
 	@echo "... src/ColorPicker/ColorSlider.o"
 	@echo "... src/ColorPicker/ColorSlider.i"
 	@echo "... src/ColorPicker/ColorSlider.s"
-	@echo "... src/Figure.o"
-	@echo "... src/Figure.i"
-	@echo "... src/Figure.s"
-	@echo "... src/FigureListManager.o"
-	@echo "... src/FigureListManager.i"
-	@echo "... src/FigureListManager.s"
-	@echo "... src/Label/Label.o"
-	@echo "... src/Label/Label.i"
-	@echo "... src/Label/Label.s"
+	@echo "... src/Figure/Figure.o"
+	@echo "... src/Figure/Figure.i"
+	@echo "... src/Figure/Figure.s"
+	@echo "... src/Figure/FigureListManager.o"
+	@echo "... src/Figure/FigureListManager.i"
+	@echo "... src/Figure/FigureListManager.s"
 	@echo "... src/Managers/GlobalManager.o"
 	@echo "... src/Managers/GlobalManager.i"
 	@echo "... src/Managers/GlobalManager.s"
 	@echo "... src/Panel/Panel.o"
 	@echo "... src/Panel/Panel.i"
 	@echo "... src/Panel/Panel.s"
-	@echo "... src/Scene.o"
-	@echo "... src/Scene.i"
-	@echo "... src/Scene.s"
-	@echo "... src/Slider/Slider.o"
-	@echo "... src/Slider/Slider.i"
-	@echo "... src/Slider/Slider.s"
+	@echo "... src/Scene/Scene.o"
+	@echo "... src/Scene/Scene.i"
+	@echo "... src/Scene/Scene.s"
 	@echo "... src/Utilities.o"
 	@echo "... src/Utilities.i"
 	@echo "... src/Utilities.s"

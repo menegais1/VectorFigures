@@ -3,11 +3,13 @@
 
 #include "../Vectors/Float3.h"
 
-class ITransformable
-{
+class ITransformable {
 public:
     virtual void translate(Float3) = 0;
+
     virtual void rotate(float, Float3) = 0;
+
     virtual void rescale(Float3, Float3) = 0;
 };
+
 #endif

@@ -147,10 +147,10 @@
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Base/ITransformable.h">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.cpp">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds/Bounds.cpp">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds.h">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Bounds/Bounds.h">
 			<Option target="VectorFigures"/>
 		</Unit>
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Button/Button.cpp">
@@ -183,22 +183,16 @@
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/ColorPicker/ColorSlider.h">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.cpp">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/Figure.cpp">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure.h">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/Figure.h">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.cpp">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/FigureListManager.cpp">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/FigureListManager.h">
-			<Option target="VectorFigures"/>
-		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.cpp">
-			<Option target="VectorFigures"/>
-		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Label/Label.h">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Figure/FigureListManager.h">
 			<Option target="VectorFigures"/>
 		</Unit>
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Managers/GlobalManager.cpp">
@@ -213,16 +207,10 @@
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Panel/Panel.h">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.cpp">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene/Scene.cpp">
 			<Option target="VectorFigures"/>
 		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene.h">
-			<Option target="VectorFigures"/>
-		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.cpp">
-			<Option target="VectorFigures"/>
-		</Unit>
-		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Slider/Slider.h">
+		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Scene/Scene.h">
 			<Option target="VectorFigures"/>
 		</Unit>
 		<Unit filename="/home/menegais1/Documents/Projects/ComputerGraphics/Study/VectorFigures/src/Utilities.cpp">

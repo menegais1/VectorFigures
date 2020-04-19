@@ -6,12 +6,12 @@
 #include "Vectors/Float4.h"
 #include "Canvas/gl_canvas2d.h"
 #include "Figure.h"
-#include "Bounds.h"
+#include "Bounds/Bounds.h"
 
 float thickness = 0.95;
 float inversethickness = 1 / thickness;
-void Figure::render()
-{
+
+void Figure::render() {
     if (vertices.size() < 0)
         return;
 
@@ -26,23 +26,20 @@ void Figure::render()
     rescale(Float3(inversethickness, inversethickness, 0), getCenter());
 
 
-    if (drawBounds)
-    {
+    if (drawBounds) {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
         line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
         line(bounds.corners[2].x, bounds.corners[2].y, bounds.corners[3].x, bounds.corners[3].y);
         line(bounds.corners[3].x, bounds.corners[3].y, bounds.corners[0].x, bounds.corners[0].y);
     }
 
-    if (isSelected)
-    {
+    if (isSelected) {
         color(highlightColor.x, highlightColor.y, highlightColor.z, highlightColor.w);
         polygonFill(vertices.data(), vertices.size());
     }
 }
 
-void Figure::drawThickLine(Float2 start, Float2 end, float thickness)
-{
+void Figure::drawThickLine(Float2 start, Float2 end, float thickness) {
     Float2 clockWiseVector = end - start;
     Float2 counterClockwiseVector = end - start;
     clockWiseVector = {-clockWiseVector.y, clockWiseVector.x};
@@ -57,14 +54,12 @@ void Figure::drawThickLine(Float2 start, Float2 end, float thickness)
     polygonFill(points, 4);
 }
 
-Float3 Figure::getCenter()
-{
+Float3 Figure::getCenter() {
     return bounds.center;
 }
-void Figure::translate(Float3 translationAmount)
-{
-    for (int i = 0; i < vertices.size(); i++)
-    {
+
+void Figure::translate(Float3 translationAmount) {
+    for (int i = 0; i < vertices.size(); i++) {
         vertices[i].x += translationAmount.x;
         vertices[i].y += translationAmount.y;
         vertices[i].z += translationAmount.z;
@@ -72,11 +67,9 @@ void Figure::translate(Float3 translationAmount)
     bounds.translate(translationAmount);
 }
 
-void Figure::rotate(float angle, Float3 center)
-{
+void Figure::rotate(float angle, Float3 center) {
     translate({-center.x, -center.y, 0});
-    for (int i = 0; i < vertices.size(); i++)
-    {
+    for (int i = 0; i < vertices.size(); i++) {
         float x = vertices[i].x * cos(angle) - vertices[i].y * sin(angle);
         float y = vertices[i].x * sin(angle) + vertices[i].y * cos(angle);
         vertices[i].x = x;
@@ -86,11 +79,9 @@ void Figure::rotate(float angle, Float3 center)
     bounds.rotate(angle, center);
 }
 
-void Figure::rescale(Float3 scale, Float3 center)
-{
+void Figure::rescale(Float3 scale, Float3 center) {
     translate({-center.x, -center.y, 0});
-    for (int i = 0; i < vertices.size(); i++)
-    {
+    for (int i = 0; i < vertices.size(); i++) {
         float x = vertices[i].x * scale.x;
         float y = vertices[i].y * scale.y;
         vertices[i].x = x;
@@ -100,13 +91,11 @@ void Figure::rescale(Float3 scale, Float3 center)
     bounds.rescale(scale, center);
 }
 
-void Figure::initializeBounds()
-{
+void Figure::initializeBounds() {
     Float3 minBound;
     Float3 maxBound;
     float minX = vertices[0].x, minY = vertices[0].y, maxX = vertices[0].x, maxY = vertices[0].y;
-    for (int i = 0; i < vertices.size(); i++)
-    {
+    for (int i = 0; i < vertices.size(); i++) {
         if (vertices[i].x < minX)
             minX = vertices[i].x;
         if (vertices[i].x > maxX)
@@ -120,8 +109,8 @@ void Figure::initializeBounds()
     maxBound = {maxX, maxY, 0};
     bounds = {minBound, maxBound};
 }
-Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices)
-{
+
+Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, std::vector<Float3> vertices) {
     this->backgroundColor = backgroundColor;
     this->lineColor = lineColor;
     this->highlightColor = highlightColor;
@@ -131,7 +120,6 @@ Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, 
     drawBounds = false;
 }
 
-bool Figure::pointIntersectsObject(Float3 point)
-{
+bool Figure::pointIntersectsObject(Float3 point) {
     return isPointInsidePolygon({point.x, point.y}, vertices, vertices.size() - 1);
 }

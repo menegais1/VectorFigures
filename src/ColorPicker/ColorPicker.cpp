@@ -5,20 +5,15 @@
 #include "../Utilities.h"
 #include <iostream>
 
-void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, int y)
-{
+void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, int y) {
     bool pointInside = isMouseInsideObject();
-    if (leftMouseDown(button, state) && pointInside)
-    {
+    if (leftMouseDown(button, state) && pointInside) {
         mouseDragging = true;
-    }
-    else if (leftMouseUp(button, state))
-    {
+    } else if (leftMouseUp(button, state)) {
         mouseDragging = false;
     }
 
-    if (mouseDragging)
-    {
+    if (mouseDragging) {
         currentMousePosition = {x, y};
         if (x > position.x + width)
             currentMousePosition.x = position.x + width - 1;
@@ -29,8 +24,7 @@ void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, 
         if (y < position.y)
             currentMousePosition.y = position.y;
         Float3 sample = sampleTexture(currentMousePosition);
-        if (sample.x != currentSample.x || sample.y != currentSample.y || sample.z != currentSample.z)
-        {
+        if (sample.x != currentSample.x || sample.y != currentSample.y || sample.z != currentSample.z) {
             currentSample = sample;
             //SLOW CODE, CAN BE OPTIMIZED
             notifyOnValueChangedListeners();
@@ -38,12 +32,9 @@ void ColorPicker::mouse(int button, int state, int wheel, int direction, int x, 
     }
 }
 
-void ColorPicker::render()
-{
-    for (float y = 0; y < height; y++)
-    {
-        for (float x = 0; x < width; x++)
-        {
+void ColorPicker::render() {
+    for (float y = 0; y < height; y++) {
+        for (float x = 0; x < width; x++) {
             int idx = y * width + x;
             Float3 renderColor = texture[idx];
             color(renderColor.x, renderColor.y, renderColor.z);
@@ -55,23 +46,19 @@ void ColorPicker::render()
     circleFill(currentMousePosition.x, currentMousePosition.y, 6, 20);
 }
 
-Float3 ColorPicker::sampleTexture(Float2 position)
-{
+Float3 ColorPicker::sampleTexture(Float2 position) {
     position = position - Float2(this->position.x, this->position.y);
-    int idx = (int)position.y * width + (int)position.x;
+    int idx = (int) position.y * width + (int) position.x;
     return texture[idx];
 }
 
-void ColorPicker::generateTexture()
-{
+void ColorPicker::generateTexture() {
     int size = topVertices.size();
     float blockNumbers = size - 1;
     float blockSize = width / blockNumbers;
 
-    for (float y = 0; y < height; y++)
-    {
-        for (float x = 0; x < width; x++)
-        {
+    for (float y = 0; y < height; y++) {
+        for (float x = 0; x < width; x++) {
             int i = x / blockSize;
             float stepX = (x - (i * blockSize)) / blockSize;
             float stepY = y / height;
@@ -84,20 +71,17 @@ void ColorPicker::generateTexture()
     }
 }
 
-void ColorPicker::addOnValueChangedListener(std::function<void(Float3 color)> listener)
-{
+void ColorPicker::addOnValueChangedListener(std::function<void(Float3 color)> listener) {
     this->onValueChangedListeners.push_back(listener);
 }
-void ColorPicker::notifyOnValueChangedListeners()
-{
-    for (int i = 0; i < onValueChangedListeners.size(); i++)
-    {
+
+void ColorPicker::notifyOnValueChangedListeners() {
+    for (int i = 0; i < onValueChangedListeners.size(); i++) {
         this->onValueChangedListeners[i](currentSample);
     }
 }
 
-ColorPicker::ColorPicker(Float3 position, int width, int height)
-{
+ColorPicker::ColorPicker(Float3 position, int width, int height) {
     topVertices.push_back({1, 0, 0});
     topVertices.push_back({1, 1, 0});
     topVertices.push_back({0, 1, 0});
@@ -121,13 +105,11 @@ ColorPicker::ColorPicker(Float3 position, int width, int height)
     generateTexture();
 }
 
-bool ColorPicker::pointIntersectsObject(Float3 point)
-{
+bool ColorPicker::pointIntersectsObject(Float3 point) {
     return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {width, height});
 }
 
-void ColorPicker::translate(Float3 translationAmount)
-{
+void ColorPicker::translate(Float3 translationAmount) {
     CanvasObject::translate(translationAmount);
     currentMousePosition = currentMousePosition + Float2(translationAmount.x, translationAmount.y);
 }

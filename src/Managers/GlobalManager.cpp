@@ -6,78 +6,67 @@
 #include <algorithm>
 #include <chrono>
 #include "../Vectors/Float2.h"
+
 using namespace std::chrono;
 
-GlobalManager::GlobalManager()
-{
+GlobalManager::GlobalManager() {
     screenWidth = new int();
     screenHeight = new int();
     *screenWidth = 600;
     *screenHeight = 600;
 }
-GlobalManager *GlobalManager::getInstance()
-{
+
+GlobalManager *GlobalManager::getInstance() {
     static GlobalManager *instance = new GlobalManager();
     return instance;
 }
 
-void GlobalManager::keyboard(int key)
-{
+void GlobalManager::keyboard(int key) {
 
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
-    {
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->keyboard(key);
     }
 }
-void GlobalManager::keyboardUp(int key)
-{
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
-    {
+
+void GlobalManager::keyboardUp(int key) {
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->keyboardUp(key);
     }
 }
-void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y)
-{
+
+void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y) {
     mousePosition = {x, y};
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
-    {
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->mouse(button, state, wheel, direction, x, y);
     }
 }
-void GlobalManager::render()
-{
-    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--)
-    {
+
+void GlobalManager::render() {
+    for (int i = GlobalManager::objects.size() - 1; i >= 0; i--) {
         if (!objects[i]->checkIfCanExecuteCallback())
             continue;
         objects[i]->render();
     }
 }
-int GlobalManager::registerObject(CanvasObject *object)
-{
+
+int GlobalManager::registerObject(CanvasObject *object) {
     addObjectToList(object);
     return objectIdCounter++;
 }
 
-void GlobalManager::addObjectToList(CanvasObject *object)
-{
+void GlobalManager::addObjectToList(CanvasObject *object) {
     int size = objects.size();
-    if (size == 0)
-    {
+    if (size == 0) {
         objects.push_back(object);
-    }
-    else
-    {
-        for (int i = 0; i < size; i++)
-        {
-            if (objects[i]->getZIndex() <= object->getZIndex())
-            {
+    } else {
+        for (int i = 0; i < size; i++) {
+            if (objects[i]->getZIndex() <= object->getZIndex()) {
                 objects.insert(objects.begin() + i, object);
                 break;
             }
@@ -87,17 +76,13 @@ void GlobalManager::addObjectToList(CanvasObject *object)
     }
 }
 
-bool GlobalManager::isMouseInsideObject(CanvasObject *object)
-{
-    for (int i = 0; i < objects.size(); i++)
-    {
+bool GlobalManager::isMouseInsideObject(CanvasObject *object) {
+    for (int i = 0; i < objects.size(); i++) {
         if (!objects[i]->getActive())
             continue;
-        if (objects[i]->pointIntersectsObject(Float3(mousePosition, 0)))
-        {
+        if (objects[i]->pointIntersectsObject(Float3(mousePosition, 0))) {
 
-            if (object == objects[i])
-            {
+            if (object == objects[i]) {
                 return true;
             }
             return false;
@@ -106,18 +91,15 @@ bool GlobalManager::isMouseInsideObject(CanvasObject *object)
     return false;
 }
 
-void GlobalManager::changeObjectZIndex(CanvasObject *object)
-{
+void GlobalManager::changeObjectZIndex(CanvasObject *object) {
     auto iterator = std::find(objects.begin(), objects.end(), object);
-    if (iterator != objects.cend())
-    {
+    if (iterator != objects.cend()) {
         objects.erase(iterator);
         addObjectToList(object);
     }
 }
 
-CanvasObject *GlobalManager::unregisterObject(CanvasObject *object)
-{
+CanvasObject *GlobalManager::unregisterObject(CanvasObject *object) {
     auto iterator = std::find(objects.begin(), objects.end(), object);
     objects.erase(iterator);
     return object;

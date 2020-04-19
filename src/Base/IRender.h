@@ -1,9 +1,9 @@
 #ifndef IRender_H
 #define IRender_H
 
-class IRender
-{
+class IRender {
 public:
     virtual void render() = 0;
 };
+
 #endif

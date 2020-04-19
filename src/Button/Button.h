@@ -9,21 +9,28 @@
 #include "../Vectors/Float3.h"
 #include <vector>
 #include <functional>
-class Button : public CanvasObject
-{
+
+class Button : public CanvasObject {
 public:
     Float3 backgroundColor;
     Float3 textColor;
     std::string title;
+
     Button(Float3 position, Float3 scale, Float3 backgroundColor, std::string title, Float3 textColor);
+
     void mouse(int button, int state, int wheel, int direction, int x, int y) override;
+
     void render() override;
+
     void addListener(std::function<void()> listener);
+
     bool pointIntersectsObject(Float3 point);
+
     void translate(Float3 translationAmount) override;
 
 private:
     std::vector<std::function<void()>> onClickListeners;
+
     void notifyOnClickListeners();
 };
 
