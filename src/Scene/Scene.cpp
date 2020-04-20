@@ -74,6 +74,7 @@ void Scene::keyboard(int key) {
 }
 
 void Scene::keyboardUp(int key) {
+    ignoreUpperCaseChar(key);
     std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
@@ -181,15 +182,15 @@ void Scene::renderPolygonInsertion() {
 void Scene::renderCurrentMode() {
 
     std::stringstream stream;
-
+    int screenHeight = *GlobalManager::getInstance()->screenHeight;
     switch (mode) {
         case SceneMode::Default:
             color(1, 1, 1);
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Default");
+            text(20, screenHeight - 10, "Mode: Default");
             if (selectingFillColor)
-                text(20, *GlobalManager::getInstance()->screenHeight - 23, "Selecting Fill Color");
+                text(20, screenHeight - 23, "Selecting Fill Color");
             if (selectingLineColor)
-                text(20, *GlobalManager::getInstance()->screenHeight - 23, "Selecting Line Color");
+                text(20, screenHeight - 23, "Selecting Line Color");
             break;
         case SceneMode::Insert:
             color(1, 1, 1);
@@ -223,34 +224,34 @@ void Scene::renderCurrentMode() {
                     stream << "Nonagon";
                     break;
             }
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, stream.str().c_str());
-            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Left mouse: Insert point");
-            text(20, *GlobalManager::getInstance()->screenHeight - 35, "I key: clear points");
-            text(20, *GlobalManager::getInstance()->screenHeight - 47, "Enter key: finish insertion");
-            text(20, *GlobalManager::getInstance()->screenHeight - 59,
+            text(20, screenHeight - 10, stream.str().c_str());
+            text(20, screenHeight - 23, "Left mouse: Insert point");
+            text(20, screenHeight - 35, "I key: clear points");
+            text(20, screenHeight - 47, "Enter key: finish insertion");
+            text(20, screenHeight - 59,
                  "Keys from 0-9: Change figure type, 0 is free polygon, 1 is circle, 3 is triangle... 9 is nonagon");
             break;
         case SceneMode::Translate:
             color(1, 1, 1);
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Translation");
-            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Translate selected figures");
-            text(20, *GlobalManager::getInstance()->screenHeight - 35, "T Key: finish translation");
-            text(20, *GlobalManager::getInstance()->screenHeight - 47, "X Key: Fixate x axis");
-            text(20, *GlobalManager::getInstance()->screenHeight - 59, "Y Key: Fixate y axis");
+            text(20, screenHeight - 10, "Mode: Translation");
+            text(20, screenHeight - 23, "Move Mouse: Translate selected figures");
+            text(20, screenHeight - 35, "T Key: finish translation");
+            text(20, screenHeight - 47, "X Key: Fixate x axis");
+            text(20, screenHeight - 59, "Y Key: Fixate y axis");
             break;
         case SceneMode::Rotate:
             color(1, 1, 1);
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Rotation");
-            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Rotate selected figures");
-            text(20, *GlobalManager::getInstance()->screenHeight - 35, "R Key: finish rotation");
+            text(20, screenHeight - 10, "Mode: Rotation");
+            text(20, screenHeight - 23, "Move Mouse: Rotate selected figures");
+            text(20, screenHeight - 35, "R Key: finish rotation");
             break;
         case SceneMode::Scale:
             color(1, 1, 1);
-            text(20, *GlobalManager::getInstance()->screenHeight - 10, "Mode: Scaling");
-            text(20, *GlobalManager::getInstance()->screenHeight - 23, "Move Mouse: Scale selected figures");
-            text(20, *GlobalManager::getInstance()->screenHeight - 35, "S Key: finish scaling");
-            text(20, *GlobalManager::getInstance()->screenHeight - 47, "X Key: Fixate x axis");
-            text(20, *GlobalManager::getInstance()->screenHeight - 59, "Y Key: Fixate y axis");
+            text(20, screenHeight - 10, "Mode: Scaling");
+            text(20, screenHeight - 23, "Move Mouse: Scale selected figures");
+            text(20, screenHeight - 35, "S Key: finish scaling");
+            text(20, screenHeight - 47, "X Key: Fixate x axis");
+            text(20, screenHeight - 59, "Y Key: Fixate y axis");
             break;
         default:
             break;
@@ -263,6 +264,13 @@ void Scene::sendToBack() {
 
 void Scene::sendToFront() {
     figureListManager.updateSelectedFiguresZIndex(10);
+}
+
+void Scene::ignoreUpperCaseChar(int& key){
+    if (key >= 'A' && key <= 'Z')
+    {
+        key = std::tolower(key);
+    }
 }
 
 Scene::Scene() {

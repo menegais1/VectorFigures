@@ -122,6 +122,7 @@ private:
 
     void handleDefaultMode(int button, int state);
     //Components
+    void ignoreUpperCaseChar(int &key);
 };
 
 #endif
