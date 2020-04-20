@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "Figure/Figure.h"
+#include "../Figure/Figure.h"
 
 class FigureListManager {
 public:

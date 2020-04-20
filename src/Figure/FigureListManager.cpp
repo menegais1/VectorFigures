@@ -3,8 +3,8 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-#include <Managers/GlobalManager.h>
-#include "Figure/Figure.h"
+#include "../Managers/GlobalManager.h"
+#include "../Figure/Figure.h"
 #include "FigureListManager.h"
 
 void FigureListManager::deleteSelectedFigures() {

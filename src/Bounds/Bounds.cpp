@@ -1,6 +1,6 @@
 
 #include "Bounds.h"
-#include "Vectors/Float3.h"
+#include "../Vectors/Float3.h"
 #include <cmath>
 
 Bounds::Bounds(Float3 minBound, Float3 maxBound) : minBound(minBound), maxBound(maxBound) {

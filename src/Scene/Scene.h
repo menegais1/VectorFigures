@@ -2,11 +2,11 @@
 #define SCENE_H
 
 #include <vector>
-#include "Figure/Figure.h"
-#include "Vectors/Float3.h"
-#include "Vectors/Float4.h"
-#include "Figure/FigureListManager.h"
-#include "ColorPicker/ColorPickerPanel.h"
+#include "../Figure/Figure.h"
+#include "../Vectors/Float3.h"
+#include "../Vectors/Float4.h"
+#include "../Figure/FigureListManager.h"
+#include "../ColorPicker/ColorPickerPanel.h"
 
 enum Operator {
     InsertPolygon = 13,

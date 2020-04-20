@@ -2,11 +2,11 @@
 #define FIGURE_H
 
 #include <vector>
-#include "Base/CanvasObject.h"
-#include "Base/ITransformable.h"
-#include "Vectors/Float2.h"
-#include "Vectors/Float4.h"
-#include "Bounds/Bounds.h"
+#include "../Base/CanvasObject.h"
+#include "../Base/ITransformable.h"
+#include "../Vectors/Float2.h"
+#include "../Vectors/Float4.h"
+#include "../Bounds/Bounds.h"
 
 class Figure : public CanvasObject {
 public:

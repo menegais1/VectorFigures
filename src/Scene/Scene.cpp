@@ -1,15 +1,15 @@
 #include "Scene.h"
-#include "Utilities.h"
-#include "Figure/Figure.h"
-#include "Canvas/gl_canvas2d.h"
-#include "Managers/GlobalManager.h"
+#include "../Utilities.h"
+#include "../Figure/Figure.h"
+#include "../Canvas/gl_canvas2d.h"
+#include "../Managers/GlobalManager.h"
 #include <iostream>
 #include <algorithm>
 #include <cmath>
 #include <sstream>
-#include "Vectors/Float2.h"
-#include "Vectors/Float3.h"
-#include "Vectors/Float4.h"
+#include "../Vectors/Float2.h"
+#include "../Vectors/Float3.h"
+#include "../Vectors/Float4.h"
 
 void Scene::mouse(int button, int state, int wheel, int direction, int x, int y) {
     currentMousePosition = {x, y};

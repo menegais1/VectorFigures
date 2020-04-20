@@ -1,8 +1,8 @@
 #ifndef BOUNDS_H
 #define BOUNDS_H
 
-#include "Base/ITransformable.h"
-#include "Vectors/Float3.h"
+#include "../Base/ITransformable.h"
+#include "../Vectors/Float3.h"
 #include <vector>
 
 class Bounds : public ITransformable {
