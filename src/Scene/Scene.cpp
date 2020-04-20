@@ -145,6 +145,14 @@ void Scene::handleSceneOperator(Operator op) {
         case Operator::SaveFile:
             figureListManager.serializeFigures("figures.gr");
             break;
+        case Operator::BackgroundVisible:
+            backgroundAlpha = !backgroundAlpha;
+            figureListManager.setSelectedFiguresAlpha(backgroundAlpha, lineAlpha);
+            break;
+        case Operator::LineVisible:
+            lineAlpha = !lineAlpha;
+            figureListManager.setSelectedFiguresAlpha(backgroundAlpha, lineAlpha);
+            break;
         default:
             break;
     }
@@ -266,9 +274,8 @@ void Scene::sendToFront() {
     figureListManager.updateSelectedFiguresZIndex(10);
 }
 
-void Scene::ignoreUpperCaseChar(int& key){
-    if (key >= 'A' && key <= 'Z')
-    {
+void Scene::ignoreUpperCaseChar(int &key) {
+    if (key >= 'A' && key <= 'Z') {
         key = std::tolower(key);
     }
 }
@@ -302,6 +309,8 @@ Scene::Scene() {
     this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);
     this->setZIndex(-10000);
     figureListManager.deserializeFigures("figures.gr");
+    backgroundAlpha = true;
+    lineAlpha = true;
 }
 
 void Scene::selectFillColor() {

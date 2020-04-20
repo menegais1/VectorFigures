@@ -16,20 +16,20 @@ void Figure::render() {
     if (vertices.size() < 0)
         return;
 
-    color(lineColor.x, lineColor.y, lineColor.z);
+    color(lineColor.x, lineColor.y, lineColor.z, lineAlpha);
+    polygon(vertices.data(), vertices.size());
+
+    color(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundAlpha);
+   // rescale(Float3(thickness, thickness, 0), getCenter());
+
     polygonFill(vertices.data(), vertices.size());
 
-    color(backgroundColor.x, backgroundColor.y, backgroundColor.z);
-    rescale(Float3(thickness, thickness, 0), getCenter());
+    //rescale(Float3(inversethickness, inversethickness, 0), getCenter());
 
-    polygonFill(vertices.data(), vertices.size());
-
-    rescale(Float3(inversethickness, inversethickness, 0), getCenter());
-
-    color(1,1,1);
-    std::stringstream  stream;
+    color(1, 1, 1);
+    std::stringstream stream;
     stream << getZIndex();
-    text(getCenter().x, getCenter().y,stream.str().c_str());
+    text(getCenter().x, getCenter().y, stream.str().c_str());
 
     if (drawBounds) {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
@@ -108,6 +108,7 @@ Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, 
     initializeBounds();
     isSelected = false;
     drawBounds = false;
+    backgroundAlpha = lineAlpha = 1.0;
 }
 
 bool Figure::pointIntersectsObject(Float3 point) {

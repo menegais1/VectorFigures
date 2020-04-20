@@ -20,7 +20,9 @@ enum Operator {
     SelectFillColor = 'f',
     SelectLineColor = 'l',
     LoadFile = 'o',
-    SaveFile = 'p'
+    SaveFile = 'p',
+    BackgroundVisible = 'm',
+    LineVisible = 'n'
 };
 
 enum FigureType {
@@ -73,6 +75,8 @@ private:
     Button *selectLineColorButton;
     bool selectingFillColor;
     bool selectingLineColor;
+    bool backgroundAlpha;
+    bool lineAlpha;
     FigureType insertionType;
 
     void renderPolygonInsertion();

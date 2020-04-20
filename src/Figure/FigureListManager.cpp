@@ -43,6 +43,15 @@ Float3 FigureListManager::calculateSelectedFiguresCenter() {
     return {mean.x / size, mean.y / size, mean.z / size};
 }
 
+void FigureListManager::setSelectedFiguresAlpha(float backgroundAlpha, float lineAlpha) {
+    int size = selectedFigures.size();
+    for (int i = 0; i < size; i++) {
+        selectedFigures[i]->backgroundAlpha = backgroundAlpha;
+        selectedFigures[i]->lineAlpha = lineAlpha;
+    }
+
+}
+
 void FigureListManager::updateSelectedFiguresZIndex(int zIndexModifier) {
     for (int i = 0; i < selectedFigures.size(); i++) {
         selectedFigures[i]->setZIndex(selectedFigures[i]->getZIndex() + zIndexModifier);
@@ -155,6 +164,8 @@ void FigureListManager::serializeFigures(std::string filename) {
         file.write(reinterpret_cast<char *>(&f->bounds), sizeof(Bounds));
         file.write(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
         file.write(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
+        file.write(reinterpret_cast<char *>(&f->backgroundAlpha), sizeof(float));
+        file.write(reinterpret_cast<char *>(&f->lineAlpha), sizeof(float));
         file.write(reinterpret_cast<char *>(&f->position), sizeof(Float3));
         int zIndex = f->getZIndex();
         file.write(reinterpret_cast<char *>(&zIndex), sizeof(int));
@@ -189,6 +200,8 @@ void FigureListManager::deserializeFigures(std::string filename) {
         f->bounds = b;
         file.read(reinterpret_cast<char *>(&f->drawBounds), sizeof(bool));
         file.read(reinterpret_cast<char *>(&f->isSelected), sizeof(bool));
+        file.read(reinterpret_cast<char *>(&f->backgroundAlpha), sizeof(float));
+        file.read(reinterpret_cast<char *>(&f->lineAlpha), sizeof(float));
         file.read(reinterpret_cast<char *>(&f->position), sizeof(Float3));
         int zIndex = 0;
         file.read(reinterpret_cast<char *>(&zIndex), sizeof(int));

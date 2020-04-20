@@ -32,6 +32,8 @@ public:
 
     void setSelectedFiguresColor(Float3 color, bool fillColor);
 
+    void setSelectedFiguresAlpha(float backgroundAlpha, float lineAlpha);
+
     void serializeFigures(std::string filename);
 
     void deserializeFigures(std::string filename);
@@ -48,6 +50,7 @@ private:
     void addFigure(std::vector<Figure *> &figures, Figure *figure);
 
     bool removeFigure(std::vector<Figure *> &figures, Figure *figure);
+
 };
 
 #endif

@@ -15,6 +15,8 @@ public:
     Float3 backgroundColor;
     Float3 lineColor;
     Bounds bounds;
+    float backgroundAlpha;
+    float lineAlpha;
     std::vector<Float3> vertices;
 
     bool isSelected;
