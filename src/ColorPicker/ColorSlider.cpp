@@ -93,7 +93,6 @@ ColorSlider::ColorSlider(Float3 position, int width, int height) {
 }
 
 bool ColorSlider::pointIntersectsObject(Float3 point) {
-    //  std::cout << point.x << std::endl;
     return isPointInsideBounds({point.x, point.y}, {position.x, position.y}, {width, height});
 }
 

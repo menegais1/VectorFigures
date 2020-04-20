@@ -76,7 +76,6 @@ void Scene::keyboard(int key) {
 
 void Scene::keyboardUp(int key) {
     ignoreUpperCaseChar(key);
-    std::cout << key << std::endl;
     handleSceneMode(static_cast<SceneMode>(key));
     handleSceneOperator(static_cast<Operator>(key));
     if (mode == SceneMode::Insert)

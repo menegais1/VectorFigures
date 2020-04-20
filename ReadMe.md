@@ -3,26 +3,69 @@ Roberto Menegais 201810233
 
 Instruções para o uso do programa:
 
-Para selecionar qual imagem deve ser carregada pelo programa é necessario digitar o nome do arquivo
-na criação do objeto BitmapReaderManager, que é criado na main, essa imagem deve estar na pasta rnmenegais/src/Images do projeto. Após isso basta compilar e
-executar o programa.
+O Programa por padrão carregará um arquivo figuras.gr se estiver presente. Para interagir com o programa, todos os comando são feitos através de atalhos do teclado,
+para manter a interface simples e limpa, os atalhos são:
+
+i - Entra no modo de inserção de figura, onde com as teclas de 0-9 pode se escolher o tipo de figura a ser inserida:
+    Modo de Inserção: 
+        0 - Poligono livre: Pontos são inseridos na posição que o mouse é clicado
+        1 - Circulo: Circulo é inserido na posição do centro do mouse
+        2 - Nenhum: Não existe poligono
+        3 - Triangulo: Triangulo é inserido na posição do centro do mouse
+        4 - Quadrado: Quadrado é inserido na posição do centro do mouse
+        5 - Pentagono: Pentagono é inserido na posição do centro do mouse
+        6 - Hexagono: Hexagono é inserido na posição do centro do mouse
+        7 - Heptagono: Heptagono é inserido na posição do centro do mouse
+        8 - Octagono: Octagono é inserido na posição do centro do mouse
+        9 - Eneagono: Nonagono é inserido na posição do centro do mouse
+        Enter - Insere a figura e sai do modo de inserção
+        i - Limpa os vértices inseridos
+t - Entra no modo de translação, se houver alguma figura selecionada:
+    Modo de Translação:
+        Mover o mouse: Move as figuras selecionadas, de acordo com o centro da seleção
+        x - Fixa o eixo X, figura só é movida nesse eixo
+        y - Fixa o eixo Y, figura só é movida nesse eixo
+        t - Sai do modo de translação
+r - Entra no modo de rotação, se houver alguma figura selecionada:
+    Modo de Rotação:
+        Mover o mouse: Rotaciona as figuras selecionadas, de acordo com o centro da seleção
+        r - Sai do modo de rotação
+s - Entra no modo de reescala, se houver alguma figura selecionada:
+    Modo de Reescala:
+        Mover o mouse: Escala as figuras selecionadas, de acordo com o centro da seleção
+        x - Fixa o eixo X, figura só é escalada nesse eixo
+        y - Fixa o eixo Y, figura só é escalada nesse eixo
+        s - Sai do modo de reescala
+b - Mostra as bounding box das figuras
+z - Mostra o indice da figura, que define em qual ordem a mesma será renderizada
+left arrow - Move a figura para trás, diminuindo o indice por 10
+right arrow - Move a figura para frente, aumentando o indice por 10
+o - Carrega o arquivo figuras.gr, se existir
+p - Salva o estado da cena atual no arquivo figuras.gr
+l - Abre o color picker e controla a cor das linhas das figuras selecionadas
+f - Abre o color picker e controla a cor do preenchimento das figuras selecionadas
+g - Seta as figuras selecionadas com somente preenchimento, sem a borda
+h - Seta as figuras selecionadas com somente borda, sem preenchimento
+j - Seta as figuras selecionadas com borda e preenchimento
+ctrl - Enquanto ficar pressionada, permite que multiplas figuras sejam selecionadas ao clicar em cima das mesmas
+clique do mouse esquerdo - Seleciona figura
+del - Deleta figuras selecionadas
 
 Funcoes:
 
-1. RChannel = Exibe a imagem em tons de vermelho.
-2. BChannel = Exibe a imagem em tons de azul.
-3. GChannel = Exibe a imagem em tons de verde.
-4. Grayscale = Exibe a imagem em tons de cinza com o calculo da luminancia.
-5. Histograma = Exibe os histogramas da frequencia dos canais RGB da imagem assim como o histograma da luminância
-6. Scale = Slider que permite reescalar a imagem, vai de 1/128 até 2.
-7. Rotation = Slider que permite rotacionar a imagem, vai de 0 até 180 graus.
-8. FlipX = Inverte as colunas da imagem, portanto a coluna 0 se tornará a coluna w, a coluna 1 se tornara w - 1....
-9. FlipY = Inverte as linhas da imagem, portanto a linha 0 se tornará a linha h, a linha 1 se tornara h - 1....
-10. Reset = Reseta a imagem para o estado original, quando ela foi carregada.
-11. É possivel movimentar a imagem ao clicar em cima dela e arrastar o mouse.
-12. O programa carrega bitmaps de 1, 4, 8, 24, 32 bits por pixel sem compressão, com paleta de cores.
-
-OBS:
-
-É possivel uma queda de performance ao se usar o slider de escala e rotação, se a imagem for muito grande ou o slider for movido
-muito rápido, é esperado já que os algoritmos foram implementados em sua maneira mais didatica e não estão nada otimizados.
+    Inserir figuras
+    Deletar figuras
+    Selecionar cor da linha da figura
+    Selecionar cor do preenchimento da figura
+    Mover figuras pelo mouse
+    Reescalar figuras pelo mouse
+    Rotacionar figuras pelo mouse
+    Mover figuras para trás
+    Mover figuras para frente
+    Selecionar multiplas figuras
+    Salvar em arquivo
+    Carregar de arquivo
+    Geração de Color picker
+    Uso do Color picker e color slider
+    Janela flutuante com possibilidade de mover com o mouse
+    Inserção de poligonos arbitrários

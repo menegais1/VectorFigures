@@ -17,7 +17,6 @@ void FigureListManager::deleteSelectedFigures() {
     }
 
     selectedFigures.clear();
-    std::cout << figures.size() << std::endl;
 }
 
 void FigureListManager::clearSelectedFigures() {
@@ -200,7 +199,6 @@ void FigureListManager::deserializeFigures(std::string filename) {
     int figuresSize;
     file.read(reinterpret_cast<char *>(&figuresSize), sizeof(int));
     for (int j = 0; j < figuresSize; ++j) {
-        std::cout << file.eof() << std::endl;
         Figure *f = new Figure();
         file.read(reinterpret_cast<char *>(&f->backgroundColor), sizeof(Float3));
         file.read(reinterpret_cast<char *>(&f->lineColor), sizeof(Float3));
