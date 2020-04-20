@@ -146,12 +146,10 @@ void Scene::handleSceneOperator(Operator op) {
             figureListManager.serializeFigures("figures.gr");
             break;
         case Operator::BackgroundVisible:
-            backgroundAlpha = !backgroundAlpha;
-            figureListManager.setSelectedFiguresAlpha(backgroundAlpha, lineAlpha);
+            figureListManager.invertSelectedFiguresAlpha(true, false);
             break;
         case Operator::LineVisible:
-            lineAlpha = !lineAlpha;
-            figureListManager.setSelectedFiguresAlpha(backgroundAlpha, lineAlpha);
+            figureListManager.invertSelectedFiguresAlpha(false, true);
             break;
         default:
             break;
@@ -309,8 +307,6 @@ Scene::Scene() {
     this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);
     this->setZIndex(-10000);
     figureListManager.deserializeFigures("figures.gr");
-    backgroundAlpha = true;
-    lineAlpha = true;
 }
 
 void Scene::selectFillColor() {

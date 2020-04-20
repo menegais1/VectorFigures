@@ -32,7 +32,7 @@ public:
 
     void setSelectedFiguresColor(Float3 color, bool fillColor);
 
-    void setSelectedFiguresAlpha(float backgroundAlpha, float lineAlpha);
+    void invertSelectedFiguresAlpha(bool backgroundAlpha, bool lineAlpha);
 
     void serializeFigures(std::string filename);
 

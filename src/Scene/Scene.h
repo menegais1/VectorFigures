@@ -75,8 +75,6 @@ private:
     Button *selectLineColorButton;
     bool selectingFillColor;
     bool selectingLineColor;
-    bool backgroundAlpha;
-    bool lineAlpha;
     FigureType insertionType;
 
     void renderPolygonInsertion();

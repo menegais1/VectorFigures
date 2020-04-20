@@ -43,11 +43,13 @@ Float3 FigureListManager::calculateSelectedFiguresCenter() {
     return {mean.x / size, mean.y / size, mean.z / size};
 }
 
-void FigureListManager::setSelectedFiguresAlpha(float backgroundAlpha, float lineAlpha) {
+void FigureListManager::invertSelectedFiguresAlpha(bool backgroundAlpha, bool lineAlpha) {
     int size = selectedFigures.size();
     for (int i = 0; i < size; i++) {
-        selectedFigures[i]->backgroundAlpha = backgroundAlpha;
-        selectedFigures[i]->lineAlpha = lineAlpha;
+        if (backgroundAlpha)
+            selectedFigures[i]->backgroundAlpha = !selectedFigures[i]->backgroundAlpha;
+        if (lineAlpha)
+            selectedFigures[i]->lineAlpha = !selectedFigures[i]->lineAlpha;
     }
 
 }
