@@ -33,7 +33,7 @@ void ColorPickerPanel::render() {
 
 ColorPickerPanel::ColorPickerPanel(Float3 position, Float3 scale, Float3 backgroundColor) : Panel(position, scale,
                                                                                                   backgroundColor) {
-    colorPicker = new ColorPicker(position + Float3(5, position.y + scale.y / 4, 0), scale.x * 2 / 3, scale.y * 2 / 3);
+    colorPicker = new ColorPicker(position + Float3(5, scale.y / 4, 0), scale.x * 2 / 3, scale.y * 2 / 3);
     colorPicker->setZIndex(getZIndex() + 10);
     colorSlider = new ColorSlider(colorPicker->position + Float3(colorPicker->width + 20, 0.0, 0.0), 10,
                                   colorPicker->height);

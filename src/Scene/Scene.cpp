@@ -39,6 +39,7 @@ void Scene::singleSelection(int x, int y) {
     }
     Figure *fig = figureListManager.getFirstInteractedFigure({x, y});
     if (fig != nullptr) {
+        if (!fig->isMouseInsideObject()) return;
         figureListManager.clearSelectedFigures();
         figureListManager.selectFigure(fig);
     }
@@ -47,6 +48,7 @@ void Scene::singleSelection(int x, int y) {
 void Scene::multipleSelection(int x, int y) {
     Figure *fig = figureListManager.getFirstInteractedFigure({x, y});
     if (fig != nullptr) {
+        if (!fig->isMouseInsideObject()) return;
         figureListManager.selectFigure(fig);
     } else if (isMouseInsideObject()) {
         figureListManager.clearSelectedFigures();
@@ -211,13 +213,22 @@ void Scene::renderCurrentMode() {
                 case Hexagon:
                     stream << "Hexagon";
                     break;
+                case Heptagon:
+                    stream << "Heptagon";
+                    break;
+                case Octagon:
+                    stream << "Octagon";
+                    break;
+                case Nonagon:
+                    stream << "Nonagon";
+                    break;
             }
             text(20, *GlobalManager::getInstance()->screenHeight - 10, stream.str().c_str());
             text(20, *GlobalManager::getInstance()->screenHeight - 23, "Left mouse: Insert point");
             text(20, *GlobalManager::getInstance()->screenHeight - 35, "I key: clear points");
             text(20, *GlobalManager::getInstance()->screenHeight - 47, "Enter key: finish insertion");
             text(20, *GlobalManager::getInstance()->screenHeight - 59,
-                 "Keys from 0-9: Change figure type, 0 is free polygon, 1 is circle, 3 is triangle... 6 is hexagon");
+                 "Keys from 0-9: Change figure type, 0 is free polygon, 1 is circle, 3 is triangle... 9 is nonagon");
             break;
         case SceneMode::Translate:
             color(1, 1, 1);
@@ -258,7 +269,9 @@ Scene::Scene() {
     mode = SceneMode::Default;
     highlightColor = {245 / 255.0, 195 / 255.0, 120 / 255.0, 0.8};
     drawBounds = false;
-    colorPickerPanel = new ColorPickerPanel({10, 10, 0}, {250, 250, 0}, {0.3, 0.3, 0.3});
+    colorPickerPanel = new ColorPickerPanel(
+            {*GlobalManager::getInstance()->screenWidth / 4.0, *GlobalManager::getInstance()->screenHeight / 4.0, 0},
+            {250, 250, 0}, {0.3, 0.3, 0.3});
     colorPickerPanel->setActive(false);
     colorPickerPanel->setZIndex(10000);
     selectFillColorButton = new Button({10, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Fill Color", {0, 0, 0});
@@ -279,7 +292,7 @@ Scene::Scene() {
         }
     });
     this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);
-    this->setZIndex(-1);
+    this->setZIndex(-10000);
     figureListManager.deserializeFigures("figures.gr");
 }
 
@@ -368,6 +381,14 @@ void Scene::handleInsertMode(int button, int state) {
                 break;
             case Hexagon:
                 tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 6);
+            case Heptagon:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 7);
+                break;
+            case Octagon:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 8);
+                break;
+            case Nonagon:
+                tmpVertices = generateCircle({currentMousePosition.x, currentMousePosition.y, 0}, {30, 30, 30}, 9);
                 break;
         }
     }
@@ -423,6 +444,9 @@ void Scene::handleFigureTypeSelection(FigureType type) {
         case Square:
         case Pentagon:
         case Hexagon:
+        case Heptagon:
+        case Octagon:
+        case Nonagon:
             insertionType = type;
             break;
         default:
