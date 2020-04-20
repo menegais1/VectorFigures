@@ -41,6 +41,8 @@ void Figure::render() {
     }
 }
 
+//Function for calculating the polygon centroid, as it's center of mass
+//Taken from https://bell0bytes.eu/centroid-convex/
 void Figure::computeCentroid() {
     float centroidX = 0, centroidY = 0;
     float det = 0, tempDet = 0;

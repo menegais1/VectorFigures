@@ -1,3 +1,7 @@
+//Class used for easing the center calculations of arbitrary polygons and keeping information
+//on the polygon bounding box, can be used to optimize some calculations by clipping out of range polygons
+//easily, instead of using a crossing number point in polygon method
+
 #ifndef BOUNDS_H
 #define BOUNDS_H
 

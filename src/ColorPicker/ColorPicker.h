@@ -1,3 +1,8 @@
+//Color picker main window, generated with a bilinear interpolation between a set of colors on the bottom
+//and white on the top, making a nice gradient square, has a callback for when a color is picked using a slider or click
+//system
+
+
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 

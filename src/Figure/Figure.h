@@ -1,3 +1,6 @@
+//Figure class, store figure information and offer operations to other classes to
+//manipulate them
+
 #ifndef FIGURE_H
 #define FIGURE_H
 

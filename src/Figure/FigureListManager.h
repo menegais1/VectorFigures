@@ -1,3 +1,8 @@
+//Class responsible for handling the created figures
+//Serializing and deserializing them, dealing with selected figures, translation
+//rotation and scaling, changing color, adding and deleting figures, and
+//dealing with the zIndex ordered figure list
+
 #ifndef FIGURELISTMANAGER_H
 #define FIGURELISTMANAGER_H
 

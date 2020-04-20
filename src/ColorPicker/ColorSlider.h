@@ -1,3 +1,6 @@
+//Color picker secondary window, used to select colors variance between black and the color selected at
+//the color picker main window
+
 #ifndef COLORSLIDER_H
 #define COLORSLIDER_H
 

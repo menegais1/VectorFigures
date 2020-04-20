@@ -13,6 +13,10 @@ int isLeft(Float3 P0, Float3 P1, Float3 P2) {
     return ((P1.x - P0.x) * (P2.y - P0.y) - (P2.x - P0.x) * (P1.y - P0.y));
 }
 
+
+//Crossing number point in polygon algorithm implementation
+//This code is patterned after [Franklin, 2000]
+//Taken from http://geomalgorithms.com/a03-_inclusion.html
 bool isPointInsidePolygon(Float2 P, std::vector<Float3> vertices, int n) {
     int cn = 0; // the  crossing number counter
 

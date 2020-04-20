@@ -1,3 +1,7 @@
+//Class responsible for listening to all mouse and keyboard input,
+//dealing with current program state and redirecting functions using the figureListManager
+//Basically it's the main file of the program
+
 #ifndef SCENE_H
 #define SCENE_H
 

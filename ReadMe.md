@@ -37,7 +37,9 @@ s - Entra no modo de reescala, se houver alguma figura selecionada:
         y - Fixa o eixo Y, figura só é escalada nesse eixo
         s - Sai do modo de reescala
 b - Mostra as bounding box das figuras
-z - Mostra o indice da figura, que define em qual ordem a mesma será renderizada
+z - Mostra o indice da figura, que define em qual ordem a mesma será renderizada,
+    se o ZIndex de duas figuras são iguais, elas podem ou não ser reordenadas na lista, portanto é necessário que os indices sejam diferentes para garantir que as figuras
+    fiquem na ordem esperada
 left arrow - Move a figura para trás, diminuindo o indice por 10
 right arrow - Move a figura para frente, aumentando o indice por 10
 o - Carrega o arquivo figuras.gr, se existir

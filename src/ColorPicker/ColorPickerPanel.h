@@ -1,3 +1,7 @@
+//Floating window offering a callback to any one desiring to use the color picker widget
+//can be moved, activated and deactivated as it is a panel
+
+
 #ifndef COLORPICKERPANEL_H
 #define COLORPICKERPANEL_H
 
