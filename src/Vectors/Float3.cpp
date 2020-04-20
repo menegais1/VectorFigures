@@ -43,3 +43,7 @@ Float3 Float3::operator*(const float scalar) const {
     Float3 res(x * scalar, y * scalar, z * scalar);
     return res;
 }
+
+Float3 Float3::operator/(const float scalar) const {
+    Float3 res(x /scalar, y / scalar, z / scalar);
+    return res;}

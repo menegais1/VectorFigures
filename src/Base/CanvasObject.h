@@ -13,7 +13,7 @@ public:
     Float3 position;
     Float3 scale;
     Float3 rotation;
-
+    bool isValid;
     void keyboard(int key) override;
 
     void keyboardUp(int key) override;
@@ -28,7 +28,7 @@ public:
 
     CanvasObject();
 
-    ~CanvasObject();
+    virtual ~CanvasObject();
 
     virtual void setActive(bool isActive);
 

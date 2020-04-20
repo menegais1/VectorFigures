@@ -45,6 +45,7 @@ int CanvasObject::getZIndex() {
 
 CanvasObject::CanvasObject() {
     zIndex = 0;
+    isValid = true;
     isActive = true;
     lastActiveState = true;
     position = {0, 0, 0};

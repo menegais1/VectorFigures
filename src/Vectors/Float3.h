@@ -28,6 +28,8 @@ public:
     Float3 operator-() const;
 
     Float3 operator*(const float) const;
+
+    Float3 operator/(const float) const;
 };
 
 #endif

@@ -22,40 +22,47 @@ GlobalManager *GlobalManager::getInstance() {
 }
 
 void GlobalManager::keyboard(int key) {
-    std::vector<CanvasObject*> callbackCaller = objects;
+    std::vector<CanvasObject *> callbackCaller = objects;
     for (int i = callbackCaller.size() - 1; i >= 0; i--) {
-        if (!callbackCaller[i]->checkIfCanExecuteCallback())
+        if (!callbackCaller[i]->checkIfCanExecuteCallback() || !callbackCaller[i]->isValid)
             continue;
         callbackCaller[i]->keyboard(key);
     }
+    cleanUpObjects();
+
 }
 
 void GlobalManager::keyboardUp(int key) {
-    std::vector<CanvasObject*> callbackCaller = objects;
+    std::vector<CanvasObject *> callbackCaller = objects;
     for (int i = callbackCaller.size() - 1; i >= 0; i--) {
-        if (!callbackCaller[i]->checkIfCanExecuteCallback())
+        if (!callbackCaller[i]->checkIfCanExecuteCallback() || !callbackCaller[i]->isValid)
             continue;
         callbackCaller[i]->keyboardUp(key);
     }
+    cleanUpObjects();
+
 }
 
 void GlobalManager::mouse(int button, int state, int wheel, int direction, int x, int y) {
-    std::vector<CanvasObject*> callbackCaller = objects;
+    std::vector<CanvasObject *> callbackCaller = objects;
     mousePosition = {x, y};
     for (int i = callbackCaller.size() - 1; i >= 0; i--) {
-        if (!callbackCaller[i]->checkIfCanExecuteCallback())
+        if (!callbackCaller[i]->checkIfCanExecuteCallback() || !callbackCaller[i]->isValid)
             continue;
         callbackCaller[i]->mouse(button, state, wheel, direction, x, y);
     }
+    cleanUpObjects();
+
 }
 
 void GlobalManager::render() {
-    std::vector<CanvasObject*> callbackCaller = objects;
+    std::vector<CanvasObject *> callbackCaller = objects;
     for (int i = callbackCaller.size() - 1; i >= 0; i--) {
-        if (!callbackCaller[i]->checkIfCanExecuteCallback())
+        if (!callbackCaller[i]->checkIfCanExecuteCallback() || !callbackCaller[i]->isValid)
             continue;
         callbackCaller[i]->render();
     }
+    cleanUpObjects();
 }
 
 int GlobalManager::registerObject(CanvasObject *object) {
@@ -106,4 +113,16 @@ CanvasObject *GlobalManager::unregisterObject(CanvasObject *object) {
     auto iterator = std::find(objects.begin(), objects.end(), object);
     objects.erase(iterator);
     return object;
+}
+
+CanvasObject *GlobalManager::deleteObject(CanvasObject *object) {
+    object->isValid = false;
+}
+
+CanvasObject *GlobalManager::cleanUpObjects() {
+    for (int i = 0; i < objects.size(); ++i) {
+        if (!objects[i]->isValid) {
+            delete objects[i];
+        }
+    }
 }

@@ -29,6 +29,8 @@ public:
 
     static GlobalManager *getInstance();
 
+    CanvasObject *deleteObject(CanvasObject *object);
+
     int *screenWidth;
     int *screenHeight;
     Float2 mousePosition;
@@ -36,12 +38,15 @@ public:
 private:
     int objectIdCounter;
     static GlobalManager *instance;
-    //The order of the objects is descending, so what will be rendered first is last 
+    //The order of the objects is descending, so what will be rendered first is last
     std::vector<CanvasObject *> objects;
 
     GlobalManager();
 
     void addObjectToList(CanvasObject *object);
+
+
+    CanvasObject *cleanUpObjects();
 };
 
 #endif

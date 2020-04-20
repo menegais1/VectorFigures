@@ -30,6 +30,7 @@ void Figure::render() {
     std::stringstream  stream;
     stream << getZIndex();
     text(getCenter().x, getCenter().y,stream.str().c_str());
+
     if (drawBounds) {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
         line(bounds.corners[1].x, bounds.corners[1].y, bounds.corners[2].x, bounds.corners[2].y);
@@ -41,21 +42,6 @@ void Figure::render() {
         color(highlightColor.x, highlightColor.y, highlightColor.z, highlightColor.w);
         polygonFill(vertices.data(), vertices.size());
     }
-}
-
-void Figure::drawThickLine(Float2 start, Float2 end, float thickness) {
-    Float2 clockWiseVector = end - start;
-    Float2 counterClockwiseVector = end - start;
-    clockWiseVector = {-clockWiseVector.y, clockWiseVector.x};
-    counterClockwiseVector = -clockWiseVector;
-
-    Float3 points[4];
-    points[0] = Float3(start + clockWiseVector * thickness, 0);
-    points[1] = Float3(end + clockWiseVector * thickness, 0);
-    points[2] = Float3(end + counterClockwiseVector * thickness, 0);
-    points[3] = Float3(start + counterClockwiseVector * thickness, 0);
-
-    polygonFill(points, 4);
 }
 
 Float3 Figure::getCenter() {
@@ -129,5 +115,4 @@ bool Figure::pointIntersectsObject(Float3 point) {
 }
 
 Figure::Figure() {
-    bounds;
 }

@@ -41,7 +41,6 @@ private:
 
     void initializeBounds();
 
-    void drawThickLine(Float2 start, Float2 end, float thickness);
 };
 
 #endif

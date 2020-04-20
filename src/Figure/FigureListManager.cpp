@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <Managers/GlobalManager.h>
 #include "Figure/Figure.h"
 #include "FigureListManager.h"
 
@@ -12,7 +13,7 @@ void FigureListManager::deleteSelectedFigures() {
     for (int i = 0; i < selectedFigures.size(); i++) {
         Figure *fig = selectedFigures[i];
         removeFigure(figures, fig);
-        delete fig;
+        GlobalManager::getInstance()->deleteObject(fig);
     }
 
     selectedFigures.clear();
@@ -172,7 +173,7 @@ void FigureListManager::deserializeFigures(std::string filename) {
     if (!file.is_open() || file.bad()) return;
     selectedFigures.clear();
     for (int k = 0; k < figures.size(); ++k) {
-        delete figures[k];
+        GlobalManager::getInstance()->deleteObject(figures[k]);
     }
     figures.clear();
     int figuresSize;
