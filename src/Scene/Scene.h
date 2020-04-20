@@ -24,7 +24,7 @@ enum Operator {
 };
 
 enum FigureType {
-    Polygon = '0',
+    Poly = '0',
     Circle = '1',
     Triangle = '3',
     Square = '4',

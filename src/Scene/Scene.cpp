@@ -196,7 +196,7 @@ void Scene::renderCurrentMode() {
             color(1, 1, 1);
             stream << "Mode: Insert -> ";
             switch (insertionType) {
-                case Polygon:
+                case Poly:
                     stream << "Polygon";
                     break;
                 case Circle:
@@ -332,7 +332,7 @@ void Scene::selectLineColor() {
 void Scene::setInsertMode() {
     mode = SceneMode::Insert;
     tmpVertices.clear();
-    insertionType = FigureType::Polygon;
+    insertionType = FigureType::Poly;
 }
 
 void Scene::setTranslateMode() {
@@ -372,7 +372,7 @@ void Scene::setDefaultMode() {
 void Scene::handleInsertMode(int button, int state) {
     if (leftMouseDown(button, state)) {
         switch (insertionType) {
-            case Polygon:
+            case Poly:
                 tmpVertices.push_back({currentMousePosition.x, currentMousePosition.y, 0});
                 break;
             case Circle:
@@ -446,7 +446,7 @@ bool Scene::pointIntersectsObject(Float3 point) {
 
 void Scene::handleFigureTypeSelection(FigureType type) {
     switch (type) {
-        case Polygon:
+        case Poly:
         case Circle:
         case Triangle:
         case Square:
@@ -458,6 +458,6 @@ void Scene::handleFigureTypeSelection(FigureType type) {
             insertionType = type;
             break;
         default:
-            insertionType = FigureType::Polygon;
+            insertionType = FigureType::Poly;
     }
 }
