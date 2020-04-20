@@ -88,7 +88,8 @@ ColorSlider::ColorSlider(Float3 position, int width, int height) {
     this->height = height;
     this->texture = new Float3[height];
     this->mouseDragging = false;
-    this->currentMousePosition = {position.x, position.y};
+    this->currentMousePosition = {position.x, position.y + height - 1};
+    this->currentSample = sampleTexture(currentMousePosition);
 }
 
 bool ColorSlider::pointIntersectsObject(Float3 point) {

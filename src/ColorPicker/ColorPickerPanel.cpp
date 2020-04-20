@@ -53,7 +53,8 @@ ColorPickerPanel::ColorPickerPanel(Float3 position, Float3 scale, Float3 backgro
         this->notifyOnActivateListeners();
     });
     mouseDragging = false;
-
+    colorPicker->notifyOnValueChangedListeners();
+    colorSlider->notifyOnValueChangedListeners();
     children.push_back(colorSlider);
     children.push_back(closeButton);
     children.push_back(colorPicker);

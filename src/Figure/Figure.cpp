@@ -20,16 +20,19 @@ void Figure::render() {
     polygon(vertices.data(), vertices.size());
 
     color(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundAlpha);
-   // rescale(Float3(thickness, thickness, 0), getCenter());
+    // rescale(Float3(thickness, thickness, 0), getCenter());
 
     polygonFill(vertices.data(), vertices.size());
 
     //rescale(Float3(inversethickness, inversethickness, 0), getCenter());
 
     color(1, 1, 1);
-    std::stringstream stream;
-    stream << getZIndex();
-    text(getCenter().x, getCenter().y, stream.str().c_str());
+
+    if (drawZIndex) {
+        std::stringstream stream;
+        stream << getZIndex();
+        text(centroid.x, centroid.y, stream.str().c_str());
+    }
 
     if (drawBounds) {
         line(bounds.corners[0].x, bounds.corners[0].y, bounds.corners[1].x, bounds.corners[1].y);
@@ -44,6 +47,34 @@ void Figure::render() {
     }
 }
 
+void Figure::computeCentroid() {
+    float centroidX = 0, centroidY = 0;
+    float det = 0, tempDet = 0;
+    int j = 0;
+    int nVertices = vertices.size();
+
+    for (unsigned int i = 0; i < nVertices; i++) {
+        // closed polygon
+        if (i + 1 == nVertices)
+            j = 0;
+        else
+            j = i + 1;
+
+        // compute the determinant
+        tempDet = vertices[i].x * vertices[j].y - vertices[j].x * vertices[i].y;
+        det += tempDet;
+
+        centroidX += (vertices[i].x + vertices[j].x) * tempDet;
+        centroidY += (vertices[i].y + vertices[j].y) * tempDet;
+    }
+
+    // divide by the total mass of the polygon
+    centroidX /= 3 * det;
+    centroidY /= 3 * det;
+
+    centroid = {centroidX, centroidY, 0};
+}
+
 Float3 Figure::getCenter() {
     return bounds.center;
 }
@@ -55,6 +86,7 @@ void Figure::translate(Float3 translationAmount) {
         vertices[i].z += translationAmount.z;
     }
     bounds.translate(translationAmount);
+    computeCentroid();
 }
 
 void Figure::rotate(float angle, Float3 center) {
@@ -67,6 +99,7 @@ void Figure::rotate(float angle, Float3 center) {
     }
     translate({center.x, center.y, 0});
     bounds.rotate(angle, center);
+    computeCentroid();
 }
 
 void Figure::rescale(Float3 scale, Float3 center) {
@@ -79,6 +112,7 @@ void Figure::rescale(Float3 scale, Float3 center) {
     }
     translate({center.x, center.y, 0});
     bounds.rescale(scale, center);
+    computeCentroid();
 }
 
 void Figure::initializeBounds() {
@@ -108,7 +142,9 @@ Figure::Figure(Float3 backgroundColor, Float3 lineColor, Float4 highlightColor, 
     initializeBounds();
     isSelected = false;
     drawBounds = false;
+    drawZIndex = false;
     backgroundAlpha = lineAlpha = 1.0;
+    computeCentroid();
 }
 
 bool Figure::pointIntersectsObject(Float3 point) {
@@ -116,4 +152,7 @@ bool Figure::pointIntersectsObject(Float3 point) {
 }
 
 Figure::Figure() {
+    drawZIndex = false;
+    drawBounds = false;
+    isSelected = false;
 }

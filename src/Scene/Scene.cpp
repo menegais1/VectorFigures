@@ -151,9 +151,17 @@ void Scene::handleSceneOperator(Operator op) {
         case Operator::LineVisible:
             figureListManager.invertSelectedFiguresAlpha(false, true);
             break;
+        case Operator::RenderZIndex:
+            drawZIndex = !drawZIndex;
+            drawPolygonZIndex();
+            break;
         default:
             break;
     }
+}
+
+void Scene::drawPolygonZIndex() {
+    figureListManager.setRenderZIndex(drawZIndex);
 }
 
 void Scene::drawPolygonBounds() {
@@ -287,14 +295,6 @@ Scene::Scene() {
             {250, 250, 0}, {0.3, 0.3, 0.3});
     colorPickerPanel->setActive(false);
     colorPickerPanel->setZIndex(10000);
-    selectFillColorButton = new Button({10, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Fill Color", {0, 0, 0});
-    selectFillColorButton->addListener([this] {
-        selectFillColor();
-    });
-    selectLineColorButton = new Button({132, 10, 0}, {120, 30, 0}, {1, 1, 1}, "Line Color", {0, 0, 0});
-    selectLineColorButton->addListener([this] {
-        selectLineColor();
-    });
     colorPickerPanel->addOnValueChangedListener([this](Float3 color) {
         this->figureListManager.setSelectedFiguresColor(color, this->selectingFillColor);
     });
@@ -302,6 +302,8 @@ Scene::Scene() {
         if (!isActive) {
             this->selectingLineColor = false;
             this->selectingFillColor = false;
+        } else {
+            colorPickerPanel->notifyOnValueChangedListeners();
         }
     });
     this->scale = Float3(*GlobalManager::getInstance()->screenWidth, *GlobalManager::getInstance()->screenHeight, 0);

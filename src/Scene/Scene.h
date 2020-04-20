@@ -22,7 +22,8 @@ enum Operator {
     LoadFile = 'o',
     SaveFile = 'p',
     BackgroundVisible = 'm',
-    LineVisible = 'n'
+    LineVisible = 'n',
+    RenderZIndex = 'z'
 };
 
 enum FigureType {
@@ -65,14 +66,13 @@ private:
     int mode;
     bool multipleSelect;
     bool drawBounds;
+    bool drawZIndex;
     Float4 highlightColor;
     Float2 lastMousePosition;
     Float3 selectionCenter;
     Float2 currentMousePosition;
     Float2 fixatedAxis;
     ColorPickerPanel *colorPickerPanel;
-    Button *selectFillColorButton;
-    Button *selectLineColorButton;
     bool selectingFillColor;
     bool selectingLineColor;
     FigureType insertionType;
@@ -123,8 +123,12 @@ private:
     void handleRotateMode();
 
     void handleDefaultMode(int button, int state);
+
     //Components
     void ignoreUpperCaseChar(int &key);
+
+    void drawPolygonZIndex();
+
 };
 
 #endif

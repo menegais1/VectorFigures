@@ -41,6 +41,9 @@ public:
     Figure *getFirstInteractedFigure(Float2 mousePosition);
 
     bool isFiguresSelected();
+
+    void setRenderZIndex(bool b);
+
 private:
     std::vector<Figure *> figures;
     std::vector<Figure *> selectedFigures;

@@ -15,11 +15,13 @@ public:
     Float3 backgroundColor;
     Float3 lineColor;
     Bounds bounds;
+    Float3 centroid;
     float backgroundAlpha;
     float lineAlpha;
     std::vector<Float3> vertices;
 
     bool isSelected;
+    bool drawZIndex;
     bool drawBounds;
     Float4 highlightColor;
 
@@ -39,7 +41,7 @@ public:
 
     bool pointIntersectsObject(Float3 point) override;
 
-private:
+    void computeCentroid();
 
     void initializeBounds();
 

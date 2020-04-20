@@ -215,6 +215,7 @@ void FigureListManager::deserializeFigures(std::string filename) {
             file.read(reinterpret_cast<char *>(&tmp), sizeof(Float3));
             f->vertices.push_back(tmp);
         }
+        f->computeCentroid();
         addFigure(figures, f);
     }
 
@@ -223,4 +224,10 @@ void FigureListManager::deserializeFigures(std::string filename) {
 
 bool FigureListManager::isFiguresSelected() {
     return !selectedFigures.empty();
+}
+
+void FigureListManager::setRenderZIndex(bool drawZIndex) {
+    for (int i = 0; i < figures.size(); i++) {
+        figures[i]->drawZIndex = drawZIndex;
+    }
 }

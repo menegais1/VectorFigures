@@ -101,8 +101,9 @@ ColorPicker::ColorPicker(Float3 position, int width, int height) {
     this->height = height;
     this->texture = new Float3[width * height];
     mouseDragging = false;
-    this->currentMousePosition = {position.x, position.y};
+    this->currentMousePosition = {position.x + width / 2, position.y + height / 2};
     generateTexture();
+    this->currentSample = sampleTexture(currentMousePosition);
 }
 
 bool ColorPicker::pointIntersectsObject(Float3 point) {
