@@ -8,6 +8,12 @@
 #include "../Vectors/Float4.h"
 #include "../Bounds/Bounds.h"
 
+enum FigureRender{
+    FillOnly = 0 ,
+    LineOnly = 1,
+    FillLine = 2
+};
+
 class Figure : public CanvasObject {
 public:
     Figure();

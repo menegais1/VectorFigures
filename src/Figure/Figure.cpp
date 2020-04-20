@@ -9,9 +9,6 @@
 #include "Figure.h"
 #include "../Bounds/Bounds.h"
 
-float thickness = 0.95;
-float inversethickness = 1 / thickness;
-
 void Figure::render() {
     if (vertices.size() < 0)
         return;
@@ -20,11 +17,8 @@ void Figure::render() {
     polygon(vertices.data(), vertices.size());
 
     color(backgroundColor.x, backgroundColor.y, backgroundColor.z, backgroundAlpha);
-    // rescale(Float3(thickness, thickness, 0), getCenter());
 
     polygonFill(vertices.data(), vertices.size());
-
-    //rescale(Float3(inversethickness, inversethickness, 0), getCenter());
 
     color(1, 1, 1);
 

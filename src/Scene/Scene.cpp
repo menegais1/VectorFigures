@@ -64,6 +64,7 @@ void Scene::insertNewFigure() {
     Figure *fig = new Figure(backgroundColor, lineColor, highlightColor, tmpVertices);
     fig->setZIndex(0);
     fig->drawBounds = drawBounds;
+    fig->drawZIndex = drawZIndex;
     figureListManager.addFigure(fig);
 }
 
@@ -146,10 +147,13 @@ void Scene::handleSceneOperator(Operator op) {
             figureListManager.serializeFigures("figures.gr");
             break;
         case Operator::BackgroundVisible:
-            figureListManager.invertSelectedFiguresAlpha(true, false);
+            figureListManager.setSelectedFiguresRender(FigureRender::FillOnly);
             break;
         case Operator::LineVisible:
-            figureListManager.invertSelectedFiguresAlpha(false, true);
+            figureListManager.setSelectedFiguresRender(FigureRender::LineOnly);
+            break;
+        case Operator::BothVisible:
+            figureListManager.setSelectedFiguresRender(FigureRender::FillLine);
             break;
         case Operator::RenderZIndex:
             drawZIndex = !drawZIndex;

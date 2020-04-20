@@ -21,8 +21,9 @@ enum Operator {
     SelectLineColor = 'l',
     LoadFile = 'o',
     SaveFile = 'p',
-    BackgroundVisible = 'm',
-    LineVisible = 'n',
+    BackgroundVisible = 'g',
+    LineVisible = 'h',
+    BothVisible = 'j',
     RenderZIndex = 'z'
 };
 
