@@ -8,16 +8,16 @@ para manter a interface simples e limpa, os atalhos são:
 
 - i - Entra no modo de inserção de figura, onde com as teclas de 0-9 pode se escolher o tipo de figura a ser inserida:
     - Modo de Inserção: 
-      - 0. Poligono livre: Pontos são inseridos na posição que o mouse é clicado
-      - 1. Circulo: Circulo é inserido na posição do centro do mouse
-      - 2. Nenhum: Não existe poligono
-      - 3. Triangulo: Triangulo é inserido na posição do centro do mouse
-      - 4. Quadrado: Quadrado é inserido na posição do centro do mouse
-      - 5. Pentagono: Pentagono é inserido na posição do centro do mouse
-      - 6. Hexagono: Hexagono é inserido na posição do centro do mouse
-      - 7. Heptagono: Heptagono é inserido na posição do centro do mouse
-      - 8. Octagono: Octagono é inserido na posição do centro do mouse
-      - 9. Eneagono: Nonagono é inserido na posição do centro do mouse
+      - 0 - Poligono livre: Pontos são inseridos na posição que o mouse é clicado
+      - 1 - Circulo: Circulo é inserido na posição do centro do mouse
+      - 2 - Nenhum: Não existe poligono
+      - 3 - Triangulo: Triangulo é inserido na posição do centro do mouse
+      - 4 - Quadrado: Quadrado é inserido na posição do centro do mouse
+      - 5 - Pentagono: Pentagono é inserido na posição do centro do mouse
+      - 6 - Hexagono: Hexagono é inserido na posição do centro do mouse
+      - 7 - Heptagono: Heptagono é inserido na posição do centro do mouse
+      - 8 - Octagono: Octagono é inserido na posição do centro do mouse
+      - 9 - Eneagono: Nonagono é inserido na posição do centro do mouse
       - Enter - Insere a figura e sai do modo de inserção
       - i - Limpa os vértices inseridos
 - t - Entra no modo de translação, se houver alguma figura selecionada:
